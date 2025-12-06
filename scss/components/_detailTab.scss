@@ -1,5 +1,5 @@
-@use "../../utils/mixins" as *;
-@use "../../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "../utils/variables" as *;
 
 .detailTab {
   @include position-sticky;
@@ -8,23 +8,19 @@
   z-index: 10;
   border-bottom: 1px solid $line-silver;
 
-  & .container {
-    padding: 0;
-  }
-
   &__item {
     flex: 1;
+    list-style: none;
   }
 
   &__anchor {
     display: block;
     padding: 1rem;
     text-align: center;
-    color: $font-gray;
+    color: $font-cool-grey2;
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease-in-out;
 
-    // 활성화 상태일 때의 스타일
     &.active {
       color: $font-dark;
       font-weight: 700;
