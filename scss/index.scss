@@ -1,0 +1,21 @@
+// 1. Utilities and Abstracts
+@use "utils/variables" as *;
+@use "utils/functions" as *;
+@use "utils/mixins" as *;
+@use "utils/breakpoint" as *;
+
+// 2. Base styles
+@use "base/reset" as *;
+@use "base/fonts" as *;
+@use "base/typography" as *;
+
+// 3. Components
+// @use "components/button" as *;
+// @use "components/card" as *;
+
+// 4. Layout
+// @use "layout/header" as *;
+// @use "layout/footer" as *;
+
+// 5. Pages
+// @use "pages/home" as *;
