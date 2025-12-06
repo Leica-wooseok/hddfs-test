@@ -14,7 +14,8 @@
 // @use "components/card" as *;
 
 // 4. Layout
-// @use "layout/header" as *;
+@use "layout/container" as *;
+@use "layout/header" as *;
 // @use "layout/footer" as *;
 
 // 5. Pages

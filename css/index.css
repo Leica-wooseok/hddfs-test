@@ -1,3 +1,16 @@
+/**
+ * Border Mixin
+ * - $directions: all | top | bottom | left | right, or a list like (top, bottom).
+ * - $width: The border width.
+ * - $style: The border style.
+ * - $color: The border color.
+ */
+/**
+ * Multi-line Text Ellipsis Mixin
+ * Applies ellipsis to text that overflows beyond a specified number of lines.
+ *
+ * @param {Number} $lines - The number of lines after which to truncate the text.
+ */
 * {
   margin: 0;
   padding: 0;
@@ -50,4 +63,81 @@ a {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-} /*# sourceMappingURL=index.css.map */
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("../font/NotoSansKR-VariableFont_wght.ttf") format("truetype");
+}
+body {
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#wrap {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.header {
+  background: #fff;
+  border-bottom: 1px solid #dde0e5;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.header__inner {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  color: #1b1e23;
+}
+.header--button__box {
+  display: flex;
+  gap: 16px;
+}
+.header--button {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  text-indent: -9999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.header--button img {
+  max-height: 100%;
+  line-height: 24px;
+  object-fit: contain;
+}
+.header--title {
+  max-width: 65%;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.05em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  white-space: normal;
+}/*# sourceMappingURL=index.css.map */

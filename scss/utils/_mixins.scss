@@ -1,16 +1,64 @@
-@use './functions' as *;
-@use './_breakpoint' as *;
+@use "./functions" as *;
+@use "./breakpoint" as *;
+@use "./variables" as *;
 
 @mixin flex-center($direction: row) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: $direction;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
 }
 
 @mixin position-center($position: absolute) {
-    position: $position;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin position-sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/**
+ * Border Mixin
+ * - $directions: all | top | bottom | left | right, or a list like (top, bottom).
+ * - $width: The border width.
+ * - $style: The border style.
+ * - $color: The border color.
+ */
+@mixin border(
+  $directions: all,
+  $width: 1px,
+  $style: solid,
+  $color: $line-silver
+) {
+  $border-value: $width $style $color;
+
+  @if $directions == all {
+    border: $border-value;
+  } @else {
+    @each $direction in $directions {
+      border-#{$direction}: $border-value;
+    }
+  }
+}
+
+/**
+ * Multi-line Text Ellipsis Mixin
+ * Applies ellipsis to text that overflows beyond a specified number of lines.
+ *
+ * @param {Number} $lines - The number of lines after which to truncate the text.
+ */
+$text-overflow: ellipsis;
+$white-space: normal;
+@mixin text-ellipsis-multiline($lines: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  text-overflow: $text-overflow;
+  white-space: $white-space;
 }

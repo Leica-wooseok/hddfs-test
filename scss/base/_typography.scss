@@ -1,9 +1,18 @@
-@use '../utils/variables' as *;
+@use "../utils/variables" as *;
 
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
-  color: $dark-color;
-  background-color: $light-color;
+}
+
+@mixin kr-h3 {
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.05em;
+}
+
+@mixin kr-h3-700 {
+  font-weight: 700;
+  @include kr-h3;
 }
