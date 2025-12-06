@@ -4,6 +4,7 @@
 
 .header {
   background: $color-white;
+  z-index: $header-z-index;
   @include border(bottom);
   @include position-sticky;
 

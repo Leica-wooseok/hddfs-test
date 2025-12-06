@@ -6,6 +6,28 @@ body {
   line-height: $line-height-base;
 }
 
+@mixin kr-h1 {
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.05em;
+}
+
+@mixin kr-h1-700 {
+  font-weight: 700;
+  @include kr-h1;
+}
+
+// 임시h2
+@mixin kr-h2 {
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: -0.05em;
+}
+@mixin kr-h2-700 {
+  font-weight: 700;
+  @include kr-h2;
+}
+
 @mixin kr-h3 {
   font-size: 18px;
   line-height: 27px;
@@ -33,6 +55,16 @@ body {
   @include kr-h4;
 }
 
+@mixin kr-p1 {
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.05em;
+}
+@mixin kr-p1-400 {
+  font-weight: 400;
+  @include kr-p1;
+}
+
 @mixin kr-p2 {
   font-size: 14px;
   line-height: 20px;
@@ -44,11 +76,31 @@ body {
 }
 
 @mixin kr-p3 {
-  font-weight: 400;
   line-height: 19px;
+  font-size: 13px;
+
   letter-spacing: -0.05em;
 }
 @mixin kr-p3-400 {
-  font-size: 13px;
+  font-weight: 400;
   @include kr-p3;
+}
+@mixin kr-p3-500 {
+  font-weight: 500;
+  @include kr-p3;
+}
+
+@mixin kr-cp1 {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.05em;
+}
+
+@mixin kr-cp1-500 {
+  font-weight: 500;
+  @include kr-cp1;
+}
+@mixin kr-cp1-700 {
+  font-weight: 700;
+  @include kr-cp1;
 }

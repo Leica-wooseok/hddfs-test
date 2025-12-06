@@ -1,4 +1,6 @@
 @use "../utils/mixins" as *;
+@use "../utils/variables" as *;
+
 :root {
   --sat: env(safe-area-inset-top);
   --sar: env(safe-area-inset-right);
@@ -11,4 +13,22 @@
 }
 .flex-center {
   @include flex-center;
+}
+
+// panel & divider
+.panel {
+  &__01 {
+    padding-top: 48px;
+    padding-bottom: 32px;
+  }
+  &__02 {
+    padding-top: 20px;
+  }
+  &__03 {
+    padding-top: 12px;
+  }
+}
+.divider {
+  height: 8px;
+  background-color: $bg-pale-grey;
 }

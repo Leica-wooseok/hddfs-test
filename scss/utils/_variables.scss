@@ -15,6 +15,9 @@ $font-slate-grey: #5c6677;
 $font-cool-grey2: #abb2be;
 
 $line-silver: #dde0e5;
+$bg-pale-grey: #eef0f2;
+$bg-slate-grey: #5c6677;
+
 // Fonts
 $font-family-base: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI",
   "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
@@ -31,3 +34,6 @@ $border-style: solid;
 
 // Layout
 $header-height: 60px;
+
+// Z index
+$header-z-index: 110;
