@@ -1,5 +1,6 @@
-@use "../../utils/variables" as *;
-@use "../../utils/mixins" as *;
+@use "../base/typography" as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
 
 .caution_area {
   margin: 32px 20px 0 20px;

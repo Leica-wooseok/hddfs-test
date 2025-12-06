@@ -1,6 +1,6 @@
-@use "../../utils/variables" as *;
-@use "../../utils/mixins" as *;
-@use "../../base/typography" as *;
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "../base/typography" as *;
 
 .more-button {
   // TODO: desktop 에서 hidden

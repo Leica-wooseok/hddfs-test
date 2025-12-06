@@ -21,9 +21,9 @@
     padding: 2px 8px;
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    color: $color-white;
+    color: var(--color-white);
     background: #b1a59a;
-    z-index: 1;
+    z-index: 2;
     @include kr-cp1-500;
   }
 }
@@ -31,21 +31,64 @@
 .gift__card-list {
   padding: 8px 0;
 }
+
 .gift__card-item {
-  min-height: 100px;
   display: flex;
   align-items: center;
-  gap: 0 17px;
-  flex-wrap: wrap;
+  gap: 17px;
+  min-height: 100px;
+  position: relative;
+  width: 100%;
 
-  &::after {
-    content: "";
-    display: block;
-    width: 100%;
-    margin: 8px 0;
-    @include border(bottom, 1px, solid, $line-pale-grey);
+  .gift__image {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
-  &:last-child::after {
-    display: none;
+
+  .soldout {
+    // Note: The 'display' property is controlled by the component's JavaScript.
+    position: absolute;
+    inset: 0;
+    width: auto;
+    max-width: max-content;
+    margin: auto;
+    padding: 0 12px;
+    height: 27px;
+    border-radius: 4px;
+    background: rgba(var(--bg-slate-grey-rgb), 0.8);
+    color: var(--color-white);
+    white-space: nowrap;
+    @include flex-center;
+    @include kr-cp1-700;
+  }
+
+  .gift__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+
+    &-terms {
+      // Note: The 'color' property is controlled by the component's JavaScript.
+      // A default color can be set here if needed.
+      color: var(--font-accent-color);
+      @include kr-p3-500;
+      @include text-ellipsis-multiline(2);
+    }
+
+    &-desc {
+      color: var(--font-medium-dark);
+      @include kr-p2-400;
+      @include text-ellipsis-multiline(2);
+    }
   }
 }
