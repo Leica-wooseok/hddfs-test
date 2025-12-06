@@ -1,0 +1,49 @@
+@use "../utils/variables" as *;
+@use "../utils/mixins" as *;
+@use "../base/typography" as *;
+
+.event {
+  text-align: center;
+
+  &__title-box {
+    margin-bottom: 54px;
+  }
+  &__title {
+    color: $font-dark;
+    @include kr-h1-700;
+    @include text-ellipsis-multiline(2);
+  }
+  &__title-desc {
+    margin-top: 8px;
+    color: $font-slate-grey;
+    @include kr-p1-400;
+    @include text-ellipsis-multiline(2);
+  }
+
+  &__tag {
+    width: auto;
+    margin: 0 auto;
+    max-width: fit-content;
+    height: 24px;
+    padding: 3px 12px;
+    text-align: center;
+    color: $color-white;
+    background-color: $color-black;
+    border-radius: 20px;
+    @include kr-cp1-500;
+  }
+  &__group-title-box {
+    margin-top: 8px;
+  }
+  &__group-title {
+    color: $font-dark;
+    @include kr-h2-700;
+    @include text-ellipsis-multiline(2);
+  }
+  &__group-desc {
+    margin-top: 4px;
+    color: $font-slate-grey;
+    @include kr-p1-400;
+    @include text-ellipsis-multiline(2);
+  }
+}
