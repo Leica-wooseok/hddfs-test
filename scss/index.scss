@@ -5,6 +5,7 @@
 @use "utils/breakpoint" as *;
 
 // 2. Base styles
+@use "base/css-variables" as *; // CSS Custom Properties definition
 @use "base/reset" as *;
 @use "base/main" as *;
 @use "base/fonts" as *;

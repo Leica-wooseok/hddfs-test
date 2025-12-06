@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/index.css" />
     <title>현대 면세점</title>
     <script src="/js/color-contrast.js" defer></script>
+    <script src="/js/components/GiftCardItem.js" type="module"></script>
   </head>
   <body>
     <div id="wrap">
@@ -74,6 +75,7 @@
         <!-- panel 01 -->
         <section id="#panel_01" class="panel panel__01">
           <div class="container">
+            <!-- 사은품 이벤트  -->
             <div class="event">
               <div class="event__title-box">
                 <h3 class="event__title">현대면세점 EXCLUSIVE 혜택</h3>
@@ -81,7 +83,7 @@
                   현대면세점에서만 드리는 기적같은 혜택
                 </p>
               </div>
-              <!-- 사은품 그룹 -->
+              <!-- 사은품 그룹 1 -->
               <div class="event__group">
                 <div class="event__tag" style="background-color: #a58768">
                   Event 1
@@ -98,28 +100,73 @@
                   <div class="badge">Gift</div>
                   <ul class="gift__card-list">
                     <li class="gift__card-item">
-                      <div class="gift__image">
-                        <img
-                          src="/images/pages/type1_a/gwp/gwp-img_01.png"
-                          alt="더클린랩 에이씨 듀 칼라민 토너 + 에센스 + 크림 + 진정 패드 증정"
-                        />
-                        <div class="soldout">재고소진</div>
-                      </div>
-                      <div class="gift__info">
-                        <strong class="gift__info-terms" style="color: #a58768"
-                          >$60이상 구매시</strong
-                        >
-                        <p class="gift__info-desc">
-                          더클린랩 에이씨 듀 칼라민 토너 + 에센스 + 크림 + 진정
-                          패드 증정
-                        </p>
-                      </div>
+                      <gift-card-item
+                        image-src="/images/pages/type1_a/gwp/gwp-img_01.png"
+                        image-alt="더클린랩 에이씨 듀 칼라민 토너 + 에센스 + 크림 + 진정 패드 증정"
+                        terms="$60이상 구매시"
+                        terms-color="#A58768"
+                        description="더클린랩 에이씨 듀 칼라민 토너 + 에센스 + 크림 + 진정 패드 증정"
+                        sold-out="true"
+                      ></gift-card-item>
                     </li>
                   </ul>
                 </div>
               </div>
-              <!-- /사은품 그룹 end -->
+              <!-- /사은품 그룹 1 end -->
+              <!-- 사은품 그룹 2 -->
+              <div class="event__group">
+                <div class="event__tag" style="background-color: #a58768">
+                  Event 2
+                </div>
+                <div class="event__group-title-box">
+                  <h4 class="event__group-title">금액대별 구매 사은품</h4>
+                </div>
+                <div class="event__card-root mt-24">
+                  <div class="badge">Gift</div>
+                  <ul class="gift__card-list">
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="/images/pages/type1_a/gwp/gwp-img_02.png"
+                        image-alt="슈퍼바이탈 세럼 크림 듀오 샘플 증정"
+                        terms="$1이상 구매시"
+                        terms-color="#A58768"
+                        description="슈퍼바이탈 세럼 크림 듀오 샘플 증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="/images/pages/type1_a/gwp/gwp-img_03.png"
+                        image-alt="슈퍼바이탈 에멀젼 18ml + 소프너 18ml 증정"
+                        terms="$50이상 구매시"
+                        terms-color="#A58768"
+                        description="슈퍼바이탈 에멀젼 18ml + 소프너 18ml 증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="/images/pages/type1_a/gwp/gwp-img_04.png"
+                        image-alt="슈퍼바이탈 5종 증정"
+                        terms="$80이상 구매시"
+                        terms-color="#A58768"
+                        description="슈퍼바이탈 5종 증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- /사은품 그룹 2 end -->
             </div>
+            <!-- /사은품 이벤트 end -->
+
+            <!-- 브랜드 관 -->
+            <div class="brand"></div>
+            <!-- 브랜드 관 end -->
+            <!-- Bottom area -->
+
+            <!-- /Bottom area -->
           </div>
         </section>
         <!-- /panel 01 end -->

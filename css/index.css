@@ -11,6 +11,28 @@
  *
  * @param {Number} $lines - The number of lines after which to truncate the text.
  */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --color-white: #fff;
+  --color-black: #000;
+  --font-dark: #1b1e23;
+  --font-medium-dark: #3d444f;
+  --font-slate-grey: #5c6677;
+  --font-cool-grey2: #abb2be;
+  --font-accent-color: A58768;
+  --line-silver: #dde0e5;
+  --pale-grey: #eef0f2;
+  --bg-pale-grey: #eef0f2;
+  --bg-slate-grey: #5c6677;
+  --bg-slate-grey-rgb: 92,
+    102, 119;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -187,8 +209,15 @@ body {
   line-height: 18px;
   letter-spacing: -0.05em;
 }
+.event__group {
+  margin-bottom: 96px;
+}
+.event__group:last-child {
+  margin-bottom: 0;
+}
 .event__group-title-box {
   margin-top: 8px;
+  text-align: center;
 }
 .event__group-title {
   color: #1b1e23;
@@ -254,69 +283,17 @@ body {
   display: flex;
   align-items: center;
   gap: 0 17px;
+  flex-wrap: wrap;
 }
-.gift__card-item .soldout {
-  width: auto;
-  max-width: max-content;
-  padding: 0 12px;
-  height: 27px;
-  border-radius: 4px;
-  background: rgba(92, 102, 119, 0.8);
-  color: #fff;
-  white-space: nowrap;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 18px;
-  letter-spacing: -0.05em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-.gift__card-item .gift__image {
-  width: 100px;
-  height: 100px;
-  position: relative;
-}
-.gift__card-item .gift__image img {
+.gift__card-item::after {
+  content: "";
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  margin: 8px 0;
+  border-bottom: 1px solid #eef0f2;
 }
-.gift__card-item .gift__info {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  flex: 1;
-}
-.gift__card-item .gift__info-terms {
-  font-weight: 500;
-  line-height: 19px;
-  font-size: 13px;
-  letter-spacing: -0.05em;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-.gift__card-item .gift__info-desc {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  letter-spacing: -0.05em;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  text-overflow: ellipsis;
-  white-space: normal;
+.gift__card-item:last-child::after {
+  display: none;
 }
 
 #wrap {

@@ -1,0 +1,29 @@
+@use "sass:color";
+@use "../utils/variables" as *;
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --success-color: #{$success-color};
+  --danger-color: #{$danger-color};
+  --warning-color: #{$warning-color};
+  --info-color: #{$info-color};
+
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+
+  --font-dark: #{$font-dark};
+  --font-medium-dark: #{$font-medium-dark};
+  --font-slate-grey: #{$font-slate-grey};
+  --font-cool-grey2: #{$font-cool-grey2};
+  --font-accent-color: #{A58768};
+
+  --line-silver: #{$line-silver};
+  --pale-grey: #{$line-pale-grey};
+
+  --bg-pale-grey: #{$bg-pale-grey};
+  --bg-slate-grey: #{$bg-slate-grey};
+
+  --bg-slate-grey-rgb: #{color.red($bg-slate-grey)},
+    #{color.green($bg-slate-grey)}, #{color.blue($bg-slate-grey)};
+}

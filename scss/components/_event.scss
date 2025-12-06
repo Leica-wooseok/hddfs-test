@@ -32,8 +32,16 @@
     border-radius: 20px;
     @include kr-cp1-500;
   }
+  &__group {
+    margin-bottom: 96px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &__group-title-box {
     margin-top: 8px;
+    text-align: center;
   }
   &__group-title {
     color: $font-dark;
