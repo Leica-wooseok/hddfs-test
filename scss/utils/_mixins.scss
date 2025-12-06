@@ -21,6 +21,16 @@
   left: 0;
   right: 0;
 }
+@mixin position-cover-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  -o-object-position: 50% 50%;
+  object-position: 50% 50%;
+}
 
 /**
  * Border Mixin

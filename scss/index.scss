@@ -6,10 +6,12 @@
 
 // 2. Base styles
 @use "base/reset" as *;
+@use "base/main" as *;
 @use "base/fonts" as *;
 @use "base/typography" as *;
 
 // 3. Components
+@use "components/detailTab" as *;
 // @use "components/button" as *;
 // @use "components/card" as *;
 
@@ -19,4 +21,4 @@
 // @use "layout/footer" as *;
 
 // 5. Pages
-// @use "pages/home" as *;
+@use "pages/home" as *;

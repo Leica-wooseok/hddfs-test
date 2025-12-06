@@ -16,3 +16,39 @@ body {
   font-weight: 700;
   @include kr-h3;
 }
+
+@mixin kr-h4 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.05em;
+}
+
+@mixin kr-h4-500 {
+  font-weight: 500;
+  @include kr-h4;
+}
+
+@mixin kr-h4-700 {
+  font-weight: 700;
+  @include kr-h4;
+}
+
+@mixin kr-p2 {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.05em;
+}
+@mixin kr-p2-400 {
+  font-weight: 400;
+  @include kr-p2;
+}
+
+@mixin kr-p3 {
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: -0.05em;
+}
+@mixin kr-p3-400 {
+  font-size: 13px;
+  @include kr-p3;
+}

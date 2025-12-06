@@ -1,13 +1,26 @@
 ### 현대 디에프 경력직 퍼블리셔 채용 과제 : 지원자 최우석
 
+## Event Templace A 구현
+
 ## 구현 코드에 대한 설명 및 주요 고려 사항 문서화
 
 - HTML구조 설계의 핵심 고려 사항
-- CSS 네이밍 규칙
-- Javascript로 구성한 인터랙션 개요
+
 - 반응형 대응 방법 (media query 전략) 등
 
 - SPA (React) 환경이었다면 비즈니스 로직과 분리된 컴포넌트화 가능
+
+## Variables
+
+- Figma에 등록된 디자인 토큰명 준수
+
+## CSS 네이밍 규칙
+
+- CSS 방법론 BEM 기반
+
+## Javascript로 구성한 인터랙션 개요
+
+- 가이드에 따라 hero section에 color-yiq 적용 하였지만 실제 시안의 색상과는 달라 override
 
 ## SCSS 파일 구조 (7-1 패턴 기반)
 

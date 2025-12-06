@@ -5,23 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/index.css" />
     <title>현대 면세점</title>
+    <script src="/js/color-contrast.js" defer></script>
   </head>
   <body>
     <div id="wrap">
       <!-- header -->
       <header class="header">
         <div class="header__inner">
-          <a href="" class="header--button">
+          <a href="" class="header__button">
             <img src="/images/icons/ic-m-back.svg" alt="뒤로가기" />
             뒤로가기
           </a>
-          <h2 class="header--title">사은행사</h2>
-          <div class="header--button__box">
-            <a href="" class="header--button">
+          <h2 class="header__title">사은행사</h2>
+          <div class="header__button-box">
+            <a href="" class="header__button">
               <img src="/images/icons/ic-m-search.svg" alt="검색" />
               검색
             </a>
-            <button class="header--button">
+            <button class="header__button">
               <img src="/images/icons/ic-m-cart.svg" alt="장바구니" />
               장바구니
             </button>
@@ -32,8 +33,43 @@
       <!-- main -->
       <main>
         <!-- hero section -->
-        <section></section>
-        <!-- hero section -->
+        <section class="hero" style="background-color: #f3e1cc">
+          <div class="container hero__inner">
+            <p class="hero__date">2025.01.01 - 재고소진시까지</p>
+            <div class="hero__title-box">
+              <h2 class="hero__title">아이오페 단독 프로모션</h2>
+              <p class="hero__desc">현대면세점 단독 혜택도 만나보세요!</p>
+            </div>
+            <div class="hero__image-box">
+              <img src="/images/pages/type1_a/hero_image.jpg" alt="" />
+            </div>
+          </div>
+        </section>
+        <!-- /hero section end -->
+
+        <!-- tab -->
+        <!-- TODO:panel 클릭 시 이동 -->
+        <!-- TODO:옵져버로 panel 보일 시 active 변경 -->
+        <div class="detailTab">
+          <ul class="flex container">
+            <li class="detailTab__item">
+              <a class="detailTab__anchor active" href="#panel_01">
+                <span> 사은행사 </span>
+              </a>
+            </li>
+            <li class="detailTab__item">
+              <a class="detailTab__anchor" href="#panel_02">
+                <span>추천상품</span>
+              </a>
+            </li>
+            <li class="detailTab__item">
+              <a class="detailTab__anchor" href="#panel_03">
+                <span> 전체상품 </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /tab end -->
       </main>
       <!-- main end -->
     </div>

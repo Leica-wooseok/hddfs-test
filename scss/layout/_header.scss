@@ -9,7 +9,7 @@
 
   &__inner {
     width: 100%;
-    height: 60px;
+    height: $header-height;
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -18,11 +18,11 @@
     color: $font-dark;
   }
 
-  &--button__box {
+  &__button-box {
     display: flex;
     gap: 16px;
   }
-  &--button {
+  &__button {
     width: 24px;
     height: 24px;
     overflow: hidden;
@@ -36,7 +36,7 @@
     }
   }
 
-  &--title {
+  &__title {
     max-width: 65%;
     @include kr-h3-700;
     @include position-center;
