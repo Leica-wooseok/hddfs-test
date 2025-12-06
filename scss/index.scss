@@ -5,7 +5,7 @@
 @use "utils/breakpoint" as *;
 
 // 2. Base styles
-@use "base/css-variables" as *; // CSS Custom Properties definition
+@use "base/css-variables" as *;
 @use "base/reset" as *;
 @use "base/main" as *;
 @use "base/fonts" as *;
@@ -15,6 +15,8 @@
 @use "components/detailTab" as *;
 @use "components/event" as *;
 @use "components/gift-card" as *;
+@use "components/caution-area" as *;
+@use "components/more-button" as *;
 // @use "components/button" as *;
 // @use "components/card" as *;
 

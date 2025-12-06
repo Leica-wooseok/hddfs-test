@@ -70,3 +70,33 @@
   }
 }
 // hero section end
+
+// event-attention-area
+.event-attention-area {
+  margin-top: 64px;
+}
+
+.brand {
+  margin-bottom: 32px;
+  text-align: center;
+  @include flex-center(column);
+
+  &__title {
+    color: $font-dark;
+    @include kr-h3-700;
+  }
+  &__image-box {
+    margin-top: 16px;
+    width: 101px;
+    height: 101px;
+    object-fit: contain;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  &__name {
+    margin-top: 4px;
+    color: $font-medium-dark;
+    @include kr-p2-500;
+  }
+}
+// event-attention-area end

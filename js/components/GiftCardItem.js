@@ -76,7 +76,8 @@ template.innerHTML = `
     }
 
     .info__desc {
-    color:var(--font-medium-dark);
+      margin:0;
+      color:var(--font-medium-dark);
       /* kr-p2-400 styles */
       font-size: 14px;
       font-weight: 400;

@@ -7,6 +7,8 @@
     <title>현대 면세점</title>
     <script src="/js/color-contrast.js" defer></script>
     <script src="/js/components/GiftCardItem.js" type="module"></script>
+    <script src="/js/components/CautionArea.js" type="module"></script>
+    <script src="/js/components/MoreButton.js" type="module"></script>
   </head>
   <body>
     <div id="wrap">
@@ -23,7 +25,7 @@
               <img src="/images/icons/ic-m-search.svg" alt="검색" />
               검색
             </a>
-            <button class="header__button">
+            <button type="button" class="header__button">
               <img src="/images/icons/ic-m-cart.svg" alt="장바구니" />
               장바구니
             </button>
@@ -160,14 +162,31 @@
               <!-- /사은품 그룹 2 end -->
             </div>
             <!-- /사은품 이벤트 end -->
-
-            <!-- 브랜드 관 -->
-            <div class="brand"></div>
-            <!-- 브랜드 관 end -->
-            <!-- Bottom area -->
-
-            <!-- /Bottom area -->
           </div>
+          <!-- Bottom area -->
+          <div class="event-attention-area">
+            <!-- 브랜드관 -->
+            <div class="brand">
+              <h3 class="brand__title">브랜드관</h3>
+              <div class="brand__image-box">
+                <img src="./images/pages/type1_a/brand-iope.png" alt="iope" />
+              </div>
+              <p class="brand__name">아이오페</p>
+            </div>
+            <!-- 브랜드관 end -->
+
+            <!-- 유의 사항  -->
+            <caution-area
+              icon-src="./images/icons/ic-m-exclamation.svg"
+              icon-alt="유의사항 아이콘"
+              title="유의사항"
+              items='["한 ID 당 1일 1회 증정됩니다.","사은품은 중복 증정이 되지 않습니다.","사은품은 디자인 및 구성이 임의로 증정되며, 선택할 수 없습니다.","사은품의 재고 소진 이후에도 해당 페이지와 관련 배너는 보여질 수 있습니다."]'
+              danger-item-index="3"
+            ></caution-area>
+            <!-- /유의 사항 end -->
+            <more-button text="더 많은 사은행사가 궁금하다면"></more-button>
+          </div>
+          <!-- /Bottom area -->
         </section>
         <!-- /panel 01 end -->
 

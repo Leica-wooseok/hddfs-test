@@ -1,0 +1,16 @@
+@use "../../utils/variables" as *;
+@use "../../utils/mixins" as *;
+@use "../../base/typography" as *;
+
+.more-button {
+  // TODO: desktop 에서 hidden
+  margin: 32px 20px 0 20px;
+  width: calc(100% - 40px);
+  height: 48px;
+  color: $color-white;
+  background: linear-gradient(90deg, #ea2869 0%, #5a3ff2 100%);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  @include kr-h4-700;
+}
