@@ -2,7 +2,6 @@
 @use "../utils/functions" as *;
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
-@use "../components/productCard" as *;
 
 // hero section
 .hero {
@@ -266,4 +265,10 @@
   }
 }
 
+.all-product__grid {
+  padding: 0 20px;
+  display: grid;
+  gap: 32px 9px;
+  grid-template-columns: repeat(2, 1fr);
+}
 // 전체 상품 end
