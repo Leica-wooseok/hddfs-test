@@ -269,6 +269,7 @@
         <!-- panel 03 -->
         <section id="#panel_03" class="panel panel__03">
           <div class="all-product all-product-area">
+            <!-- 상단 필터 탭 -->
             <div class="container">
               <div class="filter-tab">
                 <!-- TODO: 클릭 시 활성화 -->
@@ -280,6 +281,9 @@
                 </button>
               </div>
             </div>
+            <!-- 상단 필터 탭 end -->
+
+            <!-- 추천 상품 슬라이드 -->
             <div class="all-product__recommend">
               <div class="container">
                 <h5 class="all-product__recommend-title">
@@ -342,6 +346,50 @@
                 </div>
               </div>
             </div>
+            <!-- 추천 상품 슬라이드 end -->
+
+            <!-- 전체 상품 필터 -->
+            <div class="search-sort-wrap">
+              <span class="total-count"
+                >총
+                <em>1,234건</em>
+              </span>
+              <div class="search-toggle-box">
+                <img
+                  class="search-toggle-box__icon"
+                  src="/images/icons/ic-m-info-line.svg"
+                  alt="정보 아이콘"
+                />
+                <span class="search-toggle-box__text">품절</span>
+                <label class="toggle-switch">
+                  <input
+                    class="toggle-switch-input"
+                    id="sortSoldOut"
+                    type="checkbox"
+                  />
+                  <span class="toggle-switch-round"></span>
+                </label>
+              </div>
+              <div class="divider"></div>
+              <div class="search-filter-box">
+                <button type="button" class="drop-down-button">
+                  <!-- TODO: 정렬 순서 드랍다운 -->
+                  베스트순
+                  <img
+                    src="./images/icons/ic-m-arrow-down.svg"
+                    alt="아래 화살표 아이콘"
+                  />
+                </button>
+                <button type="button" class="filter-button">
+                  필터 열기
+                  <img
+                    src="./images/icons/ic-m-filter(2lines).svg"
+                    alt="필터 아이콘"
+                  />
+                </button>
+              </div>
+            </div>
+            <!-- 전체 상품 필터 end -->
           </div>
         </section>
         <!-- /panel 03 end -->

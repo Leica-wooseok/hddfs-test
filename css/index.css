@@ -858,4 +858,116 @@ body {
 }
 .all-product__recommend-list {
   margin-top: 20px;
+}
+.all-product__recommend .swiper-slide {
+  min-width: 120px;
+  max-width: 33.333%;
+}
+
+.search-sort-wrap {
+  margin-bottom: 12px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+}
+.search-sort-wrap .total-count {
+  margin-right: auto;
+  color: #1b1e23;
+  display: flex;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.05em;
+}
+.search-sort-wrap .divider {
+  margin: 0 16px;
+  width: 1px;
+  height: 16px;
+  background-color: #dde0e5;
+}
+.search-sort-wrap .search-toggle-box {
+  display: flex;
+  align-items: center;
+}
+.search-sort-wrap .search-toggle-box__icon {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+.search-sort-wrap .search-toggle-box__text {
+  margin-right: 8px;
+  color: #3d444f;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.05em;
+}
+.search-sort-wrap .toggle-switch {
+  position: relative;
+  width: 34px;
+  height: 20px;
+}
+.search-sort-wrap .toggle-switch-input {
+  display: none;
+  visibility: hidden;
+}
+.search-sort-wrap .toggle-switch-input:checked ~ .toggle-switch-round {
+  background: #5c6677;
+}
+.search-sort-wrap .toggle-switch-input:checked ~ .toggle-switch-round::before {
+  left: 18px;
+}
+.search-sort-wrap .toggle-switch-round {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #dde0e5;
+  transition: all 0.25s ease-in-out;
+}
+.search-sort-wrap .toggle-switch-round::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: inherit;
+}
+.search-sort-wrap .search-filter-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.search-sort-wrap .drop-down-button {
+  color: #5c6677;
+  gap: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-weight: 500;
+  line-height: 19px;
+  font-size: 13px;
+  letter-spacing: -0.05em;
+}
+.search-sort-wrap .drop-down-button img {
+  width: 16px;
+  height: 16px;
+}
+.search-sort-wrap .filter-button {
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  overflow: hidden;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid #dde0e5;
 }/*# sourceMappingURL=index.css.map */
