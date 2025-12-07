@@ -22,6 +22,7 @@ class ProductCard extends HTMLElement {
       "current-price",
       "won-price",
       "badges",
+      "image-blend-mode",
     ];
   }
 
@@ -44,6 +45,8 @@ class ProductCard extends HTMLElement {
     const wonPrice = this.getAttribute("won-price") || "";
     const badgesJson = this.getAttribute("badges");
     const badges = badgesJson ? JSON.parse(badgesJson) : [];
+    const imageBlendMode = this.getAttribute("image-blend-mode") || "on";
+    const blendModeStyle = imageBlendMode === "on" ? "mix-blend-mode: multiply;" : "";
 
     this.className = "productCard";
     this.innerHTML = `
@@ -53,6 +56,7 @@ class ProductCard extends HTMLElement {
             class="productCard__image"
             src="${imageSrc}"
             alt="${imageAlt}"
+            style="${blendModeStyle}"
           />
           ${
             hasVideo
