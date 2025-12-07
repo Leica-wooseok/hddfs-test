@@ -3,7 +3,9 @@
 @use "../utils/mixins" as *;
 
 .caution_area {
-  margin: 32px 20px 0 20px;
+  display: block;
+  margin: 32px 20px 0px 20px;
+  width: calc(100% - 40px);
   padding-top: 20px;
   @include border(top, 1px, dashed);
 

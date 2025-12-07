@@ -99,7 +99,7 @@
                   </p>
                 </div>
                 <div class="event__card-root mt-24">
-                  <div class="badge">Gift</div>
+                  <div class="gift-card__badge">Gift</div>
                   <ul class="gift__card-list">
                     <li class="gift__card-item">
                       <gift-card-item
@@ -124,7 +124,7 @@
                   <h4 class="event__group-title">금액대별 구매 사은품</h4>
                 </div>
                 <div class="event__card-root mt-24">
-                  <div class="badge">Gift</div>
+                  <div class="gift-card__badge">Gift</div>
                   <ul class="gift__card-list">
                     <li class="gift__card-item">
                       <gift-card-item
@@ -202,7 +202,101 @@
 
         <!-- panel 03 -->
         <section id="#panel_03" class="panel panel__03">
-          <div class="container"></div>
+          <div class="container">
+            <!-- 추천 상품  -->
+            <div class="recommend">
+              <h3 class="recommend__title">추천상품</h3>
+              <div class="recommend__product-list">
+                <!-- TODO: swiper slide -->
+
+                <!-- TODO: 상품 카드 컴포넌트 -->
+                <div class="productCard">
+                  <div class="productCard__image-box">
+                    <a href="TODO:상품 링크" class="productCard__image_anchor">
+                      <img
+                        class="productCard__image"
+                        src="./images/products/product-img-01.png"
+                        alt="바비 브라운 상품 이미지 alt"
+                      />
+                      <!-- TODO:비디오 있을 경우 -->
+                      <span class="flag-video">
+                        <img
+                          src="./images/products/flag-video.svg"
+                          alt="썸네일 비디오"
+                        />
+                        썸네일 비디오
+                      </span>
+                      <!-- TODO: 19세 미만 구매 불가 상품일 경우 등장 -->
+                      <span class="flag-19">
+                        <img
+                          src="./images/products/flag-19.svg"
+                          alt="19세 미만 구매 불가 상품"
+                        />
+                        19세 미만 구매 불가 상품
+                      </span>
+                    </a>
+                    <!-- TODO: 품절일 경우 재입고 알림, 재고 있을 경우 장바구니 버튼 -->
+                    <a href="TODO: 재입고 알림" class="alert-refill"
+                      >재입고 알림
+                    </a>
+                    <a
+                      href="TODO: 장바구니 담기 토스트 등장 1초 뒤 hidden"
+                      class="add-cart"
+                    >
+                      <span>
+                        <img
+                          src="./images/icons/ic-m-shoppinbag.svg"
+                          alt="장바구니 담기"
+                        />
+                      </span>
+                      장바구니 담기
+                    </a>
+                  </div>
+                  <div class="productCard__info-box">
+                    <a href="TODO: 상품 링크">
+                      <h5 class="productCard__info-brand">
+                        브랜드 : 바비브라운
+                      </h5>
+                      <p class="productCard__info-keyword">
+                        TODO:없을수도있음 MD 키워드 최대 2줄 노출 가능
+                      </p>
+                      <p class="productCard__info-name">
+                        TODO: 상품명: 인텐시브 세럼 파운데이션 SPF 40 #Po
+                      </p>
+                      <div class="productCard__info-discount">
+                        <!-- 로그인 했을때 할인율 -->
+                        <span class="percent">할인율: 40%</span>
+                        <span class="default-price">원가: 55$</span>
+                        <!-- /로그인 했을때 할인율 -->
+
+                        <!-- 로그인 안했을때 알림 -->
+                        <p class="alert-non-member">
+                          <a href="TODO:로그인으로 이동" class="pink">로그인</a
+                          >후 할인율 확인
+                        </p>
+                        <!-- /로그인 안했을때 알림 -->
+                      </div>
+                      <p class="productCard__info-price">
+                        <strong class="current-price">$61</strong>
+                        <!-- won은 있을수도 있고 없을수도 있음 -->
+                        <span class="won">
+                          72,320
+                          <em> 원 </em>
+                        </span>
+                      </p>
+                      <!-- TODO: 뱃지는 있을수도 있고 없을수도 있음 -->
+                      <div class="productCard__info-badge-group flex">
+                        <div class="productCard__info-badge">세일</div>
+                        <div class="productCard__info-badge">베스트</div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <!-- TODO: 상품 카드 컴포넌트 end -->
+              </div>
+            </div>
+            <!-- 추천 상품 end -->
+          </div>
         </section>
         <!-- /panel 03 end -->
       </main>

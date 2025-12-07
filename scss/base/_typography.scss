@@ -60,6 +60,10 @@ body {
   line-height: 22px;
   letter-spacing: -0.05em;
 }
+@mixin kr-p1-700 {
+  font-weight: 700;
+  @include kr-p1;
+}
 @mixin kr-p1-400 {
   font-weight: 400;
   @include kr-p1;
@@ -82,7 +86,6 @@ body {
 @mixin kr-p3 {
   line-height: 19px;
   font-size: 13px;
-
   letter-spacing: -0.05em;
 }
 @mixin kr-p3-400 {
@@ -91,6 +94,10 @@ body {
 }
 @mixin kr-p3-500 {
   font-weight: 500;
+  @include kr-p3;
+}
+@mixin kr-p3-700 {
+  font-weight: 700;
   @include kr-p3;
 }
 
