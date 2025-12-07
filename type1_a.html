@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/color-contrast.js" defer></script>
+    <script src="/js/components/DetailTab.js" type="module"></script>
     <script src="/js/components/GiftCardItem.js" type="module"></script>
     <script src="/js/components/CautionArea.js" type="module"></script>
     <script src="/js/components/MoreButton.js" type="module"></script>
@@ -58,31 +59,13 @@
         <!-- /hero section end -->
 
         <!-- tab -->
-        <!-- TODO:panel 클릭 시 이동 -->
-        <!-- TODO:옵져버로 panel 보일 시 active 변경 -->
-        <div class="detailTab">
-          <ul class="flex container">
-            <li class="detailTab__item">
-              <a class="detailTab__anchor active" href="#panel_01">
-                <span> 사은행사 </span>
-              </a>
-            </li>
-            <li class="detailTab__item">
-              <a class="detailTab__anchor" href="#panel_02">
-                <span>추천상품</span>
-              </a>
-            </li>
-            <li class="detailTab__item">
-              <a class="detailTab__anchor" href="#panel_03">
-                <span> 전체상품 </span>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <detail-tab
+          items='[{"label":"사은행사","target":"panel_01"},{"label":"추천상품","target":"panel_02"},{"label":"전체상품","target":"panel_03"}]'
+        ></detail-tab>
         <!-- /tab end -->
 
         <!-- panel 01 -->
-        <section id="#panel_01" class="panel panel__01">
+        <section id="panel_01" class="panel panel__01">
           <div class="container">
             <!-- 사은품 이벤트  -->
             <div class="event">
@@ -200,7 +183,7 @@
         <div class="divider"></div>
 
         <!-- panel 02 -->
-        <section id="#panel_02" class="panel panel__02">
+        <section id="panel_02" class="panel panel__02">
           <div class="container">
             <!-- 추천 상품  -->
             <div class="recommend recommend_area">
@@ -268,7 +251,7 @@
         <div class="divider"></div>
 
         <!-- panel 03 -->
-        <section id="#panel_03" class="panel panel__03">
+        <section id="panel_03" class="panel panel__03">
           <div class="all-product">
             <!-- 상단 필터 탭 -->
             <div class="container">

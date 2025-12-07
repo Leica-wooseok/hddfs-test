@@ -29,6 +29,9 @@
 ## Javascript로 구성한 인터랙션 개요
 
 - 가이드에 따라 hero section에 color-yiq 적용 하였지만 실제 시안의 색상과는 달라 override
+- 스크롤 위치에 때라 탭 활성화
+- 탭 클릭 시 스크롤 이동, requestAnimationFrame 사용 throttle 효과
+- sort dropdown 임의로 설정
 
 ## Web Component 사용
 
