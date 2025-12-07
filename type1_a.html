@@ -268,12 +268,15 @@
 
         <!-- panel 03 -->
         <section id="#panel_03" class="panel panel__03">
-          <div class="all-product all-product-area">
+          <div class="all-product">
             <!-- 상단 필터 탭 -->
             <div class="container">
               <div class="filter-tab">
                 <!-- TODO: 클릭 시 활성화 -->
-                <button type="button" class="filter-tab__button active">
+                <button
+                  type="button"
+                  class="filter-tab__button filter-tab__button--active"
+                >
                   아우구스티누스 바더
                 </button>
                 <button type="button" class="filter-tab__button">
@@ -286,10 +289,10 @@
             <!-- 추천 상품 슬라이드 -->
             <div class="all-product__recommend">
               <div class="container">
-                <h5 class="all-product__recommend-title">
+                <h5 class="all-product__recommend__title">
                   이런 상품은 어떠세요?
                 </h5>
-                <div class="all-product__recommend-list swiper">
+                <div class="all-product__recommend__list swiper">
                   <ul class="swiper-wrapper">
                     <!-- 상품 카드 컴포넌트 -->
                     <li class="swiper-slide">
@@ -349,18 +352,18 @@
             <!-- 추천 상품 슬라이드 end -->
 
             <!-- 전체 상품 필터 -->
-            <div class="search-sort-wrap">
-              <span class="total-count"
+            <div class="product-filter">
+              <span class="product-filter__total"
                 >총
                 <em>1,234건</em>
               </span>
-              <div class="search-toggle-box">
+              <div class="product-filter__toggle">
                 <img
-                  class="search-toggle-box__icon"
+                  class="product-filter__toggle-icon"
                   src="/images/icons/ic-m-info-line.svg"
                   alt="정보 아이콘"
                 />
-                <span class="search-toggle-box__text">품절</span>
+                <span class="product-filter__toggle-text">품절</span>
                 <label class="toggle-switch">
                   <input
                     class="toggle-switch-input"
@@ -371,8 +374,11 @@
                 </label>
               </div>
               <div class="divider"></div>
-              <div class="search-filter-box">
-                <button type="button" class="drop-down-button">
+              <div class="product-filter__actions">
+                <button
+                  type="button"
+                  class="product-filter__button product-filter__button--sort"
+                >
                   <!-- TODO: 정렬 순서 드랍다운 -->
                   베스트순
                   <img
@@ -380,7 +386,10 @@
                     alt="아래 화살표 아이콘"
                   />
                 </button>
-                <button type="button" class="filter-button">
+                <button
+                  type="button"
+                  class="product-filter__button product-filter__button--open"
+                >
                   필터 열기
                   <img
                     src="./images/icons/ic-m-filter(2lines).svg"

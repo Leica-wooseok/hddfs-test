@@ -139,7 +139,7 @@
       @include kr-p2-400;
       @include flex-center;
 
-      &.active {
+      &--active {
         background-color: $font-dark;
         color: $color-white;
         border-color: transparent;
@@ -152,11 +152,11 @@
     padding: 20px 0;
     background: $bg-pale-grey4;
 
-    &-title {
+    &__title {
       color: $font-dark;
       @include kr-h4-700;
     }
-    &-list {
+    &__list {
       margin-top: 20px;
     }
     & .swiper-slide {
@@ -166,13 +166,13 @@
   }
 }
 
-.search-sort-wrap {
+.product-filter {
   margin-bottom: 12px;
   padding: 8px 20px;
   display: flex;
   align-items: center;
 
-  .total-count {
+  &__total {
     margin-right: auto;
     color: $font-dark;
     display: flex;
@@ -185,16 +185,16 @@
     height: 16px;
     background-color: $line-silver;
   }
-  .search-toggle-box {
+  &__toggle {
     display: flex;
     align-items: center;
 
-    &__icon {
+    &-icon {
       margin-right: 4px;
       width: 16px;
       height: 16px;
     }
-    &__text {
+    &-text {
       margin-right: 8px;
       color: $font-medium-dark;
       @include kr-p2-400;
@@ -237,30 +237,32 @@
       transition: inherit;
     }
   }
-  .search-filter-box {
+  &__actions {
     display: flex;
     align-items: center;
     gap: 16px;
   }
-  .drop-down-button {
-    color: $font-slate-grey;
-    gap: 4px;
+  &__button {
     @include flex-center;
-    @include kr-p3-500;
 
-    & img {
-      width: 16px;
-      height: 16px;
+    &--sort {
+      color: $font-slate-grey;
+      gap: 4px;
+      @include kr-p3-500;
+
+      & img {
+        width: 16px;
+        height: 16px;
+      }
     }
-  }
-  .filter-button {
-    width: 32px;
-    height: 32px;
-    text-indent: -9999px;
-    overflow: hidden;
-    border-radius: 4px;
-    @include flex-center;
-    @include border;
+    &--open {
+      width: 32px;
+      height: 32px;
+      text-indent: -9999px;
+      overflow: hidden;
+      border-radius: 4px;
+      @include border;
+    }
   }
 }
 

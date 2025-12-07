@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 전체 상품 추천 swiper (panel 03)
-  const allProductSwiper = new Swiper(".all-product__recommend-list", {
+  const allProductSwiper = new Swiper(".all-product__recommend__list", {
     slidesPerView: "auto",
     spaceBetween: 16,
     navigation: {
-      nextEl: ".all-product__recommend-list .swiper-button-next",
-      prevEl: ".all-product__recommend-list .swiper-button-prev",
+      nextEl: ".all-product__recommend__list .swiper-button-next",
+      prevEl: ".all-product__recommend__list .swiper-button-prev",
     },
     breakpoints: {
       0: {
