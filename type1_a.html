@@ -200,22 +200,14 @@
 
         <!-- panel 02 -->
         <section id="#panel_02" class="panel panel__02">
-          <div class="container"></div>
-        </section>
-        <!-- /panel 02 end -->
-
-        <div class="divider"></div>
-
-        <!-- panel 03 -->
-        <section id="#panel_03" class="panel panel__03">
           <div class="container">
             <!-- 추천 상품  -->
-            <div class="recommend">
-              <h3 class="recommend__title">추천상품</h3>
+            <div class="recommend recommend_area">
+              <h5 class="recommend__title">추천상품</h5>
               <div class="recommend__product-list swiper">
-                <div class="swiper-wrapper">
+                <ul class="swiper-wrapper">
                   <!-- 상품 카드 컴포넌트 -->
-                  <div class="swiper-slide">
+                  <li class="swiper-slide">
                     <product-card
                       image-src="./images/products/product-img-01.png"
                       image-alt="인텐시브 세럼 파운데이션 SPF 40 #Po...이미지"
@@ -229,8 +221,8 @@
                       current-price="61"
                       won-price="72,320"
                     ></product-card>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide">
                     <product-card
                       image-src="./images/products/product-img-02.png"
                       image-alt="엑스트라 리페어 모이스춰 크림 인텐스...이미지"
@@ -244,8 +236,8 @@
                       current-price="61"
                       won-price="72,320"
                     ></product-card>
-                  </div>
-                  <div class="swiper-slide">
+                  </li>
+                  <li class="swiper-slide">
                     <product-card
                       image-src="./images/products/product-img-03.png"
                       image-alt="엑스트라 립 틴트 #베어 체리이미지"
@@ -259,15 +251,97 @@
                       current-price="61"
                       won-price="72,320"
                     ></product-card>
-                  </div>
+                  </li>
                   <!-- 상품 카드 컴포넌트 end -->
-                </div>
+                </ul>
                 <!-- 네비게이션 버튼 (desktop only) -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
               </div>
             </div>
             <!-- 추천 상품 end -->
+          </div>
+        </section>
+        <!-- /panel 02 end -->
+
+        <div class="divider"></div>
+
+        <!-- panel 03 -->
+        <section id="#panel_03" class="panel panel__03">
+          <div class="all-product all-product-area">
+            <div class="container">
+              <div class="filter-tab">
+                <!-- TODO: 클릭 시 활성화 -->
+                <button type="button" class="filter-tab__button active">
+                  아우구스티누스 바더
+                </button>
+                <button type="button" class="filter-tab__button">
+                  아우구스티누스 바더
+                </button>
+              </div>
+            </div>
+            <div class="all-product__recommend">
+              <div class="container">
+                <h5 class="all-product__recommend-title">
+                  이런 상품은 어떠세요?
+                </h5>
+                <div class="all-product__recommend-list swiper">
+                  <ul class="swiper-wrapper">
+                    <!-- 상품 카드 컴포넌트 -->
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-04.png"
+                        image-alt="구찌 루즈 아 레브르 매트 25* 골디 레드 이미지"
+                        product-link="#상품구매링크"
+                        brand="구찌 뷰티"
+                        product-name="구찌 루즈 아 레브르 매트 25* 골디 레드 "
+                        cart-link="TODO: 장바구니 담기 토스트"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        image-blend-mode="off"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-05.png"
+                        image-alt="조니워커 블루라벨 이미지"
+                        product-link="#상품구매링크"
+                        brand="조니워커"
+                        product-name="조니워커 블루라벨 "
+                        cart-link="TODO: 장바구니 담기 토스트"
+                        is-logged-in="true"
+                        is-19plus="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        image-blend-mode="off"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-06.png"
+                        image-alt="Chacha Tint 차차틴트 이미지"
+                        product-link="#상품구매링크"
+                        brand="베네피트"
+                        product-name="Chacha Tint 차차틴트 "
+                        cart-link="TODO: 장바구니 담기 토스트"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        image-blend-mode="off"
+                      ></product-card>
+                    </li>
+                    <!-- 상품 카드 컴포넌트 end -->
+                  </ul>
+                  <!-- 네비게이션 버튼 (desktop only) -->
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         <!-- /panel 03 end -->

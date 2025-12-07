@@ -46,11 +46,14 @@ class ProductCard extends HTMLElement {
     const badgesJson = this.getAttribute("badges");
     const badges = badgesJson ? JSON.parse(badgesJson) : [];
     const imageBlendMode = this.getAttribute("image-blend-mode") || "on";
-    const blendModeStyle = imageBlendMode === "on" ? "mix-blend-mode: multiply;" : "";
+    const blendModeStyle =
+      imageBlendMode === "on" ? "mix-blend-mode: multiply;" : "";
+    const blendModeBgColor =
+      imageBlendMode === "off" ? "background-color:#fff" : "";
 
     this.className = "productCard";
     this.innerHTML = `
-      <div class="productCard__image-box">
+      <div class="productCard__image-box"  style="${blendModeBgColor}">
         <a href="${productLink}" class="productCard__image_anchor">
           <img
             class="productCard__image"

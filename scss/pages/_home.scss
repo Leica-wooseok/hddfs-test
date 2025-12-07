@@ -119,3 +119,47 @@
   }
 }
 // 추천상품 end
+
+// 전체 상품
+.all-product {
+  padding-bottom: 64px;
+
+  .filter-tab {
+    padding: 8px 0;
+    display: flex;
+    gap: 4px;
+
+    &__button {
+      padding: 0 12px;
+      height: 32px;
+      border-radius: 20px;
+      color: $bg-slate-grey;
+      transition: $transition-base;
+      @include border;
+      @include kr-p2-400;
+      @include flex-center;
+
+      &.active {
+        background-color: $font-dark;
+        color: $color-white;
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__recommend {
+    margin-top: 12px;
+    padding: 20px 0;
+    background: $bg-pale-grey4;
+
+    &-title {
+      color: $font-dark;
+      @include kr-h4-700;
+    }
+    &-list {
+      margin-top: 20px;
+    }
+  }
+}
+
+// 전체 상품 end
