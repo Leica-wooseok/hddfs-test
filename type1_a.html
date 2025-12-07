@@ -212,50 +212,59 @@
             <!-- 추천 상품  -->
             <div class="recommend">
               <h3 class="recommend__title">추천상품</h3>
-              <div class="recommend__product-list">
-                <!-- TODO: swiper slide -->
-
-                <!-- 상품 카드 컴포넌트 -->
-                <product-card
-                  image-src="./images/products/product-img-01.png"
-                  image-alt="인텐시브 세럼 파운데이션 SPF 40 #Po...이미지"
-                  product-link="#상품구매링크"
-                  brand="바비브라운"
-                  product-name="인텐시브 세럼 파운데이션 SPF 40 #Po..."
-                  cart-link="TODO: 장바구니 담기 토스트"
-                  is-logged-in="true"
-                  discount-percent="40"
-                  default-price="39"
-                  current-price="61"
-                  won-price="72,320"
-                ></product-card>
-                <product-card
-                  image-src="./images/products/product-img-02.png"
-                  image-alt="엑스트라 리페어 모이스춰 크림 인텐스...이미지"
-                  product-link="#상품구매링크"
-                  brand="바비브라운"
-                  product-name="엑스트라 리페어 모이스춰 크림 인텐스..."
-                  cart-link="TODO: 장바구니 담기 토스트"
-                  is-logged-in="true"
-                  discount-percent="40"
-                  default-price="39"
-                  current-price="61"
-                  won-price="72,320"
-                ></product-card>
-                <product-card
-                  image-src="./images/products/product-img-03.png"
-                  image-alt="엑스트라 립 틴트 #베어 체리이미지"
-                  product-link="#상품구매링크"
-                  brand="바비브라운"
-                  product-name="엑스트라 립 틴트 #베어 체리"
-                  cart-link="TODO: 장바구니 담기 토스트"
-                  is-logged-in="true"
-                  discount-percent="40"
-                  default-price="39"
-                  current-price="61"
-                  won-price="72,320"
-                ></product-card>
-                <!-- 상품 카드 컴포넌트 end -->
+              <div class="recommend__product-list swiper">
+                <div class="swiper-wrapper">
+                  <!-- 상품 카드 컴포넌트 -->
+                  <div class="swiper-slide">
+                    <product-card
+                      image-src="./images/products/product-img-01.png"
+                      image-alt="인텐시브 세럼 파운데이션 SPF 40 #Po...이미지"
+                      product-link="#상품구매링크"
+                      brand="바비브라운"
+                      product-name="인텐시브 세럼 파운데이션 SPF 40 #Po..."
+                      cart-link="TODO: 장바구니 담기 토스트"
+                      is-logged-in="true"
+                      discount-percent="40"
+                      default-price="39"
+                      current-price="61"
+                      won-price="72,320"
+                    ></product-card>
+                  </div>
+                  <div class="swiper-slide">
+                    <product-card
+                      image-src="./images/products/product-img-02.png"
+                      image-alt="엑스트라 리페어 모이스춰 크림 인텐스...이미지"
+                      product-link="#상품구매링크"
+                      brand="바비브라운"
+                      product-name="엑스트라 리페어 모이스춰 크림 인텐스..."
+                      cart-link="TODO: 장바구니 담기 토스트"
+                      is-logged-in="true"
+                      discount-percent="40"
+                      default-price="39"
+                      current-price="61"
+                      won-price="72,320"
+                    ></product-card>
+                  </div>
+                  <div class="swiper-slide">
+                    <product-card
+                      image-src="./images/products/product-img-03.png"
+                      image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                      product-link="#상품구매링크"
+                      brand="바비브라운"
+                      product-name="엑스트라 립 틴트 #베어 체리"
+                      cart-link="TODO: 장바구니 담기 토스트"
+                      is-logged-in="true"
+                      discount-percent="40"
+                      default-price="39"
+                      current-price="61"
+                      won-price="72,320"
+                    ></product-card>
+                  </div>
+                  <!-- 상품 카드 컴포넌트 end -->
+                </div>
+                <!-- 네비게이션 버튼 (desktop only) -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
               </div>
             </div>
             <!-- 추천 상품 end -->
@@ -265,5 +274,6 @@
       </main>
       <!-- main end -->
     </div>
+    <script src="/js/swiper-init.js"></script>
   </body>
 </html>

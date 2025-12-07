@@ -112,6 +112,10 @@
   &__product-list {
     margin-top: 20px;
   }
+  & .swiper-slide {
+    min-width: 120px;
+    max-width: 33%;
+  }
 }
 // 추천상품 end
 
