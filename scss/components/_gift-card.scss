@@ -31,7 +31,21 @@
 .gift__card-list {
   padding: 8px 0;
 }
+.gift__card-li {
+  list-style: none;
 
+  &:last-child::after {
+    display: none;
+  }
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    margin: 8px 0;
+    height: 1px;
+    background: $line-silver;
+  }
+}
 .gift__card-item {
   display: flex;
   align-items: center;
@@ -39,6 +53,7 @@
   min-height: 100px;
   position: relative;
   width: 100%;
+  flex-wrap: wrap;
 
   .gift__image {
     width: 100px;
@@ -54,7 +69,6 @@
   }
 
   .soldout {
-    // Note: The 'display' property is controlled by the component's JavaScript.
     position: absolute;
     inset: 0;
     width: auto;
@@ -78,8 +92,6 @@
     min-width: 0;
 
     &-terms {
-      // Note: The 'color' property is controlled by the component's JavaScript.
-      // A default color can be set here if needed.
       color: var(--font-accent-color);
       @include kr-p3-500;
       @include text-ellipsis-multiline(2);

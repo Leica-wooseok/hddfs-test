@@ -24,16 +24,21 @@ class DetailTab extends HTMLElement {
 
     const html = `
       <div class="detailTab">
-        <ul class="flex container">
+        <ul class="flex container" role="tablist" aria-label="사은행사 정보">
           ${items
             .map(
               (item, index) => `
-            <li class="detailTab__item">
-              <a class="detailTab__anchor ${
-                index === 0 ? "active" : ""
-              }" href="#${item.target}">
+            <li class="detailTab__item" role="presentation">
+              <button
+                type="button"
+                class="detailTab__anchor ${index === 0 ? "active" : ""}"
+                role="tab"
+                aria-selected="${index === 0 ? "true" : "false"}"
+                aria-controls="${item.target}"
+                id="tab_${item.target}"
+                data-target="${item.target}">
                 <span>${item.label}</span>
-              </a>
+              </button>
             </li>
           `
             )
@@ -46,13 +51,11 @@ class DetailTab extends HTMLElement {
   }
 
   setupEventListeners() {
-    const anchors = this.querySelectorAll(".detailTab__anchor");
+    const tabs = this.querySelectorAll(".detailTab__anchor");
 
-    anchors.forEach((anchor) => {
-      anchor.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const targetId = anchor.getAttribute("href").substring(1);
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", (e) => {
+        const targetId = tab.getAttribute("data-target");
         const targetPanel = document.getElementById(targetId);
 
         if (targetPanel) {
@@ -74,7 +77,7 @@ class DetailTab extends HTMLElement {
           });
 
           // 활성화 상태 업데이트
-          this.setActiveTab(anchor);
+          this.setActiveTab(tab);
         }
       });
     });
@@ -110,15 +113,15 @@ class DetailTab extends HTMLElement {
 
       // 활성화할 패널이 있으면 해당 탭 활성화
       if (activePanel) {
-        const correspondingAnchor = this.querySelector(
-          `a[href="#${activePanel.id}"]`
+        const correspondingTab = this.querySelector(
+          `button[data-target="${activePanel.id}"]`
         );
 
         if (
-          correspondingAnchor &&
-          !correspondingAnchor.classList.contains("active")
+          correspondingTab &&
+          !correspondingTab.classList.contains("active")
         ) {
-          this.setActiveTab(correspondingAnchor);
+          this.setActiveTab(correspondingTab);
         }
       }
     };
@@ -140,13 +143,17 @@ class DetailTab extends HTMLElement {
     this.handleScroll();
   }
 
-  setActiveTab(activeAnchor) {
-    // 모든 anchor에서 active 클래스 제거
-    const anchors = this.querySelectorAll(".detailTab__anchor");
-    anchors.forEach((anchor) => anchor.classList.remove("active"));
+  setActiveTab(activeTab) {
+    // 모든 tab에서 active 클래스 및 aria-selected 제거
+    const tabs = this.querySelectorAll(".detailTab__anchor");
+    tabs.forEach((tab) => {
+      tab.classList.remove("active");
+      tab.setAttribute("aria-selected", "false");
+    });
 
-    // 선택된 anchor에 active 클래스 추가
-    activeAnchor.classList.add("active");
+    // 선택된 tab에 active 클래스 및 aria-selected 추가
+    activeTab.classList.add("active");
+    activeTab.setAttribute("aria-selected", "true");
   }
 }
 

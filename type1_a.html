@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,18 +23,26 @@
       <!-- header -->
       <header class="header">
         <div class="header__inner">
-          <a href="" class="header__button">
-            <img src="/images/icons/ic-m-back.svg" alt="뒤로가기" />
+          <button type="button" class="header__button">
+            <img src="/images/icons/ic-m-back.svg" alt="" aria-hidden="true" />
             뒤로가기
-          </a>
-          <h2 class="header__title">사은행사</h2>
+          </button>
+          <div class="header__title">사은행사</div>
           <div class="header__button-box">
-            <a href="" class="header__button">
-              <img src="/images/icons/ic-m-search.svg" alt="검색" />
-              검색
-            </a>
             <button type="button" class="header__button">
-              <img src="/images/icons/ic-m-cart.svg" alt="장바구니" />
+              <img
+                src="/images/icons/ic-m-search.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              검색
+            </button>
+            <button type="button" class="header__button">
+              <img
+                src="/images/icons/ic-m-cart.svg"
+                alt=""
+                aria-hidden="true"
+              />
               장바구니
             </button>
           </div>
@@ -48,7 +56,7 @@
           <div class="container hero__inner">
             <p class="hero__date">2025.01.01 - 재고소진시까지</p>
             <div class="hero__title-box">
-              <h2 class="hero__title">아이오페 단독 프로모션</h2>
+              <h1 class="hero__title">아이오페 단독 프로모션</h1>
               <p class="hero__desc">현대면세점 단독 혜택도 만나보세요!</p>
             </div>
             <div class="hero__image-box">
@@ -65,7 +73,12 @@
         <!-- /tab end -->
 
         <!-- panel 01 -->
-        <section id="panel_01" class="panel panel__01">
+        <section
+          id="panel_01"
+          role="tabpanel"
+          aria-labelledby="tab_panel_01"
+          class="panel panel__01"
+        >
           <div class="container">
             <!-- 사은품 이벤트  -->
             <div class="event">
@@ -116,7 +129,7 @@
                 <div class="event__card-root mt-24">
                   <div class="gift-card__badge">Gift</div>
                   <ul class="gift__card-list">
-                    <li class="gift__card-item">
+                    <li class="gift__card-li">
                       <gift-card-item
                         image-src="/images/pages/type1_a/gwp/gwp-img_02.png"
                         image-alt="슈퍼바이탈 세럼 크림 듀오 샘플 증정"
@@ -126,7 +139,7 @@
                         sold-out="false"
                       ></gift-card-item>
                     </li>
-                    <li class="gift__card-item">
+                    <li class="gift__card-li">
                       <gift-card-item
                         image-src="/images/pages/type1_a/gwp/gwp-img_03.png"
                         image-alt="슈퍼바이탈 에멀젼 18ml + 소프너 18ml 증정"
@@ -136,7 +149,7 @@
                         sold-out="false"
                       ></gift-card-item>
                     </li>
-                    <li class="gift__card-item">
+                    <li class="gift__card-li">
                       <gift-card-item
                         image-src="/images/pages/type1_a/gwp/gwp-img_04.png"
                         image-alt="슈퍼바이탈 5종 증정"
@@ -183,7 +196,12 @@
         <div class="divider"></div>
 
         <!-- panel 02 -->
-        <section id="panel_02" class="panel panel__02">
+        <section
+          id="panel_02"
+          role="tabpanel"
+          aria-labelledby="tab_panel_02"
+          class="panel panel__02"
+        >
           <div class="container">
             <!-- 추천 상품  -->
             <div class="recommend recommend_area">
@@ -251,12 +269,16 @@
         <div class="divider"></div>
 
         <!-- panel 03 -->
-        <section id="panel_03" class="panel panel__03">
+        <section
+          id="panel_03"
+          role="tabpanel"
+          aria-labelledby="tab_panel_03"
+          class="panel panel__03"
+        >
           <div class="all-product">
             <!-- 상단 필터 탭 -->
             <div class="container">
               <div class="filter-tab">
-                <!-- TODO: 클릭 시 활성화 -->
                 <button
                   type="button"
                   class="filter-tab__button filter-tab__button--active"
@@ -416,7 +438,12 @@
         <!-- /panel 03 end -->
       </main>
       <!-- main end -->
+
+      <!-- Footer -->
+      <footer></footer>
+      <!-- /Footer end -->
     </div>
     <script src="/js/swiper-init.js"></script>
+    <script src="/js/filter-tab.js"></script>
   </body>
 </html>

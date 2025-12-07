@@ -26,7 +26,7 @@
   --font-slate-grey: #5c6677;
   --font-cool-grey2: #abb2be;
   --font-steel: #788497;
-  --font-accent-color: A58768;
+  --font-accent-color: #a58768;
   --line-silver: #dde0e5;
   --pale-grey: #eef0f2;
   --bg-pale-grey: #eef0f2;
@@ -280,6 +280,21 @@ body {
   padding: 8px 0;
 }
 
+.gift__card-li {
+  list-style: none;
+}
+.gift__card-li:last-child::after {
+  display: none;
+}
+.gift__card-li::after {
+  display: block;
+  content: "";
+  width: 100%;
+  margin: 8px 0;
+  height: 1px;
+  background: #dde0e5;
+}
+
 .gift__card-item {
   display: flex;
   align-items: center;
@@ -287,6 +302,7 @@ body {
   min-height: 100px;
   position: relative;
   width: 100%;
+  flex-wrap: wrap;
 }
 .gift__card-item .gift__image {
   width: 100px;
