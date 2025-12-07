@@ -15,6 +15,7 @@
     <script src="/js/components/CautionArea.js" type="module"></script>
     <script src="/js/components/MoreButton.js" type="module"></script>
     <script src="/js/components/ProductCard.js" type="module"></script>
+    <script src="/js/components/ProductFilter.js" type="module"></script>
   </head>
   <body>
     <div id="wrap">
@@ -352,53 +353,16 @@
             <!-- 추천 상품 슬라이드 end -->
 
             <!-- 전체 상품 필터 -->
-            <div class="product-filter">
-              <span class="product-filter__total"
-                >총
-                <em>1,234건</em>
-              </span>
-              <div class="product-filter__toggle">
-                <img
-                  class="product-filter__toggle-icon"
-                  src="/images/icons/ic-m-info-line.svg"
-                  alt="정보 아이콘"
-                />
-                <span class="product-filter__toggle-text">품절</span>
-                <label class="toggle-switch">
-                  <input
-                    class="toggle-switch-input"
-                    id="sortSoldOut"
-                    type="checkbox"
-                  />
-                  <span class="toggle-switch-round"></span>
-                </label>
-              </div>
-              <div class="divider"></div>
-              <div class="product-filter__actions">
-                <button
-                  type="button"
-                  class="product-filter__button product-filter__button--sort"
-                >
-                  <!-- TODO: 정렬 순서 드랍다운 -->
-                  베스트순
-                  <img
-                    src="./images/icons/ic-m-arrow-down.svg"
-                    alt="아래 화살표 아이콘"
-                  />
-                </button>
-                <button
-                  type="button"
-                  class="product-filter__button product-filter__button--open"
-                >
-                  필터 열기
-                  <img
-                    src="./images/icons/ic-m-filter(2lines).svg"
-                    alt="필터 아이콘"
-                  />
-                </button>
-              </div>
-            </div>
+            <product-filter
+              total-count="1,234"
+              sort-options='[{"value":"best","label":"베스트순"},{"value":"asc","label":"오름차순"},{"value":"desc","label":"내림차순"}]'
+              default-sort="best"
+            ></product-filter>
             <!-- 전체 상품 필터 end -->
+
+            <!-- 전체 상품 Grid -->
+            <div class="all-product__grid">grid</div>
+            <!-- /전체 상품 Grid end -->
           </div>
         </section>
         <!-- /panel 03 end -->
