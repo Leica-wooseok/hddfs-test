@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="/css/index.css" />
     <script src="/js/color-contrast.js" defer></script>
+    <script src="/js/components/Header.js" type="module"></script>
     <script src="/js/components/DetailTab.js" type="module"></script>
     <script src="/js/components/GiftCardItem.js" type="module"></script>
     <script src="/js/components/CautionArea.js" type="module"></script>
@@ -21,33 +22,7 @@
   <body>
     <div id="wrap">
       <!-- header -->
-      <header class="header">
-        <div class="header__inner">
-          <button type="button" class="header__button">
-            <img src="/images/icons/ic-m-back.svg" alt="" aria-hidden="true" />
-            뒤로가기
-          </button>
-          <div class="header__title">사은행사</div>
-          <div class="header__button-box">
-            <button type="button" class="header__button">
-              <img
-                src="/images/icons/ic-m-search.svg"
-                alt=""
-                aria-hidden="true"
-              />
-              검색
-            </button>
-            <button type="button" class="header__button">
-              <img
-                src="/images/icons/ic-m-cart.svg"
-                alt=""
-                aria-hidden="true"
-              />
-              장바구니
-            </button>
-          </div>
-        </div>
-      </header>
+      <app-header title="사은행사"></app-header>
       <!-- header end -->
       <!-- main -->
       <main>
@@ -440,7 +415,7 @@
       <!-- main end -->
 
       <!-- Footer -->
-      <footer></footer>
+      <footer class="footer"></footer>
       <!-- /Footer end -->
     </div>
     <script src="/js/swiper-init.js"></script>
