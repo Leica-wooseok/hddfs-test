@@ -49,6 +49,7 @@ li {
 .divider {
   height: 8px;
   background-color: $bg-pale-grey;
+  border: 0;
   @include responsive(desktop) {
     display: none;
     visibility: hidden;

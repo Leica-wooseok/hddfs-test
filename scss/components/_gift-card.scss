@@ -31,7 +31,7 @@
 .gift__card-list {
   padding: 8px 0;
 }
-.gift__card-li {
+.gift__card-item {
   list-style: none;
 
   &:last-child::after {
@@ -46,7 +46,7 @@
     background: $line-silver;
   }
 }
-.gift__card-item {
+gift-card-item {
   display: flex;
   align-items: center;
   gap: 17px;

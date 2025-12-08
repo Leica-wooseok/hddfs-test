@@ -22,10 +22,7 @@
       content="현대 면세점 단독 혜택도 만나보세요!"
     />
     <meta property="og:image" content="./images/pages/type1_a/hero_image.jpg" />
-    <meta
-      property="og:url"
-      content="https://yourdomain.com/type-a-promo-amount.html"
-    />
+    <meta property="og:url" content="https:///type-a-promo-amount.html" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ko_KR" />
 
@@ -38,7 +35,7 @@
     />
     <meta
       name="twitter:image"
-      content="./images/pages/type-a-promo-amount/hero_image.jpg"
+      content="./images/pages/type1_a/hero_image.jpg"
     />
     <link
       rel="stylesheet"
@@ -74,7 +71,10 @@
               <p class="hero__desc">현대면세점 단독 혜택도 만나보세요!</p>
             </div>
             <div class="hero__image-box">
-              <img src="./images/pages/type1_a/hero_image.jpg" alt="" />
+              <img
+                src="./images/pages/type1_a/hero_image.jpg"
+                alt="아이오페 단독 프로모션"
+              />
             </div>
           </div>
         </section>
@@ -97,7 +97,7 @@
             <!-- 사은품 이벤트  -->
             <div class="event">
               <div class="event__title-box">
-                <h3 class="event__title">현대면세점 EXCLUSIVE 혜택</h3>
+                <h2 class="event__title">현대면세점 EXCLUSIVE 혜택</h2>
                 <p class="event__title-desc">
                   현대면세점에서만 드리는 기적같은 혜택
                 </p>
@@ -108,16 +108,18 @@
                   Event 1
                 </div>
                 <div class="event__group-title-box">
-                  <h4 class="event__group-title">
+                  <h3 class="event__group-title">
                     현대면세점 X 아이오페 단독 행사
-                  </h4>
+                  </h3>
                   <p class="event__group-desc">
-                    이벤트 기간 2025.01.01 ~ 2024.01.08
+                    이벤트 기간
+                    <time datetime="2025-01-01">2025.01.01</time> ~
+                    <time datetime="2025-01-08">2025.01.08</time>
                   </p>
                 </div>
                 <div class="event__card-root mt-24">
                   <div class="gift-card__badge">Gift</div>
-                  <ul class="gift__card-list">
+                  <ul class="gift__card-itemst">
                     <li class="gift__card-item">
                       <gift-card-item
                         image-src="./images/pages/type1_a/gwp/gwp-img_01.png"
@@ -138,12 +140,12 @@
                   Event 2
                 </div>
                 <div class="event__group-title-box">
-                  <h4 class="event__group-title">금액대별 구매 사은품</h4>
+                  <h3 class="event__group-title">금액대별 구매 사은품</h3>
                 </div>
                 <div class="event__card-root mt-24">
                   <div class="gift-card__badge">Gift</div>
-                  <ul class="gift__card-list">
-                    <li class="gift__card-li">
+                  <ul class="gift__card-itemst">
+                    <li class="gift__card-item">
                       <gift-card-item
                         image-src="./images/pages/type1_a/gwp/gwp-img_02.png"
                         image-alt="슈퍼바이탈 세럼 크림 듀오 샘플 증정"
@@ -153,7 +155,7 @@
                         sold-out="false"
                       ></gift-card-item>
                     </li>
-                    <li class="gift__card-li">
+                    <li class="gift__card-item">
                       <gift-card-item
                         image-src="./images/pages/type1_a/gwp/gwp-img_03.png"
                         image-alt="슈퍼바이탈 에멀젼 18ml + 소프너 18ml 증정"
@@ -163,7 +165,7 @@
                         sold-out="false"
                       ></gift-card-item>
                     </li>
-                    <li class="gift__card-li">
+                    <li class="gift__card-item">
                       <gift-card-item
                         image-src="./images/pages/type1_a/gwp/gwp-img_04.png"
                         image-alt="슈퍼바이탈 5종 증정"
@@ -183,13 +185,15 @@
           <!-- Bottom area -->
           <div class="event-attention-area">
             <!-- 브랜드관 -->
-            <div class="brand">
+            <figure class="brand">
               <h3 class="brand__title">브랜드관</h3>
-              <div class="brand__image-box">
-                <img src="./images/pages/type1_a/brand-iope.png" alt="iope" />
-              </div>
-              <p class="brand__name">아이오페</p>
-            </div>
+              <img
+                src="./images/pages/type1_a/brand-iope.png"
+                alt="아이오페 브랜드 로고"
+                class="brand__image"
+              />
+              <figcaption class="brand__name">아이오페</figcaption>
+            </figure>
             <!-- 브랜드관 end -->
 
             <!-- 유의 사항  -->
@@ -207,7 +211,7 @@
         </section>
         <!-- /panel 01 end -->
 
-        <div class="divider"></div>
+        <hr class="divider" />
 
         <!-- panel 02 -->
         <section
@@ -231,7 +235,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="인텐시브 세럼 파운데이션 SPF 40 #Po..."
-                        1="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -246,7 +249,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 리페어 모이스춰 크림 인텐스..."
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -261,7 +263,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 립 틴트 #베어 체리"
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -276,7 +277,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 립 틴트 #베어 체리"
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -291,7 +291,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 립 틴트 #베어 체리"
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -306,7 +305,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 립 틴트 #베어 체리"
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -321,7 +319,6 @@
                         product-link="#상품구매링크"
                         brand="바비브라운"
                         product-name="엑스트라 립 틴트 #베어 체리"
-                        cart-link="TODO: 장바구니 담기 토스트"
                         is-logged-in="true"
                         discount-percent="40"
                         default-price="39"
@@ -333,12 +330,16 @@
                   </ul>
                 </div>
                 <!-- 네비게이션 버튼 (desktop only) -->
-                <div
+                <button
+                  type="button"
                   class="swiper-button-custom recommend__swiper-button--prev"
-                ></div>
-                <div
+                  aria-label="이전 상품 보기"
+                ></button>
+                <button
+                  type="button"
                   class="swiper-button-custom recommend__swiper-button--next"
-                ></div>
+                  aria-label="다음 상품 보기"
+                ></button>
               </div>
             </div>
             <!-- 추천 상품 end -->
@@ -346,7 +347,7 @@
         </section>
         <!-- /panel 02 end -->
 
-        <div class="divider"></div>
+        <hr class="divider" />
 
         <!-- panel 03 -->
         <section
@@ -358,14 +359,21 @@
           <div class="all-product">
             <!-- 상단 필터 탭 -->
             <div class="container">
-              <div class="filter-tab">
+              <div class="filter-tab" role="tablist" aria-label="브랜드 필터">
                 <button
                   type="button"
+                  role="tab"
+                  aria-selected="true"
                   class="filter-tab__button filter-tab__button--active"
                 >
                   아우구스티누스 바더
                 </button>
-                <button type="button" class="filter-tab__button">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  class="filter-tab__button"
+                >
                   아우구스티누스 바더
                 </button>
               </div>
@@ -429,12 +437,16 @@
                     </ul>
                   </div>
                   <!-- 네비게이션 버튼 (desktop only) -->
-                  <div
+                  <button
+                    type="button"
                     class="swiper-button-custom all-product__swiper-button--prev"
-                  ></div>
-                  <div
+                    aria-label="이전 상품 보기"
+                  ></button>
+                  <button
+                    type="button"
                     class="swiper-button-custom all-product__swiper-button--next"
-                  ></div>
+                    aria-label="다음 상품 보기"
+                  ></button>
                 </div>
               </div>
             </div>
@@ -449,68 +461,76 @@
             <!-- 전체 상품 필터 end -->
 
             <!-- 전체 상품 Grid -->
-            <div class="all-product__grid">
-              <product-card
-                image-src="./images/products/product-img-02.png"
-                image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
-                keyword="MD 키워드 최대 2줄 노출 가능"
-                product-link="#상품구매링크"
-                brand="바비브라운"
-                product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
-                is-logged-in="true"
-                discount-percent="40"
-                default-price="39"
-                current-price="61"
-                won-price="72,320"
-                has-video="true"
-                image-blend-mode="on"
-                badges='["세일","베스트"]'
-              ></product-card>
-              <product-card
-                image-src="./images/products/product-img-02.png"
-                image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
-                product-link="#상품구매링크"
-                brand="바비브라운"
-                product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
-                is-logged-in="true"
-                discount-percent="40"
-                default-price="39"
-                current-price="61"
-                won-price="72,320"
-                image-blend-mode="on"
-                badges='["세일","베스트"]'
-              ></product-card>
-              <product-card
-                image-src="./images/products/product-img-02.png"
-                image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
-                keyword="MD 키워드 최대 2줄 노출 가능"
-                product-link="#상품구매링크"
-                brand="바비브라운"
-                product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
-                is-logged-in="true"
-                discount-percent="40"
-                default-price="39"
-                current-price="61"
-                won-price="72,320"
-                has-video="true"
-                image-blend-mode="on"
-                badges='["세일","베스트"]'
-              ></product-card>
-              <product-card
-                image-src="./images/products/product-img-02.png"
-                image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
-                product-link="#상품구매링크"
-                brand="바비브라운"
-                product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
-                is-logged-in="true"
-                discount-percent="40"
-                default-price="39"
-                current-price="61"
-                won-price="72,320"
-                image-blend-mode="on"
-                badges='["세일","베스트"]'
-              ></product-card>
-            </div>
+            <ul class="all-product__grid">
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  keyword="MD 키워드 최대 2줄 노출 가능"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  has-video="true"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  keyword="MD 키워드 최대 2줄 노출 가능"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  has-video="true"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+            </ul>
             <!-- /전체 상품 Grid end -->
           </div>
         </section>
