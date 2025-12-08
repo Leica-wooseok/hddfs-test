@@ -64,13 +64,13 @@
     & li {
       list-style: none;
     }
-    &--button {
+    &-button {
       display: inline-flex;
       align-items: center;
       gap: 4px;
       @include kr-p2-700;
 
-      &.link img {
+      &--link img {
         transform: rotate(-90deg);
       }
     }
@@ -78,16 +78,15 @@
   &__main-guide {
     display: flex;
     align-items: center;
+  }
+  &__main-exchange {
+    margin-left: auto;
+    color: $font-cool-grey2;
+    display: flex;
+    gap: 4px;
 
-    &--exchange {
-      margin-left: auto;
-      color: $font-cool-grey2;
-      display: flex;
-      gap: 4px;
-
-      & strong {
-        font-weight: 700;
-      }
+    & strong {
+      font-weight: 700;
     }
   }
   &__main-terms {
