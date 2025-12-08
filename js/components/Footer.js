@@ -11,7 +11,7 @@ class Footer extends HTMLElement {
         <!-- 공지사항  -->
         <a href="${noticeLink}" class="footer__notice">
           <span>${noticeText}</span>
-          <img src="./images/icons/ic-m-arrow-right.svg" alt="" />
+          <img src="./images/icons/ic-m-arrow-right.svg" alt="" aria-hidden="true" />
         </a>
         <!-- /공지사항 end -->
 
@@ -33,19 +33,19 @@ class Footer extends HTMLElement {
               <li>
                 <a href="#this" class="footer__main-menu-button footer__main-menu-button--link">
                   <span>H.Point</span>
-                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" aria-hidden="true" />
                 </a>
               </li>
               <li>
                 <button type="button" class="footer__main-menu-button">
                   <span>Family Site</span>
-                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" aria-hidden="true" />
                 </button>
               </li>
               <li>
                 <button type="button" class="footer__main-menu-button">
                   <span>㈜현대디에프</span>
-                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" aria-hidden="true" />
                 </button>
               </li>
             </ul>

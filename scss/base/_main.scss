@@ -1,3 +1,4 @@
+@use "../base/typography" as *;
 @use "../utils/mixins" as *;
 @use "../utils/variables" as *;
 
@@ -19,6 +20,25 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+// Skip Link (키보드 접근성)
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 9999;
+  padding: 8px 16px;
+  background-color: $font-dark;
+  color: $color-white;
+  text-decoration: none;
+  @include kr-p2-500;
+
+  &:focus {
+    top: 0;
+    outline: 2px solid $font-dark;
+    outline-offset: 2px;
+  }
 }
 
 .flex {

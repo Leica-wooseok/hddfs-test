@@ -8,8 +8,9 @@ class MoreButton extends HTMLElement {
     this.button.type = "button";
     this.button.className = "more-button";
 
-    this.button.textContent =
-      this.getAttribute("text") || this.textContent || "More";
+    const buttonText = this.getAttribute("text") || this.textContent || "More";
+    this.button.textContent = buttonText;
+    this.button.setAttribute("aria-label", `${buttonText} - 브랜드 사은행사 검색 팝업 열기`);
 
     this.innerHTML = "";
     this.appendChild(this.button);

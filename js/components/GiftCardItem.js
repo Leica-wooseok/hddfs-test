@@ -5,7 +5,7 @@ class GiftCardItem extends HTMLElement {
     this.innerHTML = `
       <div class="gift__image">
         <img src="" alt="">
-        <div class="soldout" style="display: none;">재고소진</div>
+        <div class="soldout" style="display: none;" role="status" aria-live="polite">재고소진</div>
       </div>
       <div class="gift__info">
         <strong class="gift__info-terms"></strong>
@@ -50,7 +50,12 @@ class GiftCardItem extends HTMLElement {
         this.termsEl.style.color = newValue;
         break;
       case "sold-out":
-        this.soldoutEl.style.display = newValue === "true" ? "flex" : "none";
+        const isSoldOut = newValue === "true";
+        this.soldoutEl.style.display = isSoldOut ? "flex" : "none";
+        // 품절 상태를 스크린 리더에게 알림
+        if (isSoldOut && this.descEl.textContent) {
+          this.setAttribute("aria-label", `${this.descEl.textContent} - 재고소진`);
+        }
         break;
     }
   }

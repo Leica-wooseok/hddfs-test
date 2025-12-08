@@ -8,6 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
       nextEl: ".recommend__swiper-button--next",
       prevEl: ".recommend__swiper-button--prev",
     },
+    a11y: {
+      enabled: true,
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      firstSlideMessage: "첫 번째 슬라이드",
+      lastSlideMessage: "마지막 슬라이드",
+    },
+    on: {
+      slideChange: function () {
+        const announcement = document.createElement("div");
+        announcement.setAttribute("role", "status");
+        announcement.setAttribute("aria-live", "polite");
+        announcement.className = "visually-hidden";
+        announcement.textContent = `${this.activeIndex + 1} / ${
+          this.slides.length
+        } 슬라이드`;
+        document.body.appendChild(announcement);
+        setTimeout(() => announcement.remove(), 1000);
+      },
+    },
     breakpoints: {
       0: {
         // mobile
@@ -34,6 +54,26 @@ document.addEventListener("DOMContentLoaded", function () {
     navigation: {
       nextEl: ".all-product__swiper-button--next",
       prevEl: ".all-product__swiper-button--prev",
+    },
+    a11y: {
+      enabled: true,
+      prevSlideMessage: "이전 슬라이드",
+      nextSlideMessage: "다음 슬라이드",
+      firstSlideMessage: "첫 번째 슬라이드",
+      lastSlideMessage: "마지막 슬라이드",
+    },
+    on: {
+      slideChange: function () {
+        const announcement = document.createElement("div");
+        announcement.setAttribute("role", "status");
+        announcement.setAttribute("aria-live", "polite");
+        announcement.className = "visually-hidden";
+        announcement.textContent = `${this.activeIndex + 1} / ${
+          this.slides.length
+        } 슬라이드`;
+        document.body.appendChild(announcement);
+        setTimeout(() => announcement.remove(), 1000);
+      },
     },
     breakpoints: {
       0: {

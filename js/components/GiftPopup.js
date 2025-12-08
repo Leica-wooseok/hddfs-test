@@ -250,13 +250,18 @@ class GiftPopup extends HTMLElement {
     if (searchForm) {
       searchForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        const keyword = searchForm.querySelector('input[name="keyword"]').value;
+        const searchInput = searchForm.querySelector('input[name="keyword"]');
+        const keyword = searchInput.value;
 
         if (!keyword.trim()) {
+          searchInput.setAttribute("aria-invalid", "true");
           if (statusEl) {
             statusEl.textContent = "검색어를 입력해주세요";
           }
+          searchInput.focus();
           return;
+        } else {
+          searchInput.setAttribute("aria-invalid", "false");
         }
 
         console.log("검색 키워드:", keyword);

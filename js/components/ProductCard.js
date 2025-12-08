@@ -99,15 +99,17 @@ class ProductCard extends HTMLElement {
         </a>
         ${
           isSoldOut
-            ? `<a href="${refillLink}" class="alert-refill">재입고 알림</a>`
+            ? `<a href="${refillLink}" class="alert-refill" aria-label="${brand} ${productName} 재입고 알림 신청">재입고 알림</a>`
             : `<a
           href="${cartLink}"
           class="add-cart"
+          aria-label="${brand} ${productName} 장바구니에 담기"
         >
           <span>
             <img
               src="./images/icons/ic-m-shoppinbag.svg"
-              alt="장바구니 담기"
+              alt=""
+              aria-hidden="true"
             />
           </span>
           장바구니 담기

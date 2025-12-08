@@ -61,11 +61,13 @@
       <app-header title="사은행사"></app-header>
       <!-- header end -->
       <!-- main -->
-      <main>
+      <main id="main-content">
         <!-- hero section -->
         <section class="hero" style="background-color: #f3e1cc">
           <div class="container hero__inner">
-            <p class="hero__date">2025.01.01 - 재고소진시까지</p>
+            <p class="hero__date">
+              <time datetime="2025-01-01">2025.01.01</time> - 재고소진시까지
+            </p>
             <div class="hero__title-box">
               <h1 class="hero__title">아이오페 단독 프로모션</h1>
               <p class="hero__desc">현대면세점 단독 혜택도 만나보세요!</p>
@@ -185,15 +187,17 @@
           <!-- Bottom area -->
           <div class="event-attention-area">
             <!-- 브랜드관 -->
-            <figure class="brand">
-              <h3 class="brand__title">브랜드관</h3>
-              <img
-                src="./images/pages/type1_a/brand-iope.png"
-                alt="아이오페 브랜드 로고"
-                class="brand__image"
-              />
-              <figcaption class="brand__name">아이오페</figcaption>
-            </figure>
+            <section class="brand" aria-labelledby="brand-title">
+              <h3 id="brand-title" class="brand__title">브랜드관</h3>
+              <figure>
+                <img
+                  src="./images/pages/type1_a/brand-iope.png"
+                  alt="아이오페 브랜드 로고"
+                  class="brand__image"
+                />
+                <figcaption class="brand__name">아이오페</figcaption>
+              </figure>
+            </section>
             <!-- 브랜드관 end -->
 
             <!-- 유의 사항  -->
@@ -223,7 +227,7 @@
           <div class="container">
             <!-- 추천 상품  -->
             <div class="recommend recommend_area">
-              <h5 class="recommend__title">추천상품</h5>
+              <h2 class="recommend__title">추천상품</h2>
               <div class="swiper-container-outer">
                 <div class="recommend__product-list swiper">
                   <ul class="swiper-wrapper">
@@ -363,7 +367,9 @@
                 <button
                   type="button"
                   role="tab"
+                  id="brand-tab-1"
                   aria-selected="true"
+                  aria-controls="brand-panel-1"
                   class="filter-tab__button filter-tab__button--active"
                 >
                   아우구스티누스 바더
@@ -371,7 +377,9 @@
                 <button
                   type="button"
                   role="tab"
+                  id="brand-tab-2"
                   aria-selected="false"
+                  aria-controls="brand-panel-2"
                   class="filter-tab__button"
                 >
                   아우구스티누스 바더
@@ -383,9 +391,9 @@
             <!-- 추천 상품 슬라이드 -->
             <div class="all-product__recommend">
               <div class="container">
-                <h5 class="all-product__recommend__title">
+                <h2 class="all-product__recommend__title">
                   이런 상품은 어떠세요?
-                </h5>
+                </h2>
                 <div class="swiper-container-outer">
                   <div class="all-product__recommend__list swiper">
                     <ul class="swiper-wrapper">

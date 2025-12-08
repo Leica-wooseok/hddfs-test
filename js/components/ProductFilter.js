@@ -40,11 +40,13 @@ class ProductFilter extends HTMLElement {
           alt="정보 아이콘"
         />
         <span class="product-filter__toggle-text">품절</span>
-        <label class="toggle-switch">
+        <label class="toggle-switch" for="sortSoldOut">
+          <span class="visually-hidden">품절 상품 숨기기</span>
           <input
             class="toggle-switch-input"
             id="sortSoldOut"
             type="checkbox"
+            aria-label="품절 상품 숨기기"
           />
           <span class="toggle-switch-round"></span>
         </label>
@@ -56,21 +58,32 @@ class ProductFilter extends HTMLElement {
             type="button"
             class="product-filter__button product-filter__button--sort"
             id="sortButton"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-controls="sortDropdown"
+            aria-label="정렬 옵션 선택"
           >
             <span class="product-filter__sort-text">${defaultSortLabel}</span>
             <img
               class="product-filter__sort-icon"
               src="./images/icons/ic-m-arrow-down.svg"
-              alt="아래 화살표 아이콘"
+              alt=""
+              aria-hidden="true"
             />
           </button>
-          <ul class="product-filter__sort-dropdown" id="sortDropdown">
+          <ul class="product-filter__sort-dropdown" id="sortDropdown" role="listbox" aria-label="정렬 옵션">
             ${sortOptions
               .map(
                 (option, index) => `
-              <li class="product-filter__sort-item ${
-                option.value === defaultSort ? "active" : ""
-              }" data-value="${option.value}">
+              <li
+                class="product-filter__sort-item ${
+                  option.value === defaultSort ? "active" : ""
+                }"
+                role="option"
+                aria-selected="${option.value === defaultSort ? "true" : "false"}"
+                data-value="${option.value}"
+                tabindex="0"
+              >
                 ${option.label}
               </li>
             `
@@ -121,6 +134,7 @@ class ProductFilter extends HTMLElement {
       sortDropdown.classList.add("active");
       dropdownOverlay.classList.add("active");
       sortIcon.classList.add("rotate");
+      sortButton.setAttribute("aria-expanded", "true");
     };
 
     // 드롭다운 닫기
@@ -128,6 +142,7 @@ class ProductFilter extends HTMLElement {
       sortDropdown.classList.remove("active");
       dropdownOverlay.classList.remove("active");
       sortIcon.classList.remove("rotate");
+      sortButton.setAttribute("aria-expanded", "false");
     };
 
     // 정렬 버튼 클릭
@@ -137,13 +152,17 @@ class ProductFilter extends HTMLElement {
     });
 
     // 드롭다운 아이템 클릭
-    sortItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        // 모든 아이템에서 active 제거
-        sortItems.forEach((i) => i.classList.remove("active"));
+    sortItems.forEach((item, index) => {
+      const selectItem = () => {
+        // 모든 아이템에서 active 제거 및 aria-selected 업데이트
+        sortItems.forEach((i) => {
+          i.classList.remove("active");
+          i.setAttribute("aria-selected", "false");
+        });
 
-        // 클릭한 아이템에 active 추가
+        // 클릭한 아이템에 active 추가 및 aria-selected 업데이트
         item.classList.add("active");
+        item.setAttribute("aria-selected", "true");
 
         // 버튼 텍스트 변경
         sortText.textContent = item.textContent.trim();
@@ -158,7 +177,50 @@ class ProductFilter extends HTMLElement {
 
         // 드롭다운 닫기
         closeDropdown();
+        sortButton.focus();
+      };
+
+      item.addEventListener("click", selectItem);
+
+      // 키보드 네비게이션 (WCAG 2.1.1 준수)
+      item.addEventListener("keydown", (e) => {
+        let targetIndex;
+
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          targetIndex = (index + 1) % sortItems.length;
+          sortItems[targetIndex].focus();
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          targetIndex = (index - 1 + sortItems.length) % sortItems.length;
+          sortItems[targetIndex].focus();
+        } else if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          selectItem();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          closeDropdown();
+          sortButton.focus();
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          sortItems[0].focus();
+        } else if (e.key === "End") {
+          e.preventDefault();
+          sortItems[sortItems.length - 1].focus();
+        }
       });
+    });
+
+    // 정렬 버튼 키보드 네비게이션
+    sortButton.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        e.preventDefault();
+        if (!sortDropdown.classList.contains("active")) {
+          openDropdown();
+        }
+        const firstItem = sortItems[0];
+        if (firstItem) firstItem.focus();
+      }
     });
 
     // 배경 오버레이 클릭 시 닫기
