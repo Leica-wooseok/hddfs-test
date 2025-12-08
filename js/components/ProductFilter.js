@@ -24,6 +24,12 @@ class ProductFilter extends HTMLElement {
 
     this.className = "product-filter";
     this.innerHTML = `
+      <button
+        type="button"
+        class="product-filter__button product-filter__button--desktop"
+      >
+        Filter 
+      </button>
       <span class="product-filter__total">총
         <em>${totalCount}건</em>
       </span>
@@ -43,7 +49,7 @@ class ProductFilter extends HTMLElement {
           <span class="toggle-switch-round"></span>
         </label>
       </div>
-      <div class="divider"></div>
+      <div class="product-filter-divider"></div>
       <div class="product-filter__actions">
         <div class="product-filter__sort-wrapper">
           <button
@@ -74,7 +80,7 @@ class ProductFilter extends HTMLElement {
         </div>
         <button
           type="button"
-          class="product-filter__button product-filter__button--open"
+          class="product-filter__button product-filter__button--mobile"
         >
           필터 열기
           <img

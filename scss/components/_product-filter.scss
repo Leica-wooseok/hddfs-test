@@ -13,6 +13,9 @@
     box-sizing: content-box;
     max-width: $tablet-content-max-width;
   }
+  @include responsive(desktop) {
+    margin-top: 40px;
+  }
 
   &__total {
     margin-right: auto;
@@ -21,7 +24,7 @@
     gap: 4px;
     @include kr-p2-500;
   }
-  .divider {
+  .product-filter-divider {
     margin: 0 16px;
     width: 1px;
     height: 16px;
@@ -100,13 +103,44 @@
         height: 16px;
       }
     }
-    &--open {
+    &--desktop {
+      display: none;
+      visibility: hidden;
+      @include responsive(desktop) {
+        margin-right: 20px;
+        display: flex;
+        visibility: visible;
+        height: 28px;
+        padding: 0 10px;
+        align-items: center;
+        border-radius: 4px;
+        background: $bg-footer-menu;
+        color: $color-white;
+        text-transform: uppercase;
+        @include kr-p3-500;
+
+        &::after {
+          content: "";
+          width: 8px;
+          height: 1px;
+          margin-left: 10px;
+          display: block;
+          background: $color-white;
+        }
+      }
+    }
+    &--mobile {
       width: 32px;
       height: 32px;
       text-indent: -9999px;
       overflow: hidden;
       border-radius: 4px;
       @include border;
+
+      @include responsive(desktop) {
+        display: none;
+        visibility: hidden;
+      }
     }
   }
 }

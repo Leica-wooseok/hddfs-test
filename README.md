@@ -4,6 +4,8 @@
 
 ## 구현 코드에 대한 설명 및 주요 고려 사항 문서화
 
+## web component 사용으로 live server | npx server | npx http server -p 8000 사용 필요
+
 ## HTML구조 설계의 핵심 고려 사항
 
 - 시멘틱 마크업

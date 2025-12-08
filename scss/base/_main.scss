@@ -41,9 +41,16 @@ li {
   }
   &__03 {
     padding-top: 12px;
+    @include responsive(desktop) {
+      padding-top: 56px;
+    }
   }
 }
 .divider {
   height: 8px;
   background-color: $bg-pale-grey;
+  @include responsive(desktop) {
+    display: none;
+    visibility: hidden;
+  }
 }
