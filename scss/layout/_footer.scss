@@ -2,3 +2,105 @@
 @use "../utils/functions" as *;
 @use "../utils/variables" as *;
 @use "../utils/mixins" as *;
+
+.footer {
+  &__notice {
+    height: 52px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: $font-slate-grey;
+    @include border(top, 1px, solid, $line-pale-grey);
+    @include kr-p2-400;
+
+    & img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__menu {
+    height: 52px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $bg-footer-menu;
+
+    &-link {
+      color: $font-cool-grey2;
+      @include kr-p2-400;
+    }
+  }
+
+  & .vertical-line {
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 12px;
+      width: 1px;
+      margin: 0 12px;
+      background: $line-slate-grey;
+    }
+    &:last-of-type::after {
+      display: none;
+    }
+  }
+  &__main {
+    padding: 20px 20px 70px;
+    background: $font-dark;
+    color: $font-steel;
+    @include kr-p2-400;
+  }
+  &__main-divider {
+    margin: 20px 0;
+    border-color: $bg-slate-grey;
+  }
+  &__main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    & li {
+      list-style: none;
+    }
+    &--button {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      @include kr-p2-700;
+
+      &.link img {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  &__main-guide {
+    display: flex;
+    align-items: center;
+
+    &--exchange {
+      margin-left: auto;
+      color: $font-cool-grey2;
+      display: flex;
+      gap: 4px;
+
+      & strong {
+        font-weight: 700;
+      }
+    }
+  }
+  &__main-terms {
+    display: flex;
+    align-items: center;
+    @include kr-p3-400;
+
+    &--pale-grey {
+      color: $font-pale-grey;
+    }
+  }
+  &__main-copyright {
+    margin-top: 20px;
+    @include kr-cp1-400;
+  }
+}

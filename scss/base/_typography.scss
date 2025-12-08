@@ -82,6 +82,10 @@ body {
   font-weight: 500;
   @include kr-p2;
 }
+@mixin kr-p2-700 {
+  font-weight: 700;
+  @include kr-p2;
+}
 
 @mixin kr-p3 {
   line-height: 19px;
