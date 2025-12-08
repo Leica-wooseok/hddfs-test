@@ -3,19 +3,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const recommendSwiper = new Swiper(".recommend__product-list", {
     slidesPerView: "auto",
     spaceBetween: 16,
+    slidesPerGroup: 1,
     navigation: {
-      nextEl: ".recommend__product-list .swiper-button-next",
-      prevEl: ".recommend__product-list .swiper-button-prev",
+      nextEl: ".recommend__swiper-button--next",
+      prevEl: ".recommend__swiper-button--prev",
     },
     breakpoints: {
       0: {
         // mobile
+        slidesPerView: "auto",
         navigation: {
           enabled: false,
         },
       },
       768: {
         // desktop
+        slidesPerView: 4,
         navigation: {
           enabled: true,
         },
@@ -27,19 +30,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const allProductSwiper = new Swiper(".all-product__recommend__list", {
     slidesPerView: "auto",
     spaceBetween: 16,
+    slidesPerGroup: 1,
     navigation: {
-      nextEl: ".all-product__recommend__list .swiper-button-next",
-      prevEl: ".all-product__recommend__list .swiper-button-prev",
+      nextEl: ".all-product__swiper-button--next",
+      prevEl: ".all-product__swiper-button--prev",
     },
     breakpoints: {
       0: {
         // mobile
+        slidesPerView: "auto",
         navigation: {
           enabled: false,
         },
       },
       768: {
         // desktop
+        slidesPerView: 4,
         navigation: {
           enabled: true,
         },

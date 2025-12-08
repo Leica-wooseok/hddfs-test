@@ -228,7 +228,8 @@ class GiftPopup extends HTMLElement {
           categoryButtons[newIndex].click();
         } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
           e.preventDefault();
-          newIndex = (index - 1 + categoryButtons.length) % categoryButtons.length;
+          newIndex =
+            (index - 1 + categoryButtons.length) % categoryButtons.length;
           categoryButtons[newIndex].focus();
           categoryButtons[newIndex].click();
         } else if (e.key === "Home") {
@@ -262,8 +263,6 @@ class GiftPopup extends HTMLElement {
         if (statusEl) {
           statusEl.textContent = `${keyword} 검색 중...`;
         }
-        // TODO: 실제 검색 로직 구현
-        // 검색 완료 후: statusEl.textContent = `검색 결과 5개 항목 찾음`;
       });
     }
   }

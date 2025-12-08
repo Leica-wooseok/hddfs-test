@@ -130,10 +130,6 @@
   &__product-list {
     margin-top: 20px;
   }
-  & .swiper-slide {
-    min-width: $mobile-swiper-min-width;
-    max-width: $mobile-swiper-max-width;
-  }
 }
 // 추천상품 end
 
@@ -189,10 +185,6 @@
         max-width: $tablet-content-max-width;
       }
     }
-    & .swiper-slide {
-      min-width: $mobile-swiper-min-width;
-      max-width: $mobile-swiper-max-width;
-    }
   }
 }
 
@@ -209,3 +201,64 @@
   }
 }
 // 전체상품 end
+
+// Swiper Customization
+.swiper-container-outer {
+  position: relative;
+}
+
+.recommend__product-list,
+.all-product__recommend__list {
+  .swiper-slide {
+    @media screen and (max-width: ($breakpoint-tablet - 1px)) {
+      min-width: $mobile-swiper-min-width;
+      max-width: $mobile-swiper-max-width;
+    }
+  }
+}
+
+.recommend__swiper-button--prev,
+.recommend__swiper-button--next,
+.all-product__swiper-button--prev,
+.all-product__swiper-button--next {
+  display: none;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $color-white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  z-index: 10;
+
+  @include responsive(tablet) {
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../images/icons/ic-m-arrow-right.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+  }
+}
+
+.recommend__swiper-button--prev,
+.all-product__swiper-button--prev {
+  left: -20px;
+  &::after {
+    transform: rotate(180deg);
+  }
+}
+
+.recommend__swiper-button--next,
+.all-product__swiper-button--next {
+  right: -20px;
+}
+// Swiper Customization end

@@ -3,7 +3,6 @@
 @use "../base/typography" as *;
 
 .more-button {
-  // TODO: desktop 에서 hidden
   margin: 32px 20px 0 20px;
   width: calc(100% - 40px);
   height: 48px;
