@@ -6,14 +6,14 @@ class Header extends HTMLElement {
       <header class="header">
         <div class="header__inner">
           <button type="button" class="header__button">
-            <img src="/images/icons/ic-m-back.svg" alt="" aria-hidden="true" />
+            <img src="./images/icons/ic-m-back.svg" alt="" aria-hidden="true" />
             뒤로가기
           </button>
           <div class="header__title">${title}</div>
           <div class="header__button-box">
             <button type="button" class="header__button">
               <img
-                src="/images/icons/ic-m-search.svg"
+                src="./images/icons/ic-m-search.svg"
                 alt=""
                 aria-hidden="true"
               />
@@ -21,7 +21,7 @@ class Header extends HTMLElement {
             </button>
             <button type="button" class="header__button">
               <img
-                src="/images/icons/ic-m-cart.svg"
+                src="./images/icons/ic-m-cart.svg"
                 alt=""
                 aria-hidden="true"
               />

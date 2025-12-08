@@ -72,3 +72,20 @@ $white-space: normal;
   text-overflow: $text-overflow;
   white-space: $white-space;
 }
+
+// 반응형 브레이크포인트 믹스인
+@mixin responsive($device) {
+  @if $device == tablet {
+    @media screen and (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media screen and (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  } @else if $device == large-desktop {
+    @media screen and (min-width: $breakpoint-large-desktop) {
+      @content;
+    }
+  }
+}

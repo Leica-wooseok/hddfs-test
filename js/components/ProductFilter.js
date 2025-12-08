@@ -30,7 +30,7 @@ class ProductFilter extends HTMLElement {
       <div class="product-filter__toggle">
         <img
           class="product-filter__toggle-icon"
-          src="/images/icons/ic-m-info-line.svg"
+          src="./images/icons/ic-m-info-line.svg"
           alt="정보 아이콘"
         />
         <span class="product-filter__toggle-text">품절</span>
