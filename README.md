@@ -15,6 +15,7 @@
 
 - 모바일 퍼스트
 - 언제 Desktop 화면으로 넘어갈것인가?
+- 가장 범용적으로 사용되는 break point
 
 ## Variables
 

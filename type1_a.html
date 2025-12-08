@@ -423,6 +423,168 @@
     <!-- 토스트 팝업 -->
     <alert-toast></alert-toast>
     <!-- 토스트 팝업 end -->
+
+    <!-- 사은행사 더보기 레이어 -->
+    <!-- TODO:레이어 열리면 body overflow:hidden -->
+    <div class="dim-layer">
+      <div class="mobile-popup">
+        <!-- 레이어 닫기 버튼  -->
+        <button type="button" class="close-button">
+          <!-- TODO: 버튼 클릭 시 dim-layer hidden -->
+          팝업 닫기 버튼
+        </button>
+        <!-- 레이어 닫기 버튼 end -->
+        <div class="mobile-popup-content-wrap">
+          <!-- 검색 form -->
+          <div class="search-wrap">
+            <button class="search-icon-button" type="button">
+              <img src="./images/icons/ic-m-arrow2-right.svg" alt="" />
+              뒤로가기
+            </button>
+            <form action="" name="search">
+              <input
+                type="text"
+                name="keyword"
+                class="search-input"
+                placeholder="브랜드명으로 검색해보세요"
+              />
+              <button class="search-icon-button search-form-submit">
+                <img src="./images/icons/ic-m-search.svg" alt="" />
+                검색
+              </button>
+            </form>
+          </div>
+          <!-- 검색 form end -->
+
+          <!-- 검색 카테고리 -->
+          <div class="saerch-category-wrap">
+            <ul class="saerch-category-list">
+              <!-- TODO: 클릭한 버튼 활성화 active -->
+              <li>
+                <button type="button" class="saerch-category-button active">
+                  전체
+                </button>
+              </li>
+              <li>
+                <button type="button" class="saerch-category-button">
+                  스킨케어
+                </button>
+              </li>
+              <li>
+                <button type="button" class="saerch-category-button">
+                  메이크업
+                </button>
+              </li>
+              <li>
+                <button type="button" class="saerch-category-button">
+                  향수/헤어/바디
+                </button>
+              </li>
+              <li>
+                <button type="button" class="saerch-category-button">
+                  가방/지갑
+                </button>
+              </li>
+            </ul>
+          </div>
+          <!-- 검색 카테고리 end -->
+
+          <!-- 이벤트 목록 -->
+          <ul class="event-list">
+            <li>
+              <a href="#this" class="event-link">
+                <div class="event-gift-image">
+                  <img
+                    src="./images/gifts/img-gift-1.png"
+                    alt="아우구스티누스 바더
+                  단독 구매 사은 이벤트"
+                  />
+                </div>
+                <div class="event-gift-info">
+                  <strong class="event-gift-name">
+                    아우구스티누스 바더 <br />
+                    단독 구매 사은 이벤트
+                  </strong>
+                  <span class="event-gift-text"
+                    >When purchaasing GLASS SKIN ESSENCE PACT, Heart Quilting
+                    Pouch Gift</span
+                  >
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#this" class="event-link">
+                <div class="event-gift-image">
+                  <img
+                    src="./images/gifts/img-gift-2.png"
+                    alt="아우구스티누스 바더
+                  단독 구매 사은 이벤트"
+                  />
+                </div>
+                <div class="event-gift-info">
+                  <strong class="event-gift-name">
+                    블리브유 신규입점 사은행사
+                  </strong>
+                  <span class="event-gift-text"
+                    >선착순 리뷰 이벤트 및 구매 금액별 사은행사</span
+                  >
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#this" class="event-link">
+                <div class="event-gift-image">
+                  <img
+                    src="./images/gifts/img-gift-3.png"
+                    alt="아우구스티누스 바더
+                  단독 구매 사은 이벤트"
+                  />
+                </div>
+                <div class="event-gift-info">
+                  <strong class="event-gift-name"> 설화수 8월 사은행사 </strong>
+                  <span class="event-gift-text">구매고객 100% 사은증정</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#this" class="event-link">
+                <div class="event-gift-image">
+                  <img
+                    src="./images/gifts/img-gift-4.png"
+                    alt="아우구스티누스 바더
+                  단독 구매 사은 이벤트"
+                  />
+                </div>
+                <div class="event-gift-info">
+                  <strong class="event-gift-name">
+                    정관장 신상품 출시 기념 <br />
+                    역대급 혜택
+                  </strong>
+                  <span class="event-gift-text">신상품 출시 구매 사은행사</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#this" class="event-link">
+                <div class="event-gift-image">
+                  <img
+                    src="./images/gifts/img-gift-5.png"
+                    alt="아우구스티누스 바더
+                  단독 구매 사은 이벤트"
+                  />
+                </div>
+                <div class="event-gift-info">
+                  <strong class="event-gift-name"> 라네즈 단독 기획전 </strong>
+                  <span class="event-gift-text">구매고객 100% 사은증정</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- 이벤트 목록 end -->
+        </div>
+      </div>
+    </div>
+    <!-- 사은행사 더보기 레이어 end -->
     <script src="/js/swiper-init.js"></script>
     <script src="/js/filter-tab.js"></script>
   </body>
