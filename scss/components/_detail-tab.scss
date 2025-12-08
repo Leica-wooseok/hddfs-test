@@ -28,4 +28,10 @@
       border-bottom-color: $font-dark;
     }
   }
+  @include responsive(tablet) {
+    .container {
+      max-width: $tablet-content-max-width;
+      margin: 0 auto;
+    }
+  }
 }

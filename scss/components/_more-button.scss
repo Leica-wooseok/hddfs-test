@@ -13,4 +13,10 @@
   border: none;
   cursor: pointer;
   @include kr-h4-700;
+
+  @include responsive(desktop) {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
 }

@@ -4,6 +4,10 @@
 
 .event {
   text-align: center;
+  @include responsive(tablet) {
+    margin: 0 auto;
+    max-width: $tablet-content-max-width;
+  }
 
   &__title-box {
     margin-bottom: 54px;

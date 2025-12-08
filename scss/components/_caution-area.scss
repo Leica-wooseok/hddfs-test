@@ -9,6 +9,12 @@
   padding-top: 20px;
   @include border(top, 1px, dashed);
 
+  @include responsive(tablet) {
+    margin: 32px auto 0;
+    box-sizing: content-box;
+    max-width: $tablet-content-max-width;
+  }
+
   &__title {
     display: flex;
     align-items: center;

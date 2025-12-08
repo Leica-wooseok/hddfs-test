@@ -67,6 +67,14 @@
     img {
       @include position-cover-image;
     }
+    @include responsive(tablet) {
+      max-width: $tablet-content-max-width;
+    }
+    @include responsive(desktop) {
+      max-width: 804px;
+      padding-top: 512px;
+      aspect-ratio: 804/512;
+    }
   }
 }
 // hero section end
@@ -74,6 +82,11 @@
 // event-attention-area
 .event-attention-area {
   margin-top: 64px;
+
+  @include responsive(tablet) {
+    margin: 64px auto 0;
+    max-width: $tablet-content-max-width;
+  }
 }
 
 .brand {
@@ -105,6 +118,11 @@
 .recommend {
   padding-bottom: 20px;
 
+  @include responsive(tablet) {
+    margin: 0 auto;
+    max-width: $tablet-content-max-width;
+  }
+
   &__title {
     color: $font-dark;
     @include kr-h3-700;
@@ -127,6 +145,11 @@
     padding: 8px 0;
     display: flex;
     gap: 4px;
+
+    @include responsive(tablet) {
+      margin: 0 auto;
+      max-width: $tablet-content-max-width;
+    }
 
     &__button {
       padding: 0 12px;
@@ -154,9 +177,17 @@
     &__title {
       color: $font-dark;
       @include kr-h4-700;
+      @include responsive(tablet) {
+        margin: 0 auto;
+        max-width: $tablet-content-max-width;
+      }
     }
     &__list {
       margin-top: 20px;
+      @include responsive(tablet) {
+        margin: 20px auto 0;
+        max-width: $tablet-content-max-width;
+      }
     }
     & .swiper-slide {
       min-width: $mobile-swiper-min-width;
@@ -165,110 +196,16 @@
   }
 }
 
-.product-filter {
-  margin-bottom: 12px;
-  padding: 8px 20px;
-  display: flex;
-  align-items: center;
-
-  &__total {
-    margin-right: auto;
-    color: $font-dark;
-    display: flex;
-    gap: 4px;
-    @include kr-p2-500;
-  }
-  .divider {
-    margin: 0 16px;
-    width: 1px;
-    height: 16px;
-    background-color: $line-silver;
-  }
-  &__toggle {
-    display: flex;
-    align-items: center;
-
-    &-icon {
-      margin-right: 4px;
-      width: 16px;
-      height: 16px;
-    }
-    &-text {
-      margin-right: 8px;
-      color: $font-medium-dark;
-      @include kr-p2-400;
-    }
-  }
-  .toggle-switch {
-    position: relative;
-    width: 34px;
-    height: 20px;
-  }
-  .toggle-switch-input {
-    display: none;
-    visibility: hidden;
-
-    &:checked ~ .toggle-switch-round {
-      background: $bg-slate-grey;
-      &::before {
-        left: 18px;
-      }
-    }
-  }
-  .toggle-switch-round {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    background-color: $bg-silver;
-    transition: $transition-base;
-
-    &::before {
-      content: "";
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: $color-white;
-      position: absolute;
-      left: 4px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: inherit;
-    }
-  }
-  &__actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  &__button {
-    @include flex-center;
-
-    &--sort {
-      color: $font-slate-grey;
-      gap: 4px;
-      @include kr-p3-500;
-
-      & img {
-        width: 16px;
-        height: 16px;
-      }
-    }
-    &--open {
-      width: 32px;
-      height: 32px;
-      text-indent: -9999px;
-      overflow: hidden;
-      border-radius: 4px;
-      @include border;
-    }
-  }
-}
-
 .all-product__grid {
   padding: 0 20px;
   display: grid;
   gap: 32px 9px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+
+  @include responsive(tablet) {
+    margin: 0 auto;
+    box-sizing: content-box;
+    max-width: $tablet-content-max-width;
+  }
 }
 // 전체상품 end

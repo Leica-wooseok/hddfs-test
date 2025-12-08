@@ -17,54 +17,58 @@ class Footer extends HTMLElement {
 
         <!-- Footer 메뉴 -->
         <div class="footer__menu">
-          <a href="#this" class="footer__menu-link">지점안내</a>
-          <a href="#this" class="footer__menu-link">인도장안내</a>
-          <a href="#this" class="footer__menu-link">고객센터</a>
-          <a href="#this" class="footer__menu-link">입점/제휴</a>
+          <div class="container">
+            <a href="#this" class="footer__menu-link">지점안내</a>
+            <a href="#this" class="footer__menu-link">인도장안내</a>
+            <a href="#this" class="footer__menu-link">고객센터</a>
+            <a href="#this" class="footer__menu-link">입점/제휴</a>
+          </div>
         </div>
         <!-- Footer 메뉴 end -->
 
         <!-- Footer main content -->
         <div class="footer__main">
-          <ul class="footer__main-menu">
-            <li>
-              <a href="#this" class="footer__main-menu-button footer__main-menu-button--link">
-                <span>H.Point</span>
-                <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
-              </a>
-            </li>
-            <li>
-              <button type="button" class="footer__main-menu-button">
-                <span>Family Site</span>
-                <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
-              </button>
-            </li>
-            <li>
-              <button type="button" class="footer__main-menu-button">
-                <span>㈜현대디에프</span>
-                <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
-              </button>
-            </li>
-          </ul>
-          <hr class="footer__main-divider" />
-          <div class="footer__main-guide">
-            <button type="button" class="vertical-line">PC버전</button>
-            <button type="button" class="vertical-line">中文网</button>
-            <div class="footer__main-exchange">
-              <span>환율</span>
-              <strong>${exchangeRate}</strong>
+        <div class="container">
+            <ul class="footer__main-menu">
+              <li>
+                <a href="#this" class="footer__main-menu-button footer__main-menu-button--link">
+                  <span>H.Point</span>
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                </a>
+              </li>
+              <li>
+                <button type="button" class="footer__main-menu-button">
+                  <span>Family Site</span>
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                </button>
+              </li>
+              <li>
+                <button type="button" class="footer__main-menu-button">
+                  <span>㈜현대디에프</span>
+                  <img src="./images/icons/ic-m-fill-arrow-right.svg" alt="" />
+                </button>
+              </li>
+            </ul>
+            <hr class="footer__main-divider" />
+            <div class="footer__main-guide">
+              <button type="button" class="vertical-line">PC버전</button>
+              <button type="button" class="vertical-line">中文网</button>
+              <div class="footer__main-exchange">
+                <span>환율</span>
+                <strong>${exchangeRate}</strong>
+              </div>
             </div>
-          </div>
-          <hr class="footer__main-divider" />
-          <div class="footer__main-terms">
-            <a href="#this" class="vertical-line">이용약관</a>
-            <a href="#this" class="vertical-line footer__main-terms--pale-grey">
-              개인정보처리방침</a
-            >
-            <a href="#this" class="vertical-line">영상정보 처리기기/관리방침</a>
-          </div>
-          <div class="footer__main-copyright">
-            COPYRIGHT © HYUNDAI DF Co,. Ltd. ALL RIGHTS RESERVED.
+            <hr class="footer__main-divider" />
+            <div class="footer__main-terms">
+              <a href="#this" class="vertical-line">이용약관</a>
+              <a href="#this" class="vertical-line footer__main-terms--pale-grey">
+                개인정보처리방침</a
+              >
+              <a href="#this" class="vertical-line">영상정보 처리기기/관리방침</a>
+            </div>
+            <div class="footer__main-copyright">
+              COPYRIGHT © HYUNDAI DF Co,. Ltd. ALL RIGHTS RESERVED.
+            </div>
           </div>
         </div>
         <!-- Footer main content end -->

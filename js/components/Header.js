@@ -25,7 +25,7 @@ class Header extends HTMLElement {
                 alt=""
                 aria-hidden="true"
               />
-              장바구니
+            장바구니
             </button>
           </div>
         </div>

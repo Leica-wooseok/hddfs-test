@@ -4,6 +4,7 @@
 @use "../utils/mixins" as *;
 
 .footer {
+  @include border(top, 1px, solid, $line-pale-grey);
   &__notice {
     height: 52px;
     padding: 0 20px;
@@ -11,26 +12,40 @@
     align-items: center;
     justify-content: space-between;
     color: $font-slate-grey;
-    @include border(top, 1px, solid, $line-pale-grey);
     @include kr-p2-400;
 
     & img {
       width: 16px;
       height: 16px;
     }
+    @include responsive(tablet) {
+      margin: 0 auto;
+      box-sizing: content-box;
+      max-width: $tablet-content-max-width;
+    }
   }
 
   &__menu {
     height: 52px;
-    padding: 0 22px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     background: $bg-footer-menu;
 
     &-link {
       color: $font-cool-grey2;
       @include kr-p2-400;
+    }
+    & .container {
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @include responsive(tablet) {
+      & .container {
+        margin: 0 auto;
+        box-sizing: content-box;
+        max-width: $tablet-content-max-width;
+      }
     }
   }
 
@@ -52,6 +67,14 @@
     background: $font-dark;
     color: $font-steel;
     @include kr-p2-400;
+
+    @include responsive(tablet) {
+      & .container {
+        margin: 0 auto;
+        box-sizing: content-box;
+        max-width: $tablet-content-max-width;
+      }
+    }
   }
   &__main-divider {
     margin: 20px 0;
