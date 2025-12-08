@@ -89,12 +89,21 @@
     align-items: center;
   }
   & .search-input {
+    flex: 1;
     padding-left: 12px;
     height: 60px;
     border: 0;
     &:focus {
-      flex: 1;
       outline: none;
+    }
+
+    // 브라우저 기본 검색 clear 버튼(x) 숨김
+    &::-webkit-search-cancel-button {
+      display: none;
+      -webkit-appearance: none;
+    }
+    &::-webkit-search-decoration {
+      -webkit-appearance: none;
     }
   }
 

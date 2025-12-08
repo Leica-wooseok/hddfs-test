@@ -344,15 +344,22 @@ li {
           align-items: center;
 }
 .mobile-popup-content-wrap .search-input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   padding-left: 12px;
   height: 60px;
   border: 0;
 }
 .mobile-popup-content-wrap .search-input:focus {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   outline: none;
+}
+.mobile-popup-content-wrap .search-input::-webkit-search-cancel-button {
+  display: none;
+  -webkit-appearance: none;
+}
+.mobile-popup-content-wrap .search-input::-webkit-search-decoration {
+  -webkit-appearance: none;
 }
 .mobile-popup-content-wrap .search-icon-button {
   width: 24px;

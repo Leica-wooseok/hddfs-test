@@ -49,7 +49,7 @@ class GiftPopup extends HTMLElement {
               <span id="search-help" class="visually-hidden">
                 브랜드명을 입력하고 엔터를 누르거나 검색 버튼을 클릭하세요
               </span>
-              <button type="submit" class="search-icon-button search-form-submit" aria-label="검색">
+              <button type="button" class="search-icon-button search-form-submit" aria-label="검색">
                 <img src="./images/icons/ic-m-search.svg" alt="" aria-hidden="true" />
                 <span aria-hidden="true">검색</span>
               </button>
@@ -243,33 +243,6 @@ class GiftPopup extends HTMLElement {
         }
       });
     });
-
-    // 검색 폼 제출
-    const searchForm = this.querySelector('form[name="search"]');
-    const statusEl = this.querySelector("#search-status");
-    if (searchForm) {
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const searchInput = searchForm.querySelector('input[name="keyword"]');
-        const keyword = searchInput.value;
-
-        if (!keyword.trim()) {
-          searchInput.setAttribute("aria-invalid", "true");
-          if (statusEl) {
-            statusEl.textContent = "검색어를 입력해주세요";
-          }
-          searchInput.focus();
-          return;
-        } else {
-          searchInput.setAttribute("aria-invalid", "false");
-        }
-
-        console.log("검색 키워드:", keyword);
-        if (statusEl) {
-          statusEl.textContent = `${keyword} 검색 중...`;
-        }
-      });
-    }
   }
 
   _updateFocusableElements() {
