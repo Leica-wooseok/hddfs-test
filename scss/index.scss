@@ -12,6 +12,7 @@
 @use "base/typography" as *;
 
 // 3. Components
+@use "components/alert-toast" as *;
 @use "components/detail-tab" as *;
 @use "components/event" as *;
 @use "components/gift-card" as *;
@@ -20,8 +21,7 @@
 @use "components/sort-dropdown" as *;
 @use "components/product-card" as *;
 @use "components/product-filter" as *;
-// @use "components/button" as *;
-// @use "components/card" as *;
+@use "components/alert-toast" as *;
 
 // 4. Layout
 @use "layout/container" as *;

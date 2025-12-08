@@ -13,6 +13,7 @@
     <script src="/js/color-contrast.js" defer></script>
     <script src="/js/components/Header.js" type="module"></script>
     <script src="/js/components/Footer.js" type="module"></script>
+    <script src="/js/components/AlertToast.js" type="module"></script>
     <script src="/js/components/DetailTab.js" type="module"></script>
     <script src="/js/components/GiftCardItem.js" type="module"></script>
     <script src="/js/components/CautionArea.js" type="module"></script>
@@ -192,7 +193,7 @@
                       product-link="#상품구매링크"
                       brand="바비브라운"
                       product-name="인텐시브 세럼 파운데이션 SPF 40 #Po..."
-                      cart-link="TODO: 장바구니 담기 토스트"
+                      1="TODO: 장바구니 담기 토스트"
                       is-logged-in="true"
                       discount-percent="40"
                       default-price="39"
@@ -419,6 +420,9 @@
       <app-footer></app-footer>
       <!-- /Footer end -->
     </div>
+    <!-- 토스트 팝업 -->
+    <alert-toast></alert-toast>
+    <!-- 토스트 팝업 end -->
     <script src="/js/swiper-init.js"></script>
     <script src="/js/filter-tab.js"></script>
   </body>

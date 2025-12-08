@@ -26,6 +26,19 @@ class ProductCard extends HTMLElement {
     ];
   }
 
+  _attachEventListeners() {
+    const cartButton = this.querySelector(".add-cart");
+    if (cartButton) {
+      cartButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const toast = document.querySelector("alert-toast");
+        if (toast) {
+          toast.show("장바구니에 담겼습니다 :)");
+        }
+      });
+    }
+  }
+
   _render() {
     const imageSrc = this.getAttribute("image-src") || "";
     const imageAlt = this.getAttribute("image-alt") || "";
@@ -151,6 +164,7 @@ class ProductCard extends HTMLElement {
         </a>
       </div>
     `;
+    this._attachEventListeners();
   }
 
   connectedCallback() {
