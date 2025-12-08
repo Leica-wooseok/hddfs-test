@@ -8,6 +8,19 @@
   --sal: env(safe-area-inset-left);
 }
 
+// 접근성을 위한 visually-hidden 클래스
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .flex {
   display: flex;
 }

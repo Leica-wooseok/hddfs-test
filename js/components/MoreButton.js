@@ -13,7 +13,14 @@ class MoreButton extends HTMLElement {
 
     this.innerHTML = "";
     this.appendChild(this.button);
-    // TODO: 버튼 클릭 시 사은행사 더보기 레이어 등장
+
+    // 버튼 클릭 시 사은행사 더보기 레이어 등장
+    this.button.addEventListener("click", () => {
+      const giftPopup = document.querySelector("gift-popup");
+      if (giftPopup) {
+        giftPopup.open();
+      }
+    });
   }
 }
 
