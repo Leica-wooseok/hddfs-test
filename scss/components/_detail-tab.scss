@@ -34,4 +34,7 @@
       margin: 0 auto;
     }
   }
+  @include responsive(desktop) {
+    border: 0;
+  }
 }

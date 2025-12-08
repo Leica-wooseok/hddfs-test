@@ -509,6 +509,11 @@ body {
     margin: 0 auto;
   }
 }
+@media screen and (min-width: 1024px) {
+  .detailTab {
+    border: 0;
+  }
+}
 
 .event {
   text-align: center;

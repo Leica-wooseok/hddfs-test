@@ -4,7 +4,10 @@
 
 ## 구현 코드에 대한 설명 및 주요 고려 사항 문서화
 
-## web component 사용으로 live server | npx server | npx http server -p 8000 사용 필요
+## web component 사용으로
+
+- live server | npx server | npx http server -p 8000 사용 필요
+- shadow dom 사용하지 않음: 가독성 저하, 컴포넌트마다 초기화 및 노멀라이징 필요
 
 ## HTML구조 설계의 핵심 고려 사항
 
@@ -25,10 +28,7 @@
 
   2.  1024px 이상 (Desktop)
 
-      - 이유: 가로 모드의 태블릿과 일반적인 데스크탑, 노트북 환경을 커버
-
-  3.  1440px 이상 (Large Desktop)
-      - 이유: 더 넓은 데스크탑 화면을 위한 브레이크포인트입니다. 이 구간에서는 콘텐츠가 너무 넓게 퍼져 가독성을 해치는 것을  
+      - 이유: 가로 모드의 태블릿과 일반적인 데스크탑, 노트북 환경을 커버. 이 구간에서는 콘텐츠가 너무 넓게 퍼져 가독성을 해치는 것을  
         방지하기 위해 전체 레이아웃의 최대 너비(max-width)를 설정
 
 ## Variables
