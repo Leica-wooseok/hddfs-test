@@ -6,7 +6,7 @@
 ## 📑 목차
 
 - [프로젝트 개요](#-프로젝트-개요)
-- [기술 스택](#-기술 스택)
+- [기술 스택](#-기술-스택)
 - [실행 방법](#-실행-방법)
 - [HTML 구조 설계](#-html-구조-설계)
 - [CSS 아키텍처](#-css-아키텍처)
@@ -53,13 +53,23 @@
 
 Web Components 사용으로 인해 로컬 서버 실행 권장
 
-````bash
+```bash
 # 방법 1: Live Server (VS Code Extension)
 Live Server로 HTML 파일 실행
 
 # 방법 2: npx serve
 npx serve
 
+# 방법 3: http-server
+npx http-server -p 8000
+```
+
+**SCSS 컴파일**
+
+```bash
+# VS Code Extension: Live Sass Compiler
+# scss/index.scss → css/index.css 자동 컴파일
+```
 
 ---
 
@@ -72,6 +82,12 @@ npx serve
 웹 표준 준수 및 검색 엔진 최적화를 위해 의미있는 HTML5 태그 활용
 
 ```html
+<!-- ❌ Bad -->
+<div class="header">
+  <div class="title">현대면세점</div>
+</div>
+
+<!-- ✅ Good -->
 <header>
   <h1>현대면세점</h1>
 </header>
@@ -129,6 +145,8 @@ npx serve
 **주요 접근성 기능**
 
 - `role`, `aria-label`, `aria-selected`, `aria-controls` 속성 사용
+- 키보드 네비게이션 지원
+- 스크린 리더 호환성 확보
 - `alt` 텍스트 제공
 
 #### 4. **Web Components 활용**
@@ -217,9 +235,7 @@ scss/
 │   ├── _header.scss
 │   └── _footer.scss
 ├── pages/
-│   ├── _home.scss         # 화면별 스타일 (과제는 단일 페이지)
-├── pages/
-│   └── _home.scss
+│   └── _home.scss         # 화면별 스타일
 └── index.scss             # 메인 진입점
 ```
 
@@ -343,13 +359,13 @@ $line-silver: #e0e0e0;
 }
 
 // 반응형 브레이크포인트
-@mixin breakpoint($size) {
-  @if $size == md {
-    @media (min-width: 768px) {
+@mixin responsive($device) {
+  @if $device == tablet {
+    @media screen and (min-width: $breakpoint-tablet) {
       @content;
     }
-  } @else if $size == xl {
-    @media (min-width: 1024px) {
+  } @else if $device == desktop {
+    @media screen and (min-width: $breakpoint-desktop) {
       @content;
     }
   }
@@ -371,9 +387,9 @@ $line-silver: #e0e0e0;
 ```javascript
 setupScrollObserver() {
   this.handleScroll = () => {
-    const scrollPosition = window.pageYOffset + offset;
+    const scrollPosition = window.pageYOffset + offset + DetailTab.SCROLL_OFFSET_ADJUSTMENT;
 
-    // 현재 보이는 패널 찾기
+    // 현재 보이는 패널 찾기 (역순 순회)
     for (let i = this.panels.length - 1; i >= 0; i--) {
       const panel = this.panels[i];
       if (scrollPosition >= panel.offsetTop) {
@@ -384,7 +400,8 @@ setupScrollObserver() {
   };
 
   // requestAnimationFrame으로 성능 최적화
-  window.addEventListener("scroll", () => {
+  let ticking = false;
+  this.scrollListener = () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         this.handleScroll();
@@ -392,7 +409,9 @@ setupScrollObserver() {
       });
       ticking = true;
     }
-  });
+  };
+
+  window.addEventListener("scroll", this.scrollListener);
 }
 ```
 
@@ -400,14 +419,14 @@ setupScrollObserver() {
 
 - `requestAnimationFrame`을 활용한 스크롤 쓰로틀링
 - 헤더 높이를 고려한 정확한 패널 감지
-- 현재 활성 패널 정확히 식별
+- 역순 순회로 현재 활성 패널 정확히 식별
 
 #### 2. **부드러운 스크롤 네비게이션**
 
 ```javascript
 tab.addEventListener("click", (e) => {
   const targetPanel = document.getElementById(targetId);
-  const offset = headerHeight + tabHeight;
+  const offset = this.headerHeight + tabHeight;
   const targetPosition =
     targetPanel.getBoundingClientRect().top + window.pageYOffset - offset;
 
@@ -415,8 +434,34 @@ tab.addEventListener("click", (e) => {
     top: targetPosition,
     behavior: "smooth", // 네이티브 부드러운 스크롤
   });
+
+  this.setActiveTab(tab);
 });
 ```
+
+#### 3. **색상 대비 자동 조정 (YIQ 알고리즘)**
+
+**구현 위치**: `js/color-contrast.js`
+
+```javascript
+function getTextColorForBg(bgColor) {
+  if (!bgColor || !bgColor.includes("rgb")) {
+    return "#000000";
+  }
+
+  const [r, g, b] = bgColor.match(/\d+/g).map(Number);
+
+  // YIQ 공식: (r*299 + g*587 + b*114) / 1000
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
+  return yiq >= 128 ? "#000000" : "#ffffff";
+}
+
+// 히어로 섹션 배경색에 따라 텍스트 색상 자동 조정
+applyTextContrast(".hero");
+```
+
+**목적**: WCAG 색상 대비 기준 충족
 
 #### 4. **Swiper 캐러셀 구현**
 
@@ -426,10 +471,27 @@ tab.addEventListener("click", (e) => {
 const BASE_SWIPER_CONFIG = {
   slidesPerView: "auto",
   spaceBetween: 16,
+  slidesPerGroup: 1,
   a11y: {
     enabled: true,
     prevSlideMessage: "이전 슬라이드",
     nextSlideMessage: "다음 슬라이드",
+    firstSlideMessage: "첫 번째 슬라이드",
+    lastSlideMessage: "마지막 슬라이드",
+  },
+  on: {
+    slideChange: function () {
+      // 스크린 리더를 위한 실시간 알림
+      const announcement = document.createElement("div");
+      announcement.setAttribute("role", "status");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.className = "visually-hidden";
+      announcement.textContent = `${this.activeIndex + 1} / ${
+        this.slides.length
+      } 슬라이드`;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
+    },
   },
   breakpoints: {
     0: {
@@ -441,25 +503,13 @@ const BASE_SWIPER_CONFIG = {
       navigation: { enabled: true }, // 데스크탑: 네비게이션 표시
     },
   },
-  on: {
-    slideChange: function () {
-      // 스크린 리더를 위한 실시간 알림
-      const announcement = document.createElement("div");
-      announcement.setAttribute("role", "status");
-      announcement.setAttribute("aria-live", "polite");
-      announcement.textContent = `${this.activeIndex + 1} / ${
-        this.slides.length
-      }`;
-      document.body.appendChild(announcement);
-      setTimeout(() => announcement.remove(), 1000);
-    },
-  },
 };
 ```
 
 **접근성 고려 사항**
 
 - `aria-live` 영역으로 슬라이드 변경 알림
+- 키보드 네비게이션 지원
 - 반응형 네비게이션 버튼 제어
 
 #### 5. **Web Components 생명주기 관리**
@@ -468,18 +518,22 @@ const BASE_SWIPER_CONFIG = {
 class ProductCard extends HTMLElement {
   // 관찰할 속성 정의
   static get observedAttributes() {
-    return ["image-src", "brand", "product-name", "is-logged-in"];
+    return [
+      "image-src",
+      "image-alt",
+      "product-link",
+      "brand",
+      "product-name",
+      "is-logged-in",
+      "discount-percent",
+      "default-price",
+      "current-price",
+    ];
   }
 
   // DOM에 추가될 때
   connectedCallback() {
     this._render();
-    this._attachEventListeners();
-  }
-
-  // DOM에서 제거될 때
-  disconnectedCallback() {
-    // 이벤트 리스너 정리
   }
 
   // 속성 변경 감지
@@ -493,31 +547,21 @@ class ProductCard extends HTMLElement {
 customElements.define("product-card", ProductCard);
 ```
 
-#### 6. **상품 필터 및 정렬**
+#### 6. **토스트 알림**
 
-**구현 위치**: `js/components/ProductFilter.js`
-
-```javascript
-// 드롭다운 외부 클릭 시 닫기
-handleClickOutside(e) {
-  if (!this.contains(e.target)) {
-    this.closeDropdown();
-  }
-}
-
-// 정렬 옵션 변경
-handleSortChange(value, label) {
-  this.currentSort = value;
-  this.sortButton.querySelector("span").textContent = label;
-  this.closeDropdown();
-}
-```
-
-#### 7. **토스트 알림**
+**구현 위치**: `js/components/AlertToast.js`
 
 ```javascript
 class AlertToast extends HTMLElement {
-   // 1.5초간 표시
+  connectedCallback() {
+    this.setAttribute("role", "alert");
+    this.setAttribute("aria-live", "polite");
+    this.setAttribute("aria-atomic", "true");
+    this.className = "alert-toast";
+    this.classList.add("hidden");
+  }
+
+  // 1.5초간 표시
   show(message, duration = 1500) {
     if (message) {
       this.textContent = message;
@@ -550,14 +594,14 @@ class AlertToast extends HTMLElement {
 }
 
 // 태블릿 (768px 이상)
-@include breakpoint(tablet) {
+@include responsive(tablet) {
   .container {
     padding: 0 24px;
   }
 }
 
 // 데스크탑 (1024px 이상)
-@include breakpoint(desktop) {
+@include responsive(desktop) {
   .container {
     max-width: 1024px;
     margin: 0 auto;
@@ -567,11 +611,11 @@ class AlertToast extends HTMLElement {
 
 ### 브레이크포인트 전략
 
-| 디바이스    | 최소 너비      | 적용 대상                    |
-| ----------- | -------------- | ---------------------------- |
-| **Mobile**  | 0px ~ 767px    | 기본 스타일 (모바일 우선)    |
-| **Tablet**  | 768px ~ 1023px | 아이패드, 태블릿            |
-| **Desktop** | 1024px 이상    | 노트북, 데스크탑             |
+| 디바이스    | 최소 너비      | 적용 대상                 |
+| ----------- | -------------- | ------------------------- |
+| **Mobile**  | 0px ~ 767px    | 기본 스타일 (모바일 우선) |
+| **Tablet**  | 768px ~ 1023px | 아이패드, 태블릿          |
+| **Desktop** | 1024px 이상    | 노트북, 데스크탑          |
 
 **선정 이유**
 
@@ -580,20 +624,20 @@ class AlertToast extends HTMLElement {
 
 ### 반응형 레이아웃 패턴
 
-#### 1. **Fluid Grid (유동 그리드)**
+#### 1. **Flexbox 레이아웃**
 
 ```scss
 .event__group-grid {
-  display: grid;
-  gap: 16px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 1;
 
-  // 모바일: 2열
-  grid-template-columns: 2fr;
-
-  // 데스크탑: 유동적으로 변경
-  @include breakpoint(desktop) {
-    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
-
+  & .productCard {
+    max-width: 106px;
+    width: 100%;
+    flex-shrink: 1;
   }
 }
 ```
@@ -608,22 +652,20 @@ class AlertToast extends HTMLElement {
 }
 ```
 
-
-
-#### 4. **조건부 요소 표시**
+#### 3. **조건부 요소 표시**
 
 ```scss
 // 데스크탑에서만 네비게이션 버튼 표시
 .swiper-button-custom {
   display: none;
 
-  @include breakpoint(desktop) {
+  @include responsive(desktop) {
     display: block;
   }
 }
 ```
 
-#### 5. **Max-Width 컨테이너**
+#### 4. **Max-Width 컨테이너**
 
 ```scss
 .container {
@@ -631,6 +673,13 @@ class AlertToast extends HTMLElement {
   margin: 0 auto;
   padding: 0 16px;
 
+  @include responsive(tablet) {
+    padding: 0 24px;
+  }
+
+  @include responsive(desktop) {
+    max-width: 1024px;
+  }
 }
 ```
 
@@ -658,6 +707,7 @@ breakpoints: {
 
 #### 1. **키보드 네비게이션**
 
+- 모든 인터랙티브 요소 Tab 키로 접근 가능
 - `tabindex` 적절히 설정
 - 포커스 표시 명확히 구현
 
@@ -673,8 +723,12 @@ breakpoints: {
 <div role="status" aria-live="polite">장바구니에 담겼습니다</div>
 ```
 
+#### 3. **색상 대비**
 
-#### 3. **의미있는 구조**
+- YIQ 알고리즘으로 충분한 대비 보장
+- WCAG AA 기준 4.5:1 이상
+
+#### 4. **의미있는 구조**
 
 ```html
 <!-- 올바른 heading 계층 -->
@@ -683,7 +737,7 @@ breakpoints: {
 <h3>하위 섹션</h3>
 ```
 
-#### 4. **대체 텍스트**
+#### 5. **대체 텍스트**
 
 ```html
 <img src="product.jpg" alt="바비브라운 인텐시브 세럼 파운데이션 SPF 40" />
@@ -745,6 +799,7 @@ hddfs/
 │   │   ├── CautionArea.js
 │   │   ├── ProductFilter.js
 │   │   └── MoreButton.js
+│   ├── color-contrast.js      # 색상 대비 조정
 │   ├── swiper-init.js         # Swiper 초기화
 │   └── filter-tab.js          # 필터 탭
 ├── images/                    # 이미지 리소스
@@ -755,7 +810,7 @@ hddfs/
 ├── font/                      # 웹 폰트
 ├── type-a-promo-amount.html   # Type A 페이지
 ├── type-b-promo-product.html  # Type B 페이지
-├── README.md                  # 문서
+└── README.md                  # 문서
 ```
 
 ---
@@ -785,7 +840,7 @@ class ProductCard extends HTMLElement {
 
 - 전역 스타일 공유 필요 (디자인 시스템 일관성)
 - 컴포넌트마다 CSS 초기화/정규화 불필요
-
+- 디버깅 및 스타일 커스터마이징 용이성
 
 ### SCSS 전처리기 선택
 
@@ -810,7 +865,7 @@ window.addEventListener("scroll", () => {
 });
 ```
 
-**목적**: 부드러운 스크롤 인터랙션 구현
+**목적**: 60fps 유지하며 부드러운 스크롤 인터랙션 구현
 
 ---
 
@@ -825,7 +880,7 @@ window.addEventListener("scroll", () => {
 
 - 이벤트 위임 패턴
 - requestAnimationFrame 쓰로틀링
-
+- 컴포넌트 생명주기 관리 (메모리 누수 방지)
 
 ### CSS 최적화
 
@@ -858,8 +913,25 @@ window.addEventListener("scroll", () => {
 
 1. **TypeScript 도입**: 타입 안정성 확보
 2. **번들러 도입** (Webpack/Vite): 모듈 관리 및 최적화
+3. **상태 관리 라이브러리**: Zustand 등 경량 상태 관리
+4. **테스트 코드**: Jest, Testing Library 도입
 5. **성능 모니터링**: Lighthouse 점수 측정 및 개선
 
 ---
 
-````
+## 👨‍💻 개발자 정보
+
+**이름**: 최우석
+**포지션**: 경력직 퍼블리셔
+**회사**: 현대 디에프
+**과제**: 프로모션 페이지 구현
+
+---
+
+## 📄 라이선스
+
+이 프로젝트는 채용 과제용으로 제작되었습니다.
+
+---
+
+**최종 업데이트**: 2024.12.09
