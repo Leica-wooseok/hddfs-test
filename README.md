@@ -208,7 +208,7 @@ setupScrollObserver() {
   this.handleScroll = () => {
     const scrollPosition = window.pageYOffset + offset;
 
-    // 역순 순회로 현재 패널 찾기
+    // 현재 패널 찾기
     for (let i = this.panels.length - 1; i >= 0; i--) {
       if (scrollPosition >= this.panels[i].offsetTop) {
         this.setActiveTab(correspondingTab);
@@ -233,21 +233,7 @@ setupScrollObserver() {
 
 **핵심**: requestAnimationFrame 쓰로틀링, 헤더 높이 고려
 
-### 2. 색상 대비 자동 조정
-
-**파일**: `js/color-contrast.js`
-
-```javascript
-function getTextColorForBg(bgColor) {
-  const [r, g, b] = bgColor.match(/\d+/g).map(Number);
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? "#000000" : "#ffffff";
-}
-```
-
-**목적**: YIQ 알고리즘으로 WCAG 대비 기준 충족
-
-### 3. Swiper 접근성
+### 2. Swiper 접근성
 
 **파일**: `js/swiper-init.js`
 
@@ -268,26 +254,6 @@ on: {
   }
 }
 ```
-
-### 4. Web Components 생명주기
-
-```javascript
-class ProductCard extends HTMLElement {
-  static get observedAttributes() {
-    return ["image-src", "brand", "product-name", "is-logged-in"];
-  }
-
-  connectedCallback() {
-    this._render();
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) this._render();
-  }
-}
-```
-
----
 
 ## 📱 반응형 대응 전략
 
@@ -316,18 +282,18 @@ class ProductCard extends HTMLElement {
 | Tablet   | 768px ~ 1023px | 아이패드, 태블릿 |
 | Desktop  | 1024px+        | 노트북, 데스크탑 |
 
-**선정 이유**: 768px (태블릿 세로), 1024px (태블릿 가로/데스크탑)
+**선정 이유**: Material Design, MUI, Statcounter 참고
 
 ### 레이아웃 패턴
 
 ```scss
 // Flexbox 레이아웃
-.event__group-grid {
+.productCard {
+  width: auto;
   display: flex;
-  justify-content: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 16px;
 }
-
 // 조건부 요소 표시
 .swiper-button-custom {
   display: none;
@@ -342,14 +308,9 @@ class ProductCard extends HTMLElement {
 
 ## ♿ 웹 표준 및 접근성
 
-### WCAG 2.1 Level AA 준수
+### WCAG 2.1 준수
 
-#### 1. 키보드 네비게이션
-
-- 모든 인터랙티브 요소 Tab 키 접근 가능
-- 포커스 표시 명확화
-
-#### 2. 스크린 리더 지원
+#### 1. 스크린 리더 지원
 
 ```html
 <button aria-label="장바구니에 담기">
@@ -359,12 +320,7 @@ class ProductCard extends HTMLElement {
 <div role="status" aria-live="polite">장바구니에 담겼습니다</div>
 ```
 
-#### 3. 색상 대비
-
-- YIQ 알고리즘 적용
-- WCAG AA 기준 4.5:1 이상
-
-#### 4. 의미있는 구조
+#### 2. 의미있는 구조
 
 ```html
 <h1>페이지 제목</h1>
@@ -390,7 +346,7 @@ class ProductCard extends HTMLElement {
 - React 없이 컴포넌트 기반 개발
 - 네이티브 API로 의존성 최소화
 
-**Shadow DOM 미사용**: 전역 스타일 공유, 디버깅 용이성
+**Shadow DOM 미사용**: 전역 스타일 공유
 
 ### 2. SCSS 전처리기
 
@@ -401,7 +357,7 @@ class ProductCard extends HTMLElement {
 ### 3. requestAnimationFrame
 
 ```javascript
-// 스크롤 최적화로 60fps 유지
+// 스크롤 최적화
 let ticking = false;
 window.addEventListener("scroll", () => {
   if (!ticking) {
@@ -450,7 +406,6 @@ hddfs/
 
 - 이벤트 위임 패턴
 - requestAnimationFrame 쓰로틀링
-- 컴포넌트 생명주기 관리
 
 ### CSS
 
@@ -461,7 +416,6 @@ hddfs/
 ### 이미지
 
 - SVG (icons), PNG (photos)
-- lazy loading 가능
 
 ---
 
@@ -479,24 +433,3 @@ Chrome, Firefox, Safari, Edge (최신 2개 버전)
 
 - Web Components 상태 관리의 어려움
 - TypeScript 미사용으로 타입 안정성 부족
-
-### 향후 계획
-
-1. TypeScript 도입
-2. 번들러 (Webpack/Vite)
-3. 상태 관리 라이브러리 (Zustand)
-4. 테스트 코드 (Jest)
-5. Lighthouse 성능 측정
-
----
-
-## 👨‍💻 개발자 정보
-
-**이름**: 최우석
-**포지션**: 경력직 퍼블리셔
-**회사**: 현대 디에프
-**과제**: 프로모션 페이지 구현
-
----
-
-**최종 업데이트**: 2024.12.09
