@@ -26,7 +26,6 @@
   --font-slate-grey: #5c6677;
   --font-cool-grey2: #abb2be;
   --font-steel: #788497;
-  --font-accent-color: #a58768;
   --line-silver: #dde0e5;
   --pale-grey: #eef0f2;
   --bg-pale-grey: #eef0f2;
@@ -599,9 +598,6 @@ li {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.05em;
-}
-.event__tag--primary {
-  background-color: #a58768;
 }
 .event__group {
   margin-bottom: 96px;
@@ -1665,9 +1661,6 @@ gift-card-item .gift__info-desc {
 }
 .hero * {
   color: inherit;
-}
-.hero--promo-amount {
-  background-color: #f3e1cc;
 }
 .hero__inner {
   display: -webkit-box;

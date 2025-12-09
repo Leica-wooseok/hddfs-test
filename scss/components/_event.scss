@@ -35,11 +35,6 @@
     background-color: $color-black;
     border-radius: 20px;
     @include kr-cp1-500;
-
-    // Event type variants
-    &--primary {
-      background-color: $color-accent-brown;
-    }
   }
   &__group {
     margin-bottom: 96px;
