@@ -135,9 +135,9 @@ class ProductCard extends HTMLElement {
             ${
               isLoggedIn
                 ? `<span class="percent">${discountPercent}%</span>
-            <span class="default-price">${defaultPrice}$</span>`
+            <span class="default-price">$${defaultPrice}</span>`
                 : `<p class="alert-non-member">
-              <a href="#" class="pink">로그인</a>후 할인율 확인
+              <button class="pink">로그인</button>후 할인율 확인
             </p>`
             }
           </div>

@@ -57,5 +57,22 @@
     color: $font-slate-grey;
     @include kr-p1-400;
     @include text-ellipsis-multiline(2);
+
+    &.text {
+      @include kr-p2-400;
+    }
+  }
+  &__group-grid {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 1;
+
+    & .productCard {
+      max-width: 106px;
+      width: 100%;
+      flex-shrink: 1;
+    }
   }
 }

@@ -4,6 +4,526 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>현대 면세점</title>
+    <link rel="icon" href="./images/favicon.png" type="image/png" sizes="any" />
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <!-- SEO 메타 태그 -->
+    <meta name="description" content="에브리타임 배/ 한라봉 플레이버 출시" />
+    <meta name="keywords" content="정관장 신상품 출시 기념 역대급 혜택" />
+    <meta name="author" content="현대 면세점" />
+
+    <!-- Open Graph  -->
+    <meta property="og:title" content="정관장 신상품 출시 기념 역대급 혜택" />
+    <meta
+      property="og:description"
+      content="에브리타임 배/ 한라봉 플레이버 출시"
+    />
+    <meta property="og:image" content="./images/pages/type1_b/hero_image.jpg" />
+    <meta property="og:url" content="https:///type-b-promo-product.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter Card (트위터 공유 최적화) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="정관장 신상품 출시 기념 역대급 혜택" />
+    <meta
+      name="twitter:description"
+      content="에브리타임 배/ 한라봉 플레이버 출시"
+    />
+    <meta
+      name="twitter:image"
+      content="./images/pages/type1_b/hero_image.jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/color-contrast.js" defer></script>
+    <script src="./js/components/AlertToast.js" defer></script>
+    <script src="./js/components/GiftPopup.js" defer></script>
+    <script src="./js/components/MoreButton.js" defer></script>
+    <script src="./js/components/ProductCard.js" defer></script>
+    <script src="./js/components/Header.js" defer></script>
+    <script src="./js/components/Footer.js" defer></script>
+    <script src="./js/components/DetailTab.js" defer></script>
+    <script src="./js/components/GiftCardItem.js" defer></script>
+    <script src="./js/components/CautionArea.js" defer></script>
+    <script src="./js/components/ProductFilter.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div id="wrap">
+      <!-- header -->
+      <app-header title="사은행사"></app-header>
+      <!-- header end -->
+      <!-- main -->
+      <main id="main-content">
+        <!-- hero section -->
+        <section class="hero" style="background-color: #fdeaca">
+          <div class="container hero__inner">
+            <p class="hero__date">
+              <time datetime="2025-01-01">2024.07.29</time> - 재고소진시까지
+            </p>
+            <div class="hero__title-box">
+              <h1 class="hero__title">
+                정관장 신상품 출시 기념 <br />
+                역대급 혜택
+              </h1>
+              <p class="hero__desc">에브리타임 배/ 한라봉 플레이버 출시</p>
+            </div>
+            <div class="hero__image-box">
+              <img
+                src="./images/pages/type1_b/hero_image.jpg"
+                alt="정관장 신상품 출시 기념
+                역대급 혜택"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- /hero section end -->
+
+        <!-- tab -->
+        <detail-tab
+          items='[{"label":"사은행사","target":"panel_01"},{"label":"추천상품","target":"panel_02"},{"label":"전체상품","target":"panel_03"}]'
+        ></detail-tab>
+        <!-- /tab end -->
+
+        <!-- panel 01 -->
+        <section
+          id="panel_01"
+          role="tabpanel"
+          aria-labelledby="tab_panel_01"
+          class="panel panel__01"
+        >
+          <div class="container">
+            <!-- 사은품 이벤트  -->
+            <div class="event">
+              <!-- 사은품 그룹 1 -->
+              <div class="event__group">
+                <div class="event__tag" style="background-color: #ffb546">
+                  Event 1
+                </div>
+                <div class="event__group-title-box">
+                  <h3 class="event__group-title">
+                    정관장 신상품 출시기념 사은행사
+                  </h3>
+                  <p class="event__group-desc text">
+                    에브리타임 배/한라봉 플레이버(택1) 포함 $300 이상 구매 시
+                    <br />
+                    (일반 소비자가 150만원 상당)
+                  </p>
+                </div>
+                <div class="event__group-grid">
+                  <product-card
+                    image-src="./images/pages/type1_b/products/product-img-01.png"
+                    image-alt="에브리타임 배플레이버 (10ml*20포) 이미지"
+                    product-link="#상품구매링크"
+                    product-name="에브리타임 배플레이버 (10ml*20포) "
+                    is-logged-in="true"
+                    discount-percent="40"
+                    default-price="39"
+                    current-price="61"
+                  ></product-card>
+                  <product-card
+                    image-src="./images/pages/type1_b/products/product-img-02.png"
+                    image-alt="에브리타임 한라봉플레이버 (10ml*20포) 이미지"
+                    product-link="#상품구매링크"
+                    product-name="에브리타임 한라봉플레이버 (10ml*20포) "
+                    is-logged-in="true"
+                    discount-percent="40"
+                    default-price="39"
+                    current-price="61"
+                  ></product-card>
+                </div>
+                <div class="event__card-root mt-24">
+                  <div class="gift-card__badge">Gift</div>
+                  <ul class="gift__card-itemst">
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="./images/pages/type1_b/gwp/gwp-img_01.png"
+                        image-alt="황진단천 노블라인(20환) 증정"
+                        terms="행사상품(택1)포함 $300이상 구매시 &nbsp; 행사상품(택1)포함 $300이상 구매시"
+                        terms-color="#E2913D"
+                        description="황진단천 노블라인(20환) 증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- /사은품 그룹 1 end -->
+
+              <!-- 사은품 그룹 2 -->
+              <div class="event__group">
+                <div class="event__tag" style="background-color: #ffb546">
+                  Event 2
+                </div>
+                <div class="event__group-title-box">
+                  <h3 class="event__group-title">
+                    행사상품 동시구매 시 사은품 증정
+                  </h3>
+                  <p class="event__group-desc text">
+                    홍삼정 에브리타임로얄 면세에디션(100포) + 에브리타임
+                    배/한라봉(택1) 동시 구매 시
+                  </p>
+                </div>
+                <div class="event__group-grid">
+                  <product-card
+                    image-src="./images/pages/type1_b/products/product-img-03.png"
+                    image-alt="홍삼정에브리타임로얄 면세에디션(100포) 이미지"
+                    product-link="#상품구매링크"
+                    product-name="홍삼정에브리타임로얄 면세에디션(100포) "
+                    is-logged-in="false"
+                    current-price="61"
+                  ></product-card>
+                  <product-card
+                    image-src="./images/pages/type1_b/products/product-img-01.png"
+                    image-alt="에브리타임 배플레이버 (10ml*20포) 이미지"
+                    product-link="#상품구매링크"
+                    product-name="에브리타임 배플레이버 (10ml*20포) "
+                    is-logged-in="true"
+                    discount-percent="40"
+                    default-price="39"
+                    current-price="61"
+                    is-sold-out="true"
+                  ></product-card>
+                  <product-card
+                    image-src="./images/pages/type1_b/products/product-img-02.png"
+                    image-alt="에브리타임 한라봉플레이버 (10ml*20포) 이미지"
+                    product-link="#상품구매링크"
+                    product-name="에브리타임 한라봉플레이버 (10ml*20포) "
+                    is-logged-in="true"
+                    discount-percent="40"
+                    default-price="39"
+                    current-price="61"
+                  ></product-card>
+                </div>
+                <div class="event__card-root mt-24">
+                  <div class="gift-card__badge">Gift</div>
+                  <ul class="gift__card-itemst">
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="./images/pages/type1_b/gwp/gwp-img_02.png"
+                        image-alt="에브리타임 필름 260mg 20매  증정"
+                        description="에브리타임 필름 260mg 20매  증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                    <li class="gift__card-item">
+                      <gift-card-item
+                        image-src="./images/pages/type1_b/gwp/gwp-img_03.png"
+                        image-alt="아미노 활기력샷 20ml*10병 증정"
+                        description="아미노 활기력샷 20ml*10병 증정"
+                        sold-out="false"
+                      ></gift-card-item>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- /사은품 그룹 2 end -->
+            </div>
+            <!-- /사은품 이벤트 end -->
+          </div>
+          <!-- Bottom area -->
+          <div class="event-attention-area">
+            <!-- 브랜드관 -->
+            <section class="brand" aria-labelledby="brand-title">
+              <h3 id="brand-title" class="brand__title">브랜드관</h3>
+              <figure>
+                <img
+                  src="./images/pages/type1_b/brand-jkj.png"
+                  alt="정관장장 브랜드 로고"
+                  class="brand__image"
+                />
+                <figcaption class="brand__name">정관장</figcaption>
+              </figure>
+            </section>
+            <!-- 브랜드관 end -->
+
+            <!-- 유의 사항  -->
+            <caution-area
+              icon-src="./images/icons/ic-m-exclamation.svg"
+              icon-alt="유의사항 아이콘"
+              title="유의사항"
+              items='["한 ID 당 1일 1회 증정됩니다.","사은품은 중복 증정이 되지 않습니다.","사은품은 디자인 및 구성이 임의로 증정되며, 선택할 수 없습니다.","사은품의 재고 소진 이후에도 해당 페이지와 관련 배너는 보여질 수 있습니다."]'
+              danger-item-index="3"
+            ></caution-area>
+            <!-- /유의 사항 end -->
+            <more-button text="더 많은 사은행사가 궁금하다면"></more-button>
+          </div>
+          <!-- /Bottom area -->
+        </section>
+        <!-- /panel 01 end -->
+        <hr class="divider" />
+        <!-- panel 02 -->
+        <section
+          id="panel_02"
+          role="tabpanel"
+          aria-labelledby="tab_panel_02"
+          class="panel panel__02"
+        >
+          <div class="container">
+            <!-- 추천 상품  -->
+            <div class="recommend recommend_area">
+              <h2 class="recommend__title">추천상품</h2>
+              <div class="swiper-container-outer">
+                <div class="recommend__product-list swiper">
+                  <ul class="swiper-wrapper">
+                    <!-- 상품 카드 컴포넌트 -->
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-01.png"
+                        image-alt="인텐시브 세럼 파운데이션 SPF 40 #Po...이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="인텐시브 세럼 파운데이션 SPF 40 #Po..."
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        is-sold-out="true"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-02.png"
+                        image-alt="엑스트라 리페어 모이스춰 크림 인텐스...이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 리페어 모이스춰 크림 인텐스..."
+                        is-logged-in="false"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-03.png"
+                        image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 립 틴트 #베어 체리"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-03.png"
+                        image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 립 틴트 #베어 체리"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-03.png"
+                        image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 립 틴트 #베어 체리"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-03.png"
+                        image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 립 틴트 #베어 체리"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <li class="swiper-slide">
+                      <product-card
+                        image-src="./images/products/product-img-03.png"
+                        image-alt="엑스트라 립 틴트 #베어 체리이미지"
+                        product-link="#상품구매링크"
+                        brand="바비브라운"
+                        product-name="엑스트라 립 틴트 #베어 체리"
+                        is-logged-in="true"
+                        discount-percent="40"
+                        default-price="39"
+                        current-price="61"
+                        won-price="72,320"
+                      ></product-card>
+                    </li>
+                    <!-- 상품 카드 컴포넌트 end -->
+                  </ul>
+                </div>
+                <!-- 네비게이션 버튼 (desktop only) -->
+                <button
+                  type="button"
+                  class="swiper-button-custom recommend__swiper-button--prev"
+                  aria-label="이전 상품 보기"
+                ></button>
+                <button
+                  type="button"
+                  class="swiper-button-custom recommend__swiper-button--next"
+                  aria-label="다음 상품 보기"
+                ></button>
+              </div>
+            </div>
+            <!-- 추천 상품 end -->
+          </div>
+        </section>
+        <!-- /panel 02 end -->
+        <hr class="divider" />
+        <!-- panel 03 -->
+        <section
+          id="panel_03"
+          role="tabpanel"
+          aria-labelledby="tab_panel_03"
+          class="panel panel__03"
+        >
+          <div class="all-product">
+            <!-- 상단 필터 탭 -->
+            <div class="container">
+              <div class="filter-tab" role="tablist" aria-label="브랜드 필터">
+                <button
+                  type="button"
+                  role="tab"
+                  id="brand-tab-1"
+                  aria-selected="true"
+                  aria-controls="brand-panel-1"
+                  class="filter-tab__button filter-tab__button--active"
+                >
+                  아우구스티누스 바더
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  id="brand-tab-2"
+                  aria-selected="false"
+                  aria-controls="brand-panel-2"
+                  class="filter-tab__button"
+                >
+                  아우구스티누스 바더
+                </button>
+              </div>
+            </div>
+            <!-- 상단 필터 탭 end -->
+
+            <!-- 전체 상품 필터 -->
+            <product-filter
+              total-count="1,234"
+              sort-options='[{"value":"best","label":"베스트순"},{"value":"asc","label":"오름차순"},{"value":"desc","label":"내림차순"}]'
+              default-sort="best"
+            ></product-filter>
+            <!-- 전체 상품 필터 end -->
+
+            <!-- 전체 상품 Grid -->
+            <ul class="all-product__grid">
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  keyword="MD 키워드 최대 2줄 노출 가능"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  has-video="true"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  keyword="MD 키워드 최대 2줄 노출 가능"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  has-video="true"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+              <li>
+                <product-card
+                  image-src="./images/products/product-img-02.png"
+                  image-alt="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... 이미지"
+                  product-link="#상품구매링크"
+                  brand="바비브라운"
+                  product-name="상품명 최대 2줄 노출 가능, 2줄 이상 말줄임 ... "
+                  is-logged-in="true"
+                  discount-percent="40"
+                  default-price="39"
+                  current-price="61"
+                  won-price="72,320"
+                  image-blend-mode="on"
+                  badges='["세일","베스트"]'
+                ></product-card>
+              </li>
+            </ul>
+            <!-- /전체 상품 Grid end -->
+          </div>
+        </section>
+        <!-- /panel 03 end -->
+      </main>
+      <!-- main end -->
+
+      <!-- Footer -->
+      <app-footer></app-footer>
+      <!-- /Footer end -->
+    </div>
+
+    <!-- 토스트 팝업 -->
+    <alert-toast></alert-toast>
+    <!-- 토스트 팝업 end -->
+    <!-- 사은행사 더보기 레이어 -->
+    <gift-popup></gift-popup>
+    <!-- 사은행사 더보기 레이어 end -->
+    <script src="./js/swiper-init.js"></script>
+    <script src="./js/filter-tab.js"></script>
+  </body>
 </html>

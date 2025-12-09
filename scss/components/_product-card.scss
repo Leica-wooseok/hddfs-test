@@ -32,6 +32,7 @@
   &__info-box {
     display: flex;
     flex-direction: column;
+    text-align: left;
   }
   &__info-brand {
     color: $font-dark;
@@ -54,6 +55,9 @@
     margin-top: 8px;
     display: flex;
     gap: 4px;
+    text-align: left;
+    justify-content: flex-start;
+    align-self: stretch;
     @include kr-cp1;
 
     .percent {
@@ -68,6 +72,7 @@
     .alert-non-member {
       font-weight: 400;
       color: $font-steel;
+      flex-shrink: 1;
 
       .pink {
         font-weight: 500;

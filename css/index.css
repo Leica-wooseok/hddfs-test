@@ -636,6 +636,30 @@ li {
   text-overflow: ellipsis;
   white-space: normal;
 }
+.event__group-desc.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.05em;
+}
+.event__group-grid {
+  margin-top: 24px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 8px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+.event__group-grid .productCard {
+  max-width: 106px;
+  width: 100%;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
 
 .event__card-root {
   padding: 0 20px;
@@ -664,12 +688,9 @@ li {
   letter-spacing: -0.05em;
 }
 
-.gift__card-list {
-  padding: 8px 0;
-}
-
 .gift__card-item {
   list-style: none;
+  padding: 8px 0;
 }
 .gift__card-item:last-child::after {
   display: none;
@@ -709,6 +730,7 @@ gift-card-item .gift__image img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  mix-blend-mode: multiply;
 }
 gift-card-item .soldout {
   position: absolute;
@@ -1004,6 +1026,7 @@ gift-card-item .gift__info-desc {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: left;
 }
 .productCard__info-brand {
   color: #1b1e23;
@@ -1038,6 +1061,12 @@ gift-card-item .gift__info-desc {
   display: -ms-flexbox;
   display: flex;
   gap: 4px;
+  text-align: left;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.05em;
@@ -1054,6 +1083,8 @@ gift-card-item .gift__info-desc {
 .productCard__info-discount .alert-non-member {
   font-weight: 400;
   color: #788497;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
 }
 .productCard__info-discount .alert-non-member .pink {
   font-weight: 500;
