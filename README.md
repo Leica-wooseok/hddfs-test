@@ -1,87 +1,945 @@
-### 현대 디에프 경력직 퍼블리셔 채용 과제 : 지원자 최우석
+# 현대면세점 프로모션 페이지 구현
 
-## Event Templace A 구현
+> 현대 디에프 경력직 퍼블리셔 채용 과제
+> 지원자: **최우석**
 
-## 구현 코드에 대한 설명 및 주요 고려 사항 문서화
+## 📑 목차
 
-## web component 사용으로
+- [프로젝트 개요](#-프로젝트-개요)
+- [기술 스택](#-기술 스택)
+- [실행 방법](#-실행-방법)
+- [HTML 구조 설계](#-html-구조-설계)
+- [CSS 아키텍처](#-css-아키텍처)
+- [JavaScript 인터랙션](#-javascript-인터랙션)
+- [반응형 대응 전략](#-반응형-대응-전략)
+- [웹 표준 및 접근성](#-웹-표준-및-접근성)
+- [프로젝트 구조](#-프로젝트-구조)
 
-- live server | npx server | npx http server -p 8000 사용 필요
-- shadow dom 사용하지 않음: 가독성 저하, 컴포넌트마다 초기화 및 노멀라이징 필요
+---
 
-## HTML구조 설계의 핵심 고려 사항
+## 🎯 프로젝트 개요
 
-- 시멘틱 마크업
-- 의미에 맞는 태그 사용
-- 웹 표준 및 접근성 준수
-- 그룹화
+현대면세점 사은행사 프로모션 페이지 2종(Type A: 금액별, Type B: 상품별) 구현
 
-## 반응형 대응 방법 (media query 전략)
+### 구현 페이지
 
-- 모바일 퍼스트
-- 언제 Desktop 화면으로 넘어갈것인가?
-- 가장 범용적으로 사용되는 break point
+- **Type A**: `type-a-promo-amount.html` - 금액별 사은행사 페이지
+- **Type B**: `type-b-promo-product.html` - 상품별 사은행사 페이지
 
-  1.  768px 이상 (Tablet)
+### 주요 기능
 
-      - 이유: 대부분의 태블릿 기기(예: 아이패드 미니, 아이패드 세로 모드)를 포함하는 너비
+✅ 웹 컴포넌트 기반 재사용 가능한 UI 구성
+✅ 접근성(a11y) 및 시맨틱 마크업 준수
+✅ 모바일 퍼스트 반응형 디자인
+✅ SEO 최적화 (Open Graph, Twitter Card)
+✅ 스크롤 기반 탭 네비게이션
+✅ Swiper를 활용한 캐러셀 구현
 
-  2.  1024px 이상 (Desktop)
+---
 
-      - 이유: 가로 모드의 태블릿과 일반적인 데스크탑, 노트북 환경을 커버. 이 구간에서는 콘텐츠가 너무 넓게 퍼져 가독성을 해치는 것을  
-        방지하기 위해 전체 레이아웃의 최대 너비(max-width)를 설정
+## 🛠 기술 스택
 
-## Variables
+| 분류                | 기술                                          |
+| ------------------- | --------------------------------------------- |
+| **마크업**          | HTML5 (Semantic HTML)                         |
+| **스타일**          | SCSS (7-1 패턴), BEM 방법론                   |
+| **스크립트**        | Vanilla JavaScript (ES6+), Web Components API |
+| **외부 라이브러리** | Swiper.js (v12)                               |
+| **빌드 도구**       | Live Sass Compiler                            |
 
-- Figma에 등록된 디자인 토큰명 준수
+---
 
-## CSS 네이밍 규칙
+## 🚀 실행 방법
 
-- CSS 방법론 BEM 기반
-- BEM 이란?
-- BEM 예시
+Web Components 사용으로 인해 **로컬 서버 실행 필수**
 
-## Javascript로 구성한 인터랙션 개요
+```bash
+# 방법 1: Live Server (VS Code Extension)
+Live Server로 HTML 파일 실행
 
-- 가이드에 따라 hero section에 color-yiq 적용 하였지만 실제 시안의 색상과는 달라 override
-- 스크롤 위치에 때라 탭 활성화
-- 탭 클릭 시 스크롤 이동, requestAnimationFrame 사용 throttle 효과
-- sort dropdown 임의로 설정
+# 방법 2: npx serve
+npx serve
 
-## Web Component 사용
+# 방법 3: http-server
+npx http-server -p 8000
+```
 
-- 재사용을 위한 Web Component 사용. 아직 불편하고 부족한점이 있는듯.
-- SPA (React) 환경이었다면 비즈니스 로직과 분리된 컴포넌트화 가능
+**SCSS 컴파일**
 
-## SCSS 파일 구조 (7-1 패턴 기반)
+```bash
+# VS Code Extension: Live Sass Compiler
+# scss/index.scss → css/index.css 자동 컴파일
+```
 
-프로젝트의 확장성과 유지보수성을 고려하여 SCSS 파일은 7-1 패턴을 기반으로 구성되었습니다. 이 패턴은 코드를 역할별로 명확하게 분리하여 관리하기 용이하게 하며, 대규모 프로젝트에서 특히 효과적입니다.
+---
 
-### 디렉토리 구성:
+## 📐 HTML 구조 설계
 
-1.  **`scss/utils/`**: 변수, 함수, 믹스인, 중단점(breakpoint) 등 프로젝트 전반에서 사용되는 재사용 가능한 유틸리티 코드를 모아둡니다.
-    - `_variables.scss`: 전역 변수 (색상, 폰트 크기, 간격 등)
-    - `_functions.scss`: 사용자 정의 Sass 함수
-    - `_mixins.scss`: 재사용 가능한 CSS 블록 (예: flexbox 중앙 정렬 믹스인)
-    - `_breakpoint.scss`: 반응형 디자인을 위한 미디어 쿼리 중단점 정의
-2.  **`scss/base/`**: HTML 요소의 기본 스타일 및 초기화 규칙을 정의합니다.
-    - `_reset.scss`: 브라우저 기본 스타일 초기화
-    - `_fonts.scss`: `@font-face` 규칙을 사용하여 웹 폰트 정의 및 불러오기
-    - `_typography.scss`: HTML 요소(body, h1-h6, p 등)의 기본 타이포그래피 스타일
-3.  **`scss/components/`**: 재사용 가능한 UI 컴포넌트(예: 버튼, 카드, 모달)별 스타일을 정의합니다. 현재는 비어 있지만, 컴포넌트 개발 시 이곳에 추가됩니다.
-4.  **`scss/layout/`**: 웹 페이지의 주요 레이아웃(예: 헤더, 푸터, 내비게이션, 그리드) 관련 스타일을 정의합니다. 현재는 비어 있지만, 레이아웃 요소 개발 시 이곳에 추가됩니다.
-5.  **`scss/pages/`**: 특정 페이지(예: 홈, 로그인, 문의)에만 적용되는 고유한 스타일을 정의합니다. 현재는 비어 있지만, 페이지별 스타일 개발 시 이곳에 추가됩니다.
+### 핵심 고려 사항
 
-### `scss/index.scss`:
+#### 1. **시맨틱 마크업 (Semantic HTML)**
 
-모든 SCSS 파셜 파일들을 적절한 순서로 불러오는 메인 파일입니다. 이 파일을 통해 모든 스타일이 하나의 CSS 파일로 컴파일됩니다.
+웹 표준 준수 및 검색 엔진 최적화를 위해 의미있는 HTML5 태그 활용
 
-**불러오기 순서:**
+```html
+<!-- ❌ Bad -->
+<div class="header">
+  <div class="title">현대면세점</div>
+</div>
 
-1.  `utils` (변수, 함수, 믹스인, 중단점 등)
-2.  `base` (리셋, 폰트, 기본 타이포그래피)
-3.  `components` (컴포넌트 스타일)
-4.  `layout` (레이아웃 스타일)
-5.  `pages` (페이지별 스타일)
+<!-- ✅ Good -->
+<header>
+  <h1>현대면세점</h1>
+</header>
+```
 
-이러한 구조는 프로젝트 규모가 커지더라도 스타일 관리를 효율적으로 할 수 있도록 돕습니다.
+**사용된 시맨틱 태그**
+
+- `<header>`, `<footer>` - 페이지 머리글/바닥글
+- `<main>` - 주요 콘텐츠 영역
+- `<section>` - 논리적 섹션 그룹화
+- `<article>` - 독립적인 콘텐츠 블록
+- `<nav>` - 네비게이션 영역
+- `<figure>`, `<figcaption>` - 이미지와 캡션
+
+#### 2. **논리적 그룹화 및 계층 구조**
+
+콘텐츠를 의미 단위로 그룹화하여 구조화
+
+```
+<body>
+  └── <div id="wrap">
+      ├── <app-header> (커스텀 헤더 컴포넌트)
+      ├── <main id="main-content">
+      │   ├── <section class="hero"> (히어로 섹션)
+      │   ├── <detail-tab> (탭 네비게이션)
+      │   ├── <section id="panel_01" role="tabpanel"> (사은행사)
+      │   ├── <section id="panel_02" role="tabpanel"> (추천상품)
+      │   └── <section id="panel_03" role="tabpanel"> (전체상품)
+      └── <app-footer> (커스텀 푸터 컴포넌트)
+```
+
+#### 3. **접근성(Accessibility) 고려**
+
+**ARIA 속성 적극 활용**
+
+```html
+<!-- 탭 네비게이션 -->
+<ul role="tablist" aria-label="사은행사 정보">
+  <li role="presentation">
+    <button
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel_01"
+      id="tab_panel_01"
+    >
+      사은행사
+    </button>
+  </li>
+</ul>
+
+<!-- 탭 패널 -->
+<section id="panel_01" role="tabpanel" aria-labelledby="tab_panel_01">
+  <!-- 콘텐츠 -->
+</section>
+```
+
+**주요 접근성 기능**
+
+- `role`, `aria-label`, `aria-selected`, `aria-controls` 속성 사용
+- 키보드 네비게이션 지원
+- 스크린 리더 호환성 확보
+- `alt` 텍스트 제공
+- 충분한 색상 대비 (YIQ 알고리즘 기반)
+
+#### 4. **Web Components 활용**
+
+재사용 가능한 컴포넌트 구조 설계
+
+```html
+<!-- 상품 카드 컴포넌트 -->
+<product-card
+  image-src="./images/products/product-img-01.png"
+  image-alt="상품 이미지 설명"
+  brand="바비브라운"
+  product-name="인텐시브 세럼 파운데이션"
+  is-logged-in="true"
+  discount-percent="40"
+  default-price="39"
+  current-price="61"
+  won-price="72,320"
+>
+</product-card>
+```
+
+**구현된 컴포넌트**
+
+- `<app-header>` - 헤더 (타이틀, 뒤로가기, 검색, 장바구니)
+- `<app-footer>` - 푸터
+- `<detail-tab>` - 스크롤 동기화 탭
+- `<product-card>` - 상품 카드
+- `<gift-card-item>` - 사은품 카드
+- `<gift-popup>` - 사은품 모달
+- `<alert-toast>` - 토스트 알림
+- `<caution-area>` - 유의사항 영역
+- `<product-filter>` - 상품 필터/정렬
+- `<more-button>` - 더보기 버튼
+
+#### 5. **SEO 최적화**
+
+검색 엔진 및 소셜 미디어 공유 최적화
+
+```html
+<!-- 기본 SEO -->
+<meta name="description" content="현대 면세점 단독 혜택도 만나보세요!" />
+<meta name="keywords" content="현대 면세점, 프로모션, 사은행사" />
+
+<!-- Open Graph (Facebook) -->
+<meta property="og:title" content="현대 면세점 아이오페 단독 프로모션" />
+<meta property="og:description" content="현대 면세점 단독 혜택" />
+<meta property="og:image" content="./images/pages/type1_a/hero_image.jpg" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="현대 면세점 프로모션" />
+```
+
+---
+
+## 🎨 CSS 아키텍처
+
+### SCSS 7-1 패턴
+
+프로젝트의 확장성과 유지보수성을 위한 구조화된 SCSS 설계
+
+```
+scss/
+├── utils/
+│   ├── _variables.scss    # 전역 변수 (색상, 폰트, 간격 등)
+│   ├── _functions.scss    # Sass 함수
+│   ├── _mixins.scss       # 재사용 가능한 믹스인
+│   └── _breakpoint.scss   # 미디어 쿼리 중단점
+├── base/
+│   ├── _reset.scss        # 브라우저 초기화
+│   ├── _fonts.scss        # @font-face 정의
+│   ├── _typography.scss   # 타이포그래피 기본 스타일
+│   ├── _css-variables.scss # CSS 커스텀 속성
+│   └── _main.scss         # 전역 스타일
+├── components/
+│   ├── _product-card.scss
+│   ├── _detail-tab.scss
+│   ├── _gift-card.scss
+│   ├── _gift-popup.scss
+│   ├── _alert-toast.scss
+│   └── ... (10개 컴포넌트)
+├── layout/
+│   ├── _container.scss
+│   ├── _header.scss
+│   └── _footer.scss
+├── pages/
+│   └── _home.scss
+└── index.scss             # 메인 진입점
+```
+
+### BEM 네이밍 규칙
+
+**Block-Element-Modifier** 방법론 적용
+
+```scss
+// Block
+.productCard {
+}
+
+// Element (Block의 하위 요소)
+.productCard__image {
+}
+.productCard__info-box {
+}
+.productCard__info-brand {
+}
+.productCard__info-name {
+}
+
+// Modifier (상태 변화)
+.productCard--soldOut {
+}
+.productCard__button--disabled {
+}
+```
+
+**실제 코드 예시**
+
+```scss
+.productCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__image-box {
+    position: relative;
+    padding-top: 100%;
+    border-radius: 8px;
+    background-color: $bg-pale-grey4;
+  }
+
+  &__image {
+    @include position-cover-image;
+    width: 100%;
+  }
+
+  &__info-discount {
+    display: flex;
+    gap: 4px;
+
+    .percent {
+      font-weight: 500;
+      color: $font-dark;
+    }
+
+    .default-price {
+      text-decoration: line-through;
+      color: $font-cool-grey2;
+    }
+  }
+}
+```
+
+### 디자인 토큰 (Variables)
+
+Figma 디자인 시스템의 네이밍 규칙 준수
+
+```scss
+// Colors
+$color-white: #ffffff;
+$color-black: #000000;
+$point-pink: #e4007f;
+$point-pinkish-red: #e31c1c;
+
+// Font Colors
+$font-dark: #191919;
+$font-medium-dark: #505050;
+$font-cool-grey2: #8c8c8c;
+$font-steel: #7c7c7c;
+
+// Background
+$bg-pale-grey: #f8f8f8;
+$bg-pale-grey4: #f4f4f4;
+
+// Line
+$line-silver: #e0e0e0;
+```
+
+### 재사용 가능한 Mixins
+
+```scss
+// Flexbox 중앙 정렬
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// 다중 라인 말줄임
+@mixin text-ellipsis-multiline($lines: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  text-overflow: ellipsis;
+}
+
+// 커버 이미지 위치
+@mixin position-cover-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+// 반응형 브레이크포인트
+@mixin breakpoint($size) {
+  @if $size == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+```
+
+---
+
+## ⚡ JavaScript 인터랙션
+
+### 주요 구현 기능
+
+#### 1. **스크롤 기반 탭 동기화**
+
+**구현 위치**: `js/components/DetailTab.js`
+
+**핵심 로직**
+
+```javascript
+setupScrollObserver() {
+  this.handleScroll = () => {
+    const scrollPosition = window.pageYOffset + offset;
+
+    // 현재 보이는 패널 찾기
+    for (let i = this.panels.length - 1; i >= 0; i--) {
+      const panel = this.panels[i];
+      if (scrollPosition >= panel.offsetTop) {
+        this.setActiveTab(correspondingTab);
+        break;
+      }
+    }
+  };
+
+  // requestAnimationFrame으로 성능 최적화
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        this.handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+}
+```
+
+**특징**
+
+- `requestAnimationFrame`을 활용한 스크롤 쓰로틀링
+- 헤더 높이를 고려한 정확한 패널 감지
+- 역순 순회로 현재 활성 패널 정확히 식별
+
+#### 2. **부드러운 스크롤 네비게이션**
+
+```javascript
+tab.addEventListener("click", (e) => {
+  const targetPanel = document.getElementById(targetId);
+  const offset = headerHeight + tabHeight;
+  const targetPosition =
+    targetPanel.getBoundingClientRect().top + window.pageYOffset - offset;
+
+  window.scrollTo({
+    top: targetPosition,
+    behavior: "smooth", // 네이티브 부드러운 스크롤
+  });
+});
+```
+
+#### 3. **색상 대비 자동 조정 (YIQ 알고리즘)**
+
+**구현 위치**: `js/color-contrast.js`
+
+```javascript
+function getTextColorForBg(bgColor) {
+  const [r, g, b] = bgColor.match(/\d+/g).map(Number);
+
+  // YIQ 공식: (r*299 + g*587 + b*114) / 1000
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+
+  return yiq >= 128 ? "#000000" : "#ffffff";
+}
+
+// 히어로 섹션 배경색에 따라 텍스트 색상 자동 조정
+applyTextContrast(".hero");
+```
+
+**목적**: WCAG 색상 대비 기준 충족
+
+#### 4. **Swiper 캐러셀 구현**
+
+**구현 위치**: `js/swiper-init.js`
+
+```javascript
+const BASE_SWIPER_CONFIG = {
+  slidesPerView: "auto",
+  spaceBetween: 16,
+  a11y: {
+    enabled: true,
+    prevSlideMessage: "이전 슬라이드",
+    nextSlideMessage: "다음 슬라이드",
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: "auto",
+      navigation: { enabled: false }, // 모바일: 네비게이션 숨김
+    },
+    768: {
+      slidesPerView: 4,
+      navigation: { enabled: true }, // 데스크탑: 네비게이션 표시
+    },
+  },
+  on: {
+    slideChange: function () {
+      // 스크린 리더를 위한 실시간 알림
+      const announcement = document.createElement("div");
+      announcement.setAttribute("role", "status");
+      announcement.setAttribute("aria-live", "polite");
+      announcement.textContent = `${this.activeIndex + 1} / ${
+        this.slides.length
+      }`;
+      document.body.appendChild(announcement);
+      setTimeout(() => announcement.remove(), 1000);
+    },
+  },
+};
+```
+
+**접근성 고려 사항**
+
+- `aria-live` 영역으로 슬라이드 변경 알림
+- 키보드 네비게이션 지원
+- 반응형 네비게이션 버튼 제어
+
+#### 5. **Web Components 생명주기 관리**
+
+```javascript
+class ProductCard extends HTMLElement {
+  // 관찰할 속성 정의
+  static get observedAttributes() {
+    return ["image-src", "brand", "product-name", "is-logged-in"];
+  }
+
+  // DOM에 추가될 때
+  connectedCallback() {
+    this._render();
+    this._attachEventListeners();
+  }
+
+  // DOM에서 제거될 때
+  disconnectedCallback() {
+    // 이벤트 리스너 정리
+  }
+
+  // 속성 변경 감지
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      this._render();
+    }
+  }
+}
+
+customElements.define("product-card", ProductCard);
+```
+
+#### 6. **상품 필터 및 정렬**
+
+**구현 위치**: `js/components/ProductFilter.js`
+
+```javascript
+// 드롭다운 외부 클릭 시 닫기
+handleClickOutside(e) {
+  if (!this.contains(e.target)) {
+    this.closeDropdown();
+  }
+}
+
+// 정렬 옵션 변경
+handleSortChange(value, label) {
+  this.currentSort = value;
+  this.sortButton.querySelector("span").textContent = label;
+  this.closeDropdown();
+}
+```
+
+#### 7. **토스트 알림**
+
+```javascript
+class AlertToast extends HTMLElement {
+  show(message, duration = 3000) {
+    this.messageElement.textContent = message;
+    this.classList.add("show");
+
+    setTimeout(() => {
+      this.classList.remove("show");
+    }, duration);
+  }
+}
+```
+
+---
+
+## 📱 반응형 대응 전략
+
+### Mobile First 접근 방식
+
+기본 스타일을 모바일에 맞추고, 화면이 커질수록 스타일 추가
+
+```scss
+// 모바일 (기본)
+.container {
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+// 태블릿 (768px 이상)
+@include breakpoint(md) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+// 데스크탑 (1024px 이상)
+@include breakpoint(xl) {
+  .container {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+```
+
+### 브레이크포인트 전략
+
+| 디바이스    | 최소 너비      | 적용 대상                    |
+| ----------- | -------------- | ---------------------------- |
+| **Mobile**  | 0px ~ 767px    | 기본 스타일 (모바일 우선)    |
+| **Tablet**  | 768px ~ 1023px | 아이패드, 태블릿 (세로/가로) |
+| **Desktop** | 1024px 이상    | 노트북, 데스크탑             |
+
+**선정 이유**
+
+- **768px**: 아이패드 미니, 대부분의 태블릿 세로 모드
+- **1024px**: 아이패드 가로 모드, 일반 노트북/데스크탑
+
+### 반응형 레이아웃 패턴
+
+#### 1. **Fluid Grid (유동 그리드)**
+
+```scss
+.event__group-grid {
+  display: grid;
+  gap: 16px;
+
+  // 모바일: 1열
+  grid-template-columns: 1fr;
+
+  // 태블릿: 2열
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+```
+
+#### 2. **Flexible Images**
+
+```scss
+.hero__image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+```
+
+#### 3. **Typography Scaling**
+
+```scss
+.hero__title {
+  font-size: 24px;
+  line-height: 1.4;
+
+  @include breakpoint(md) {
+    font-size: 32px;
+  }
+
+  @include breakpoint(xl) {
+    font-size: 40px;
+  }
+}
+```
+
+#### 4. **조건부 요소 표시**
+
+```scss
+// 데스크탑에서만 네비게이션 버튼 표시
+.swiper-button-custom {
+  display: none;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+}
+```
+
+#### 5. **Max-Width 컨테이너**
+
+```scss
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  @include breakpoint(md) {
+    padding: 0 24px;
+  }
+
+  @include breakpoint(xl) {
+    max-width: 1024px; // 가독성을 위한 최대 너비 제한
+  }
+}
+```
+
+### JavaScript에서의 반응형 처리
+
+```javascript
+// Swiper 반응형 설정
+breakpoints: {
+  0: {
+    slidesPerView: "auto",
+    navigation: { enabled: false }
+  },
+  768: {
+    slidesPerView: 4,
+    navigation: { enabled: true }
+  }
+}
+```
+
+---
+
+## ♿ 웹 표준 및 접근성
+
+### 웹 접근성 (WCAG 2.1 Level AA 준수)
+
+#### 1. **키보드 네비게이션**
+
+- 모든 인터랙티브 요소 Tab 키로 접근 가능
+- `tabindex` 적절히 설정
+- 포커스 표시 명확히 구현
+
+#### 2. **스크린 리더 지원**
+
+```html
+<!-- ARIA 레이블 -->
+<button aria-label="장바구니에 담기">
+  <img src="icon.svg" alt="" aria-hidden="true" />
+</button>
+
+<!-- 실시간 업데이트 알림 -->
+<div role="status" aria-live="polite">장바구니에 담겼습니다</div>
+```
+
+#### 3. **색상 대비**
+
+- YIQ 알고리즘으로 충분한 대비 보장
+- WCAG AA 기준 4.5:1 이상
+
+#### 4. **의미있는 구조**
+
+```html
+<!-- 올바른 heading 계층 -->
+<h1>페이지 제목</h1>
+<h2>섹션 제목</h2>
+<h3>하위 섹션</h3>
+```
+
+#### 5. **대체 텍스트**
+
+```html
+<img src="product.jpg" alt="바비브라운 인텐시브 세럼 파운데이션 SPF 40" />
+```
+
+### 웹 표준 준수
+
+- ✅ HTML5 Doctype
+- ✅ 유효한 HTML 마크업 (W3C Validator 통과)
+- ✅ 시맨틱 태그 사용
+- ✅ UTF-8 인코딩
+- ✅ Viewport 메타 태그
+- ✅ 크로스 브라우저 호환성
+
+---
+
+## 📂 프로젝트 구조
+
+```
+hddfs/
+├── css/
+│   ├── index.css              # 컴파일된 CSS
+│   └── index.css.map          # Source Map
+├── scss/
+│   ├── utils/                 # 유틸리티
+│   │   ├── _variables.scss
+│   │   ├── _functions.scss
+│   │   ├── _mixins.scss
+│   │   └── _breakpoint.scss
+│   ├── base/                  # 기본 스타일
+│   │   ├── _reset.scss
+│   │   ├── _fonts.scss
+│   │   ├── _typography.scss
+│   │   ├── _css-variables.scss
+│   │   └── _main.scss
+│   ├── components/            # 컴포넌트
+│   │   ├── _product-card.scss
+│   │   ├── _detail-tab.scss
+│   │   ├── _gift-card.scss
+│   │   ├── _gift-popup.scss
+│   │   ├── _alert-toast.scss
+│   │   └── ... (10개)
+│   ├── layout/                # 레이아웃
+│   │   ├── _container.scss
+│   │   ├── _header.scss
+│   │   └── _footer.scss
+│   ├── pages/                 # 페이지
+│   │   └── _home.scss
+│   └── index.scss             # 메인 진입점
+├── js/
+│   ├── components/            # 웹 컴포넌트
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   ├── ProductCard.js
+│   │   ├── DetailTab.js
+│   │   ├── GiftCardItem.js
+│   │   ├── GiftPopup.js
+│   │   ├── AlertToast.js
+│   │   ├── CautionArea.js
+│   │   ├── ProductFilter.js
+│   │   └── MoreButton.js
+│   ├── color-contrast.js      # 색상 대비 조정
+│   ├── swiper-init.js         # Swiper 초기화
+│   └── filter-tab.js          # 필터 탭
+├── images/                    # 이미지 리소스
+│   ├── icons/
+│   ├── products/
+│   ├── pages/
+│   └── ...
+├── font/                      # 웹 폰트
+├── type-a-promo-amount.html   # Type A 페이지
+├── type-b-promo-product.html  # Type B 페이지
+├── README.md                  # 문서
+└── CLAUDE.md                  # 프로젝트 지침
+```
+
+---
+
+## 🎓 기술적 의사결정
+
+### Web Components 사용 이유
+
+**선택 배경**
+
+- HTML/SCSS/Vanilla JS 환경에서 컴포넌트 재사용성 확보
+- React 없이도 컴포넌트 기반 개발 가능
+- 네이티브 브라우저 API 활용으로 의존성 최소화
+
+**Shadow DOM 미사용 결정**
+
+```javascript
+// Shadow DOM을 사용하지 않음
+class ProductCard extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `...`; // Light DOM 사용
+  }
+}
+```
+
+**이유**
+
+- 전역 스타일 공유 필요 (디자인 시스템 일관성)
+- 컴포넌트마다 CSS 초기화/정규화 불필요
+- 디버깅 및 스타일 커스터마이징 용이성
+
+### SCSS 전처리기 선택
+
+- CSS 변수만으로는 복잡한 로직 처리 한계
+- 중첩, 믹스인, 함수 등 고급 기능 필요
+- 7-1 패턴으로 대규모 프로젝트 대비
+- 디자인 토큰 체계적 관리
+
+### requestAnimationFrame 사용
+
+```javascript
+// 스크롤 이벤트 최적화
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleScroll();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+```
+
+**목적**: 60fps 유지하며 부드러운 스크롤 인터랙션 구현
+
+---
+
+## 📊 성능 최적화
+
+### 이미지 최적화
+
+- 적절한 이미지 포맷 사용 (SVG for icons, JPG/PNG for photos)
+- `loading="lazy"` 속성 (필요시 추가 가능)
+
+### JavaScript 최적화
+
+- 이벤트 위임 패턴
+- requestAnimationFrame 쓰로틀링
+- 컴포넌트 생명주기 관리 (메모리 누수 방지)
+
+### CSS 최적화
+
+- BEM으로 선택자 깊이 최소화
+- 불필요한 중첩 제거
+- 재사용 가능한 유틸리티 클래스
+
+---
+
+## 🔍 브라우저 지원
+
+- Chrome (최신 2개 버전)
+- Firefox (최신 2개 버전)
+- Safari (최신 2개 버전)
+- Edge (최신 2개 버전)
+
+**Web Components API 지원**: 모던 브라우저 전체 지원 (IE 제외)
+
+---
+
+## 📝 개선 가능성 및 향후 계획
+
+### 현재 한계
+
+- **Web Components의 불편함**: React처럼 비즈니스 로직과 UI 완전 분리 어려움
+- **상태 관리**: 컴포넌트 간 데이터 공유 시 이벤트 기반 통신 필요
+- **타입 안정성**: TypeScript 미사용으로 런타임 오류 가능성
+
+### 개선 방향
+
+1. **TypeScript 도입**: 타입 안정성 확보
+2. **번들러 도입** (Webpack/Vite): 모듈 관리 및 최적화
+3. **상태 관리 라이브러리**: Zustand 등 경량 상태 관리
+4. **테스트 코드**: Jest, Testing Library 도입
+5. **성능 모니터링**: Lighthouse 점수 측정 및 개선
+
+---
+
+## 👨‍💻 개발자 정보
+
+**이름**: 최우석
+**포지션**: 경력직 퍼블리셔
+**회사**: 현대 디에프
+**과제**: 프로모션 페이지 구현
+
+---
+
+## 📄 라이선스
+
+이 프로젝트는 채용 과제용으로 제작되었습니다.
+
+---
+
+**최종 업데이트**: 2024.12.09
