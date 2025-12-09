@@ -51,25 +51,15 @@
 
 ## 🚀 실행 방법
 
-Web Components 사용으로 인해 **로컬 서버 실행 필수**
+Web Components 사용으로 인해 로컬 서버 실행 권장
 
-```bash
+````bash
 # 방법 1: Live Server (VS Code Extension)
 Live Server로 HTML 파일 실행
 
 # 방법 2: npx serve
 npx serve
 
-# 방법 3: http-server
-npx http-server -p 8000
-```
-
-**SCSS 컴파일**
-
-```bash
-# VS Code Extension: Live Sass Compiler
-# scss/index.scss → css/index.css 자동 컴파일
-```
 
 ---
 
@@ -82,12 +72,6 @@ npx http-server -p 8000
 웹 표준 준수 및 검색 엔진 최적화를 위해 의미있는 HTML5 태그 활용
 
 ```html
-<!-- ❌ Bad -->
-<div class="header">
-  <div class="title">현대면세점</div>
-</div>
-
-<!-- ✅ Good -->
 <header>
   <h1>현대면세점</h1>
 </header>
@@ -98,8 +82,6 @@ npx http-server -p 8000
 - `<header>`, `<footer>` - 페이지 머리글/바닥글
 - `<main>` - 주요 콘텐츠 영역
 - `<section>` - 논리적 섹션 그룹화
-- `<article>` - 독립적인 콘텐츠 블록
-- `<nav>` - 네비게이션 영역
 - `<figure>`, `<figcaption>` - 이미지와 캡션
 
 #### 2. **논리적 그룹화 및 계층 구조**
@@ -147,10 +129,7 @@ npx http-server -p 8000
 **주요 접근성 기능**
 
 - `role`, `aria-label`, `aria-selected`, `aria-controls` 속성 사용
-- 키보드 네비게이션 지원
-- 스크린 리더 호환성 확보
 - `alt` 텍스트 제공
-- 충분한 색상 대비 (YIQ 알고리즘 기반)
 
 #### 4. **Web Components 활용**
 
@@ -174,7 +153,7 @@ npx http-server -p 8000
 
 **구현된 컴포넌트**
 
-- `<app-header>` - 헤더 (타이틀, 뒤로가기, 검색, 장바구니)
+- `<app-header>` - 헤더
 - `<app-footer>` - 푸터
 - `<detail-tab>` - 스크롤 동기화 탭
 - `<product-card>` - 상품 카드
@@ -237,6 +216,8 @@ scss/
 │   ├── _container.scss
 │   ├── _header.scss
 │   └── _footer.scss
+├── pages/
+│   ├── _home.scss         # 화면별 스타일 (과제는 단일 페이지)
 ├── pages/
 │   └── _home.scss
 └── index.scss             # 메인 진입점
@@ -419,7 +400,7 @@ setupScrollObserver() {
 
 - `requestAnimationFrame`을 활용한 스크롤 쓰로틀링
 - 헤더 높이를 고려한 정확한 패널 감지
-- 역순 순회로 현재 활성 패널 정확히 식별
+- 현재 활성 패널 정확히 식별
 
 #### 2. **부드러운 스크롤 네비게이션**
 
@@ -436,26 +417,6 @@ tab.addEventListener("click", (e) => {
   });
 });
 ```
-
-#### 3. **색상 대비 자동 조정 (YIQ 알고리즘)**
-
-**구현 위치**: `js/color-contrast.js`
-
-```javascript
-function getTextColorForBg(bgColor) {
-  const [r, g, b] = bgColor.match(/\d+/g).map(Number);
-
-  // YIQ 공식: (r*299 + g*587 + b*114) / 1000
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-
-  return yiq >= 128 ? "#000000" : "#ffffff";
-}
-
-// 히어로 섹션 배경색에 따라 텍스트 색상 자동 조정
-applyTextContrast(".hero");
-```
-
-**목적**: WCAG 색상 대비 기준 충족
 
 #### 4. **Swiper 캐러셀 구현**
 
@@ -499,7 +460,6 @@ const BASE_SWIPER_CONFIG = {
 **접근성 고려 사항**
 
 - `aria-live` 영역으로 슬라이드 변경 알림
-- 키보드 네비게이션 지원
 - 반응형 네비게이션 버튼 제어
 
 #### 5. **Web Components 생명주기 관리**
@@ -557,12 +517,18 @@ handleSortChange(value, label) {
 
 ```javascript
 class AlertToast extends HTMLElement {
-  show(message, duration = 3000) {
-    this.messageElement.textContent = message;
-    this.classList.add("show");
+   // 1.5초간 표시
+  show(message, duration = 1500) {
+    if (message) {
+      this.textContent = message;
+    }
+
+    this.classList.remove("hidden");
+    this.classList.add("visible");
 
     setTimeout(() => {
-      this.classList.remove("show");
+      this.classList.remove("visible");
+      this.classList.add("hidden");
     }, duration);
   }
 }
@@ -584,14 +550,14 @@ class AlertToast extends HTMLElement {
 }
 
 // 태블릿 (768px 이상)
-@include breakpoint(md) {
+@include breakpoint(tablet) {
   .container {
     padding: 0 24px;
   }
 }
 
 // 데스크탑 (1024px 이상)
-@include breakpoint(xl) {
+@include breakpoint(desktop) {
   .container {
     max-width: 1024px;
     margin: 0 auto;
@@ -604,7 +570,7 @@ class AlertToast extends HTMLElement {
 | 디바이스    | 최소 너비      | 적용 대상                    |
 | ----------- | -------------- | ---------------------------- |
 | **Mobile**  | 0px ~ 767px    | 기본 스타일 (모바일 우선)    |
-| **Tablet**  | 768px ~ 1023px | 아이패드, 태블릿 (세로/가로) |
+| **Tablet**  | 768px ~ 1023px | 아이패드, 태블릿            |
 | **Desktop** | 1024px 이상    | 노트북, 데스크탑             |
 
 **선정 이유**
@@ -621,13 +587,13 @@ class AlertToast extends HTMLElement {
   display: grid;
   gap: 16px;
 
-  // 모바일: 1열
-  grid-template-columns: 1fr;
+  // 모바일: 2열
+  grid-template-columns: 2fr;
 
-  // 태블릿: 2열
-  @include breakpoint(md) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+  // 데스크탑: 유동적으로 변경
+  @include breakpoint(desktop) {
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+
   }
 }
 ```
@@ -642,22 +608,7 @@ class AlertToast extends HTMLElement {
 }
 ```
 
-#### 3. **Typography Scaling**
 
-```scss
-.hero__title {
-  font-size: 24px;
-  line-height: 1.4;
-
-  @include breakpoint(md) {
-    font-size: 32px;
-  }
-
-  @include breakpoint(xl) {
-    font-size: 40px;
-  }
-}
-```
 
 #### 4. **조건부 요소 표시**
 
@@ -666,7 +617,7 @@ class AlertToast extends HTMLElement {
 .swiper-button-custom {
   display: none;
 
-  @include breakpoint(md) {
+  @include breakpoint(desktop) {
     display: block;
   }
 }
@@ -680,13 +631,6 @@ class AlertToast extends HTMLElement {
   margin: 0 auto;
   padding: 0 16px;
 
-  @include breakpoint(md) {
-    padding: 0 24px;
-  }
-
-  @include breakpoint(xl) {
-    max-width: 1024px; // 가독성을 위한 최대 너비 제한
-  }
 }
 ```
 
@@ -714,7 +658,6 @@ breakpoints: {
 
 #### 1. **키보드 네비게이션**
 
-- 모든 인터랙티브 요소 Tab 키로 접근 가능
 - `tabindex` 적절히 설정
 - 포커스 표시 명확히 구현
 
@@ -730,12 +673,8 @@ breakpoints: {
 <div role="status" aria-live="polite">장바구니에 담겼습니다</div>
 ```
 
-#### 3. **색상 대비**
 
-- YIQ 알고리즘으로 충분한 대비 보장
-- WCAG AA 기준 4.5:1 이상
-
-#### 4. **의미있는 구조**
+#### 3. **의미있는 구조**
 
 ```html
 <!-- 올바른 heading 계층 -->
@@ -744,7 +683,7 @@ breakpoints: {
 <h3>하위 섹션</h3>
 ```
 
-#### 5. **대체 텍스트**
+#### 4. **대체 텍스트**
 
 ```html
 <img src="product.jpg" alt="바비브라운 인텐시브 세럼 파운데이션 SPF 40" />
@@ -753,7 +692,7 @@ breakpoints: {
 ### 웹 표준 준수
 
 - ✅ HTML5 Doctype
-- ✅ 유효한 HTML 마크업 (W3C Validator 통과)
+- ✅ 유효한 HTML 마크업
 - ✅ 시맨틱 태그 사용
 - ✅ UTF-8 인코딩
 - ✅ Viewport 메타 태그
@@ -806,7 +745,6 @@ hddfs/
 │   │   ├── CautionArea.js
 │   │   ├── ProductFilter.js
 │   │   └── MoreButton.js
-│   ├── color-contrast.js      # 색상 대비 조정
 │   ├── swiper-init.js         # Swiper 초기화
 │   └── filter-tab.js          # 필터 탭
 ├── images/                    # 이미지 리소스
@@ -818,7 +756,6 @@ hddfs/
 ├── type-a-promo-amount.html   # Type A 페이지
 ├── type-b-promo-product.html  # Type B 페이지
 ├── README.md                  # 문서
-└── CLAUDE.md                  # 프로젝트 지침
 ```
 
 ---
@@ -848,7 +785,7 @@ class ProductCard extends HTMLElement {
 
 - 전역 스타일 공유 필요 (디자인 시스템 일관성)
 - 컴포넌트마다 CSS 초기화/정규화 불필요
-- 디버깅 및 스타일 커스터마이징 용이성
+
 
 ### SCSS 전처리기 선택
 
@@ -873,7 +810,7 @@ window.addEventListener("scroll", () => {
 });
 ```
 
-**목적**: 60fps 유지하며 부드러운 스크롤 인터랙션 구현
+**목적**: 부드러운 스크롤 인터랙션 구현
 
 ---
 
@@ -881,14 +818,14 @@ window.addEventListener("scroll", () => {
 
 ### 이미지 최적화
 
-- 적절한 이미지 포맷 사용 (SVG for icons, JPG/PNG for photos)
+- 적절한 이미지 포맷 사용 (SVG for icons, PNG for photos)
 - `loading="lazy"` 속성 (필요시 추가 가능)
 
 ### JavaScript 최적화
 
 - 이벤트 위임 패턴
 - requestAnimationFrame 쓰로틀링
-- 컴포넌트 생명주기 관리 (메모리 누수 방지)
+
 
 ### CSS 최적화
 
@@ -921,25 +858,8 @@ window.addEventListener("scroll", () => {
 
 1. **TypeScript 도입**: 타입 안정성 확보
 2. **번들러 도입** (Webpack/Vite): 모듈 관리 및 최적화
-3. **상태 관리 라이브러리**: Zustand 등 경량 상태 관리
-4. **테스트 코드**: Jest, Testing Library 도입
 5. **성능 모니터링**: Lighthouse 점수 측정 및 개선
 
 ---
 
-## 👨‍💻 개발자 정보
-
-**이름**: 최우석
-**포지션**: 경력직 퍼블리셔
-**회사**: 현대 디에프
-**과제**: 프로모션 페이지 구현
-
----
-
-## 📄 라이선스
-
-이 프로젝트는 채용 과제용으로 제작되었습니다.
-
----
-
-**최종 업데이트**: 2024.12.09
+````
