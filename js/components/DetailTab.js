@@ -1,5 +1,4 @@
 class DetailTab extends HTMLElement {
-  // Layout constants
   static HEADER_HEIGHT = 60;
   static SCROLL_OFFSET_ADJUSTMENT = 10;
 
@@ -100,7 +99,8 @@ class DetailTab extends HTMLElement {
       const offset = this.headerHeight + tabHeight;
 
       // 현재 스크롤 위치
-      const scrollPosition = window.pageYOffset + offset + DetailTab.SCROLL_OFFSET_ADJUSTMENT;
+      const scrollPosition =
+        window.pageYOffset + offset + DetailTab.SCROLL_OFFSET_ADJUSTMENT;
 
       // 각 패널을 확인하여 현재 보이는 패널 찾기
       let activePanel = null;

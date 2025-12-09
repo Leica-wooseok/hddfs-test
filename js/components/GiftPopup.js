@@ -1,10 +1,6 @@
 class GiftPopup extends HTMLElement {
   constructor() {
     super();
-    this._previousActiveElement = null;
-    this._focusableElements = [];
-    this._firstFocusable = null;
-    this._lastFocusable = null;
   }
 
   connectedCallback() {
@@ -188,21 +184,14 @@ class GiftPopup extends HTMLElement {
       closeButton.addEventListener("click", () => this.close());
     }
 
-    // dim 영역(배경) 클릭
+    // dim 영역 클릭
     this.addEventListener("click", (e) => {
       if (e.target === this) {
         this.close();
       }
     });
 
-    // ESC 키로 닫기
-    this._handleEscKey = (e) => {
-      if (e.key === "Escape" && !this.classList.contains("hidden")) {
-        this.close();
-      }
-    };
-
-    // 카테고리 버튼 클릭 및 키보드 네비게이션
+    // 카테고리 버튼 클릭
     const categoryButtons = this.querySelectorAll(".search-category-button");
     categoryButtons.forEach((button, index) => {
       // 클릭 이벤트
@@ -216,106 +205,17 @@ class GiftPopup extends HTMLElement {
         button.classList.add("active");
         button.setAttribute("aria-selected", "true");
       });
-
-      // 화살표 키 네비게이션
-      button.addEventListener("keydown", (e) => {
-        let newIndex;
-
-        if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-          e.preventDefault();
-          newIndex = (index + 1) % categoryButtons.length;
-          categoryButtons[newIndex].focus();
-          categoryButtons[newIndex].click();
-        } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-          e.preventDefault();
-          newIndex =
-            (index - 1 + categoryButtons.length) % categoryButtons.length;
-          categoryButtons[newIndex].focus();
-          categoryButtons[newIndex].click();
-        } else if (e.key === "Home") {
-          e.preventDefault();
-          categoryButtons[0].focus();
-          categoryButtons[0].click();
-        } else if (e.key === "End") {
-          e.preventDefault();
-          categoryButtons[categoryButtons.length - 1].focus();
-          categoryButtons[categoryButtons.length - 1].click();
-        }
-      });
     });
   }
-
-  _updateFocusableElements() {
-    const focusableSelectors =
-      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
-    this._focusableElements = Array.from(
-      this.querySelectorAll(focusableSelectors)
-    );
-    this._firstFocusable = this._focusableElements[0];
-    this._lastFocusable =
-      this._focusableElements[this._focusableElements.length - 1];
-  }
-
-  _handleFocusTrap = (e) => {
-    if (e.key !== "Tab") return;
-
-    this._updateFocusableElements();
-
-    if (e.shiftKey) {
-      // Shift + Tab
-      if (document.activeElement === this._firstFocusable) {
-        e.preventDefault();
-        this._lastFocusable.focus();
-      }
-    } else {
-      // Tab
-      if (document.activeElement === this._lastFocusable) {
-        e.preventDefault();
-        this._firstFocusable.focus();
-      }
-    }
-  };
 
   open() {
     this.classList.remove("hidden");
     document.body.style.overflow = "hidden";
-
-    // 팝업을 연 요소 저장
-    this._previousActiveElement = document.activeElement;
-
-    // 포커스 가능한 요소들 업데이트
-    this._updateFocusableElements();
-
-    // ESC 키 이벤트 리스너 추가
-    document.addEventListener("keydown", this._handleEscKey);
-
-    // 포커스 트랩 이벤트 리스너 추가
-    this.addEventListener("keydown", this._handleFocusTrap);
-
-    // 첫 번째 포커스 가능한 요소에 포커스
-    if (this._focusableElements.length > 0) {
-      setTimeout(() => this._focusableElements[0].focus(), 100);
-    }
   }
 
   close() {
     this.classList.add("hidden");
     document.body.style.overflow = "";
-
-    // 이벤트 리스너 제거
-    document.removeEventListener("keydown", this._handleEscKey);
-    this.removeEventListener("keydown", this._handleFocusTrap);
-
-    // 이전 포커스로 복귀
-    if (this._previousActiveElement) {
-      this._previousActiveElement.focus();
-    }
-  }
-
-  disconnectedCallback() {
-    // 컴포넌트 제거 시 이벤트 리스너 정리
-    document.removeEventListener("keydown", this._handleEscKey);
-    this.removeEventListener("keydown", this._handleFocusTrap);
   }
 }
 

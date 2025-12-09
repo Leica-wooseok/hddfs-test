@@ -1,16 +1,3 @@
-/**
- * Border Mixin
- * - $directions: all | top | bottom | left | right, or a list like (top, bottom).
- * - $width: The border width.
- * - $style: The border style.
- * - $color: The border color.
- */
-/**
- * Multi-line Text Ellipsis Mixin
- * Applies ellipsis to text that overflows beyond a specified number of lines.
- *
- * @param {Number} $lines - The number of lines after which to truncate the text.
- */
 :root {
   --primary-color: #007bff;
   --secondary-color: #6c757d;

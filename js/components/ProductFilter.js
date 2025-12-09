@@ -80,7 +80,9 @@ class ProductFilter extends HTMLElement {
                   option.value === defaultSort ? "active" : ""
                 }"
                 role="option"
-                aria-selected="${option.value === defaultSort ? "true" : "false"}"
+                aria-selected="${
+                  option.value === defaultSort ? "true" : "false"
+                }"
                 data-value="${option.value}"
                 tabindex="0"
               >
@@ -181,74 +183,14 @@ class ProductFilter extends HTMLElement {
       };
 
       item.addEventListener("click", selectItem);
-
-      // 키보드 네비게이션 (WCAG 2.1.1 준수)
-      item.addEventListener("keydown", (e) => {
-        let targetIndex;
-
-        if (e.key === "ArrowDown") {
-          e.preventDefault();
-          targetIndex = (index + 1) % sortItems.length;
-          sortItems[targetIndex].focus();
-        } else if (e.key === "ArrowUp") {
-          e.preventDefault();
-          targetIndex = (index - 1 + sortItems.length) % sortItems.length;
-          sortItems[targetIndex].focus();
-        } else if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          selectItem();
-        } else if (e.key === "Escape") {
-          e.preventDefault();
-          closeDropdown();
-          sortButton.focus();
-        } else if (e.key === "Home") {
-          e.preventDefault();
-          sortItems[0].focus();
-        } else if (e.key === "End") {
-          e.preventDefault();
-          sortItems[sortItems.length - 1].focus();
-        }
-      });
-    });
-
-    // 정렬 버튼 키보드 네비게이션
-    sortButton.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowDown" || e.key === "ArrowUp") {
-        e.preventDefault();
-        if (!sortDropdown.classList.contains("active")) {
-          openDropdown();
-        }
-        const firstItem = sortItems[0];
-        if (firstItem) firstItem.focus();
-      }
     });
 
     // 배경 오버레이 클릭 시 닫기
     dropdownOverlay.addEventListener("click", closeDropdown);
-
-    // ESC 키로 닫기
-    const handleKeyDown = (e) => {
-      if (e.key === "Escape") {
-        closeDropdown();
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-
-    // cleanup을 위한 참조 저장
-    this._dropdownCleanup = () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
   }
 
   connectedCallback() {
     this._render();
-  }
-
-  disconnectedCallback() {
-    // cleanup
-    if (this._dropdownCleanup) {
-      this._dropdownCleanup();
-    }
   }
 
   attributeChangedCallback(name, oldValue, newValue) {

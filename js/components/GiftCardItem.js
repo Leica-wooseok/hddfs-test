@@ -52,10 +52,7 @@ class GiftCardItem extends HTMLElement {
       case "sold-out":
         const isSoldOut = newValue === "true";
         this.soldoutEl.style.display = isSoldOut ? "flex" : "none";
-        // 품절 상태를 스크린 리더에게 알림
-        if (isSoldOut && this.descEl.textContent) {
-          this.setAttribute("aria-label", `${this.descEl.textContent} - 재고소진`);
-        }
+
         break;
     }
   }
