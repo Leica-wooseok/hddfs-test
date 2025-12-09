@@ -78,7 +78,7 @@ class ProductCard extends HTMLElement {
             hasVideo
               ? `<span class="flag-video">
             <img
-              src="./images/products/flag-video.svg"
+              src="./images/flags/flag-video.svg"
               alt="썸네일 비디오"
             />
             썸네일 비디오
@@ -89,7 +89,7 @@ class ProductCard extends HTMLElement {
             is19Plus
               ? `<span class="flag-19">
             <img
-              src="./images/products/flag-19.svg"
+              src="./images/flags/flag-19.svg"
               alt="19세 미만 구매 불가 상품"
             />
             19세 미만 구매 불가 상품
