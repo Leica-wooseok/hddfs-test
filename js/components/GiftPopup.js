@@ -58,30 +58,30 @@ class GiftPopup extends HTMLElement {
           <!-- 검색 form end -->
 
           <!-- 검색 카테고리 -->
-          <div class="saerch-category-wrap">
-            <ul class="saerch-category-list" role="tablist" aria-label="검색 카테고리">
+          <div class="search-category-wrap">
+            <ul class="search-category-list" role="tablist" aria-label="검색 카테고리">
               <li role="presentation">
-                <button type="button" class="saerch-category-button active" role="tab" aria-selected="true" aria-controls="event-panel" id="tab-all">
+                <button type="button" class="search-category-button active" role="tab" aria-selected="true" aria-controls="event-panel" id="tab-all">
                   전체
                 </button>
               </li>
               <li role="presentation">
-                <button type="button" class="saerch-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-skincare">
+                <button type="button" class="search-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-skincare">
                   스킨케어
                 </button>
               </li>
               <li role="presentation">
-                <button type="button" class="saerch-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-makeup">
+                <button type="button" class="search-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-makeup">
                   메이크업
                 </button>
               </li>
               <li role="presentation">
-                <button type="button" class="saerch-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-perfume">
+                <button type="button" class="search-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-perfume">
                   향수/헤어/바디
                 </button>
               </li>
               <li role="presentation">
-                <button type="button" class="saerch-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-bag">
+                <button type="button" class="search-category-button" role="tab" aria-selected="false" aria-controls="event-panel" id="tab-bag">
                   가방/지갑
                 </button>
               </li>
@@ -203,7 +203,7 @@ class GiftPopup extends HTMLElement {
     };
 
     // 카테고리 버튼 클릭 및 키보드 네비게이션
-    const categoryButtons = this.querySelectorAll(".saerch-category-button");
+    const categoryButtons = this.querySelectorAll(".search-category-button");
     categoryButtons.forEach((button, index) => {
       // 클릭 이벤트
       button.addEventListener("click", () => {

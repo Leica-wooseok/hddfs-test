@@ -11,6 +11,11 @@
     color: inherit;
   }
 
+  // Type-specific hero backgrounds
+  &--promo-amount {
+    background-color: $bg-promo-cream;
+  }
+
   &__inner {
     display: flex;
     flex-direction: column;
@@ -23,7 +28,7 @@
       display: block;
       width: 100%;
       height: 99px;
-      background-color: #ffffff;
+      background-color: $color-white;
       position: absolute;
       left: 0;
       bottom: 0;

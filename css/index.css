@@ -197,6 +197,7 @@ li {
 @font-face {
   font-family: "Noto Sans KR";
   font-style: normal;
+  font-display: swap;
   font-weight: 100 900;
   src: url("../font/NotoSansKR-VariableFont_wght.ttf") format("truetype");
 }
@@ -383,23 +384,23 @@ li {
 .mobile-popup-content-wrap .search-form-submit {
   margin-left: auto;
 }
-.mobile-popup-content-wrap .saerch-category-wrap {
+.mobile-popup-content-wrap .search-category-wrap {
   margin-top: 24px;
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
   padding-left: 20px;
 }
-.mobile-popup-content-wrap .saerch-category-wrap::-webkit-scrollbar {
+.mobile-popup-content-wrap .search-category-wrap::-webkit-scrollbar {
   display: none;
 }
-.mobile-popup-content-wrap .saerch-category-list {
+.mobile-popup-content-wrap .search-category-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 4px;
 }
-.mobile-popup-content-wrap .saerch-category-button {
+.mobile-popup-content-wrap .search-category-button {
   padding: 6px 12px;
   border-radius: 20px;
   background: #fff;
@@ -410,7 +411,7 @@ li {
   line-height: 20px;
   letter-spacing: -0.05em;
 }
-.mobile-popup-content-wrap .saerch-category-button.active {
+.mobile-popup-content-wrap .search-category-button.active {
   color: #fff;
   background: #1b1e23;
 }
@@ -598,6 +599,9 @@ li {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.05em;
+}
+.event__tag--primary {
+  background-color: #a58768;
 }
 .event__group {
   margin-bottom: 96px;
@@ -1662,6 +1666,9 @@ gift-card-item .gift__info-desc {
 .hero * {
   color: inherit;
 }
+.hero--promo-amount {
+  background-color: #f3e1cc;
+}
 .hero__inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1681,7 +1688,7 @@ gift-card-item .gift__info-desc {
   display: block;
   width: 100%;
   height: 99px;
-  background-color: #ffffff;
+  background-color: #fff;
   position: absolute;
   left: 0;
   bottom: 0;

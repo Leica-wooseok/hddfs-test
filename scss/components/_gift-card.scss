@@ -6,7 +6,7 @@
   padding: 0 20px;
   position: relative;
   border-radius: 8px;
-  background-color: #faf9f7;
+  background-color: $bg-gift-card;
   overflow: hidden;
 
   &.mt-24 {
@@ -22,7 +22,7 @@
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
     color: var(--color-white);
-    background: #b1a59a;
+    background: $bg-soldout;
     z-index: 2;
     @include kr-cp1-500;
   }
