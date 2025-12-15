@@ -1470,6 +1470,7 @@ gift-card-item .gift__info-desc {
   overflow: hidden;
   text-indent: -9999px;
   font-size: 0;
+  color: #1b1e23;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
