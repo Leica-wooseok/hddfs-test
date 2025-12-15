@@ -28,6 +28,8 @@
     height: 24px;
     overflow: hidden;
     text-indent: -9999px;
+    font-size: 0;
+
     @include flex-center;
 
     & img {

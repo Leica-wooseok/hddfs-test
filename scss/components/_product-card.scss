@@ -129,6 +129,7 @@
   [class*="flag-"] {
     overflow: hidden;
     text-indent: -9999px;
+    font-size: 0;
   }
   .flag-video {
     position: absolute;
@@ -141,6 +142,8 @@
   .add-cart {
     text-indent: -9999px;
     overflow: hidden;
+    font-size: 0;
+
     position: absolute;
     right: 0;
     bottom: 0;
