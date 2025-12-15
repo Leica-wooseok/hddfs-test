@@ -125,6 +125,12 @@
       width: 48px;
       height: 48px;
     }
+    & em {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
   }
   [class*="flag-"] {
     overflow: hidden;
@@ -154,6 +160,13 @@
     border-bottom-right-radius: 4px;
     z-index: 5;
     @include flex-center;
+
+    & em {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
   }
   .alert-refill {
     height: 27px;

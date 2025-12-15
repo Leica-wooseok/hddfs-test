@@ -92,7 +92,9 @@ class ProductCard extends HTMLElement {
               src="./images/flags/flag-19.svg"
               alt="19세 미만 구매 불가 상품"
             />
+            <em>
             19세 미만 구매 불가 상품
+            </em>
           </span>`
               : ""
           }
@@ -112,7 +114,7 @@ class ProductCard extends HTMLElement {
               aria-hidden="true"
             />
           </span>
-          장바구니 담기
+          <em>장바구니 담기</em>
         </a>`
         }
       </div>

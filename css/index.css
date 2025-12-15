@@ -1164,6 +1164,12 @@ gift-card-item .gift__info-desc {
   width: 48px;
   height: 48px;
 }
+.productCard .flag-19 em {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
 .productCard [class*=flag-] {
   overflow: hidden;
   text-indent: -9999px;
@@ -1203,6 +1209,12 @@ gift-card-item .gift__info-desc {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+.productCard .add-cart em {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 .productCard .alert-refill {
   height: 27px;
